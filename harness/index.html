@@ -421,16 +421,16 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
           <div class="tile row"><svg viewBox="0 0 24 24"><use href="#lg-claude" fill="#D97757" width="100%" height="100%"/></svg><span>Claude<small>Anthropic</small></span></div>
           <div class="tile row"><svg viewBox="0 0 24 24"><use href="#lg-googlegemini" fill="#8E75B2" width="100%" height="100%"/></svg><span>Gemini<small>Google</small></span></div>
         </div>
-        <div class="cap" style="bottom:40px;left:50px;right:170px;text-align:left;font-size:26px">доступны любому разработчику через API</div>
+        <div class="cap" style="bottom:40px;left:50px;right:170px;text-align:left;font-size:26px">любая компания может встроить их в свой продукт</div>
         <div class="corner"></div>
       </div>
       <div>
         <div class="lab rv">Проблема</div>
         <h2 class="rv" style="--d:1">Модели доступны всем.<br><span class="g">Продукты — нет.</span></h2>
-        <p class="t rv" style="--d:2">GPT, Claude и Gemini подключает через API любой разработчик. А продукты на их основе работают очень по-разному.</p>
+        <p class="t rv" style="--d:2">ChatGPT, Claude и Gemini может встроить в свой продукт любая компания. А продукты получаются очень разными.</p>
         <div class="card deep stats rv" style="--d:3">
-          <div><div class="v">30+ <em>→ 5</em></div><p>место в рейтинге TerminalBench 2.0: та же модель, те же веса, другая обвязка</p></div>
-          <div><div class="v">76,4<em>%</em></div><p>pass rate: LLM сам оптимизировал инфраструктуру и обошёл системы, собранные вручную</p></div>
+          <div><div class="v">30+ <em>→ 5</em></div><p>место в рейтинге ИИ-агентов для программистов. Модель та же, поменяли только «обвязку» (harness)</p></div>
+          <div><div class="v">76,4<em>%</em></div><p>задач решено без ошибок: ИИ сам подобрал себе обвязку и обошёл системы, собранные людьми вручную</p></div>
           <div class="src">Источник: LangChain, по статье Akshay (перевод на Хабре)</div>
         </div>
       </div>
@@ -446,19 +446,18 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
       <div class="card deep big rv">
         <div class="lab">Определение</div>
         <h3>Агент = Модель + <span>Harness</span></h3>
-        <p>Агент — поведение, которое видит пользователь. Harness — вся программная инфраструктура вокруг LLM: механизм, который это поведение производит.</p>
-        <div class="win"><div class="bar"><i></i><i></i><i></i><span>agent_loop — схема</span></div><pre><b>while</b> not done:
-    reply = llm(prompt)
-    run(reply.tool_calls)</pre></div>
+        <p>Агент — это то, что видит пользователь: ИИ, который сам делает работу. Harness («обвязка») — всё вокруг модели, что помогает ей работать: инструменты, память, правила, проверки.</p>
+        <div class="win"><div class="bar"><i></i><i></i><i></i><span>как работает агент</span></div><pre><b>пока</b> задача не решена:
+    подумать → сделать → проверить</pre></div>
         <div class="q">«Если ты не модель — ты харнесс»<small>Vivek Trivedy, LangChain</small></div>
       </div>
       <div class="right">
         <div class="lab rv" style="--d:1">Три слоя вокруг модели</div>
         <h2 class="rv" style="--d:1">От промпта <span class="g">к harness</span></h2>
         <div class="rows">
-          <div class="card nrow rv" style="--d:2"><div class="n">1</div><div><b>Prompt engineering</b><span>формирует инструкции, которые получает модель</span></div></div>
-          <div class="card nrow rv" style="--d:3"><div class="n">2</div><div><b>Context engineering</b><span>управляет тем, что модель видит и когда</span></div></div>
-          <div class="card nrow on rv" style="--d:4"><div class="n">3</div><div><b>Harness engineering</b><span>оба слоя плюс инструменты, состояние, ошибки, проверка и безопасность</span></div></div>
+          <div class="card nrow rv" style="--d:2"><div class="n">1</div><div><b>Промпт</b><span>как правильно поставить задачу модели</span></div></div>
+          <div class="card nrow rv" style="--d:3"><div class="n">2</div><div><b>Контекст</b><span>что модель видит перед ответом и когда</span></div></div>
+          <div class="card nrow on rv" style="--d:4"><div class="n">3</div><div><b>Harness (обвязка)</b><span>всё предыдущее плюс инструменты, память, проверки и правила безопасности</span></div></div>
         </div>
       </div>
     </div>
@@ -472,27 +471,27 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
     <div class="head rv">
       <div class="lab">Аналогия Beren Millidge, 2023</div>
       <h2>Harness — это <span class="g">операционная система</span></h2>
-      <p>Голая LLM — как процессор без памяти, диска и ввода-вывода</p>
+      <p>Сама модель — как процессор: быстро думает, но без памяти, диска и программ ничего не сделает</p>
     </div>
     <div class="chain">
       <div class="it rv" style="--d:1">
         <div class="c"><svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><rect x="24" y="30" width="52" height="40" rx="6"/><path d="M36 30V18M50 30V18M64 30V18M36 82V70M50 82V70M64 82V70M24 42H12M24 58H12M88 42H76M88 58H76"/></svg></div>
-        <small>В компьютере: RAM</small><h3>Контекстное окно</h3><p>быстрое, но ограниченное</p>
+        <small>В компьютере: оперативная память</small><h3>Контекстное окно</h3><p>то, что модель «держит в голове» сейчас; места мало</p>
       </div>
       <div class="it rv" style="--d:2">
         <div class="c"><svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="50" cy="26" rx="28" ry="10"/><path d="M22 26V72C22 78 34 84 50 84S78 78 78 72V26M22 49C22 55 34 60 50 60S78 55 78 49"/></svg></div>
-        <small>В компьютере: диск</small><h3>Внешние базы данных</h3><p>большие, но медленные</p>
+        <small>В компьютере: жёсткий диск</small><h3>Базы данных</h3><p>долгая память: места много, но достать дольше</p>
       </div>
       <div class="it rv" style="--d:3">
         <div class="c"><svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="14"/><path d="M50 18V30M50 70V82M18 50H30M70 50H82M27 27L36 36M64 64L73 73M73 27L64 36M36 64L27 73"/></svg></div>
-        <small>В компьютере: драйверы</small><h3>Инструменты</h3><p>руки агента: файлы, поиск, код</p>
+        <small>В компьютере: программы</small><h3>Инструменты</h3><p>«руки» агента: открыть файл, найти в интернете, запустить программу</p>
       </div>
       <div class="it on rv" style="--d:4">
         <div class="c"><svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="22" width="68" height="56" rx="8"/><path d="M16 38H84M28 30H30M40 30H42M30 56L42 64L30 72M50 72H68"/></svg></div>
         <small>В компьютере: ОС</small><h3>Harness</h3><p>управляет всем остальным</p>
       </div>
     </div>
-    <p class="quote rv" style="--d:5">«Мы заново изобрели <span>архитектуру фон Неймана</span>»</p>
+    <p class="quote rv" style="--d:5">Это <span>устройство обычного компьютера</span> — только для ИИ</p>
   </div>
   <div class="mkt rv" style="--d:6"><b>Маркетинг</b>Ценность продукта — в «операционной системе», а не в «процессоре»<span class="pg"></span></div>
 </section>
@@ -500,13 +499,13 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
 <!-- ================= 05 ИЗ ЧЕГО СОСТОИТ ПРОДУКТ ================= -->
 <section class="slide s5">
   <div class="inner">
-    <div class="lab rv">Компоненты production-харнесса</div>
+    <div class="lab rv">Комплектация ИИ-продукта</div>
     <h2 class="rv" style="--d:1">Из чего состоит <span class="g">продукт</span></h2>
     <div class="cols">
-      <div class="col rv" style="--d:2"><div class="hd">ДЕЙСТВУЕТ</div><div class="pr">Доводит дело до конца</div><ul><li>оркестрационный цикл</li><li>инструменты</li><li>парсинг вывода</li></ul><div class="bt">АТРИБУТ 1</div></div>
-      <div class="col rv" style="--d:3"><div class="hd">ПОМНИТ</div><div class="pr">Не теряет нить</div><ul><li>память</li><li>управление контекстом</li><li>управление состоянием</li><li>конструирование промпта</li></ul><div class="bt">АТРИБУТ 2</div></div>
-      <div class="col rv" style="--d:4"><div class="hd">НЕ ПОДВОДИТ</div><div class="pr">Ловит свои ошибки</div><ul><li>обработка ошибок</li><li>циклы верификации</li></ul><div class="bt">АТРИБУТ 3</div></div>
-      <div class="col rv" style="--d:5"><div class="hd">БЕЗОПАСЕН И РАСТЁТ</div><div class="pr">Знает свои границы</div><ul><li>ограничители и безопасность</li><li>оркестрация субагентов</li></ul><div class="bt">АТРИБУТ 4</div></div>
+      <div class="col rv" style="--d:2"><div class="hd">ДЕЙСТВУЕТ</div><div class="pr">Доводит дело до конца</div><ul><li>повторяет шаги, пока дело не сделано</li><li>пользуется инструментами</li><li>понимает ответ модели</li></ul><div class="bt">АТРИБУТ 1</div></div>
+      <div class="col rv" style="--d:3"><div class="hd">ПОМНИТ</div><div class="pr">Не теряет нить</div><ul><li>память между сессиями</li><li>следит, что видит модель</li><li>помнит, что уже сделано</li><li>собирает задание для модели</li></ul><div class="bt">АТРИБУТ 2</div></div>
+      <div class="col rv" style="--d:4"><div class="hd">НЕ ПОДВОДИТ</div><div class="pr">Ловит свои ошибки</div><ul><li>справляется со сбоями</li><li>проверяет результат</li></ul><div class="bt">АТРИБУТ 3</div></div>
+      <div class="col rv" style="--d:5"><div class="hd">БЕЗОПАСЕН И РАСТЁТ</div><div class="pr">Знает свои границы</div><ul><li>правила: что можно, что нельзя</li><li>помощники для подзадач</li></ul><div class="bt">АТРИБУТ 4</div></div>
     </div>
   </div>
   <div class="mkt rv" style="--d:6"><b>Маркетинг</b>Это характеристики для карточки сравнения продуктов<span class="pg"></span></div>
@@ -515,8 +514,8 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
 <!-- ================= 06 ЦИКЛ ================= -->
 <section class="slide s6">
   <div class="inner">
-    <div class="lab rv">Компонент 1 · оркестрационный цикл</div>
-    <h2 class="rv" style="--d:1">Цикл — <span class="g">обычный while</span></h2>
+    <div class="lab rv">Как агент работает</div>
+    <h2 class="rv" style="--d:1">Агент работает <span class="g">по кругу</span></h2>
     <div class="grid">
       <svg class="don rv" style="--d:2" viewBox="0 0 700 700" aria-label="Цикл из четырёх шагов">
         <g fill="none" stroke-width="140" transform="rotate(-90 350 350)">
@@ -533,11 +532,11 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
         <text x="350" y="396" font-family="Nunito Sans" font-weight="600" font-size="28" fill="#5A7176" text-anchor="middle">пока задача не решена</text>
       </svg>
       <div class="rows">
-        <div class="card nrow rv" style="--d:3"><div class="n">1</div><div><b>Собрать промпт</b><span>система, инструменты, память, история, запрос</span></div></div>
-        <div class="card nrow rv" style="--d:4"><div class="n">2</div><div><b>Вызвать модель</b><span>она отвечает текстом и/или просит вызвать инструмент</span></div></div>
-        <div class="card nrow rv" style="--d:5"><div class="n">3</div><div><b>Выполнить инструмент</b><span>проверка прав и изоляция; ошибка — тоже результат</span></div></div>
-        <div class="card nrow on rv" style="--d:6"><div class="n">4</div><div><b>Добавить результат в контекст</b><span>и снова к шагу 1; вызовов нет — это финальный ответ</span></div></div>
-        <p class="stop rv" style="--d:7"><b>Цикл останавливается:</b> ответ без вызовов, лимит ходов, бюджет токенов, tripwire, прерывание пользователем. Anthropic называет свой runtime «тупым циклом»: ум в модели, работа в harness.</p>
+        <div class="card nrow rv" style="--d:3"><div class="n">1</div><div><b>Собрать задание</b><span>инструкции, память, история и вопрос человека</span></div></div>
+        <div class="card nrow rv" style="--d:4"><div class="n">2</div><div><b>Спросить модель</b><span>она отвечает или просит воспользоваться инструментом</span></div></div>
+        <div class="card nrow rv" style="--d:5"><div class="n">3</div><div><b>Сделать</b><span>программа выполняет действие; ошибка — тоже результат</span></div></div>
+        <div class="card nrow on rv" style="--d:6"><div class="n">4</div><div><b>Запомнить результат</b><span>и снова по кругу; действий больше нет — это ответ</span></div></div>
+        <p class="stop rv" style="--d:7"><b>Круг заканчивается, когда:</b> ответ готов, кончились ходы или бюджет, сработала защита или человек сказал «стоп». Anthropic: сама программа «простая», весь ум — в модели.</p>
       </div>
     </div>
   </div>
@@ -547,27 +546,27 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
 <!-- ================= 07 КОНТЕКСТ ================= -->
 <section class="slide s7">
   <div class="inner">
-    <div class="band rv"><h2>Контекст — <span class="g">дефицитный ресурс</span></h2></div>
+    <div class="band rv"><h2>Память модели — <span class="g">ограничена</span></h2></div>
     <div class="grid">
       <div class="side">
-        <div class="card nrow rv" style="--d:1"><div class="n">1</div><div><b>Compaction</b><span>сжатие истории у лимита: решения сохраняем, мусор выбрасываем</span></div></div>
-        <div class="card nrow rv" style="--d:2"><div class="n">2</div><div><b>Маскирование</b><span>старые выводы инструментов скрыты, сами вызовы видны</span></div></div>
+        <div class="card nrow rv" style="--d:1"><div class="n">1</div><div><b>Сжатие</b><span>длинную переписку превращают в конспект: решения оставляют, лишнее убирают</span></div></div>
+        <div class="card nrow rv" style="--d:2"><div class="n">2</div><div><b>Скрытие лишнего</b><span>старые ответы инструментов прячут, а что было сделано — оставляют</span></div></div>
       </div>
       <div class="mid rv" style="--d:2">
         <div class="v">30<em>%+</em></div>
-        <p>на столько падает качество, когда важное оказывается в середине окна</p>
+        <p>на столько хуже работает модель, если важное оказалось «в середине» длинного текста</p>
         <small>Chroma; «Lost in the Middle», Stanford</small>
       </div>
       <div class="side">
-        <div class="card nrow rv" style="--d:3"><div class="n">3</div><div><b>По требованию</b><span>данные грузятся по ходу: grep и glob вместо целых файлов</span></div></div>
-        <div class="card nrow on rv" style="--d:4"><div class="n">4</div><div><b>Субагенты</b><span>исследуют широко, возвращают саммари на 1000–2000 токенов</span></div></div>
+        <div class="card nrow rv" style="--d:3"><div class="n">3</div><div><b>По мере нужды</b><span>не читают всё подряд, а ищут нужный кусок</span></div></div>
+        <div class="card nrow on rv" style="--d:4"><div class="n">4</div><div><b>Помощники</b><span>изучают тему отдельно и возвращают короткую выжимку</span></div></div>
       </div>
     </div>
     <div class="mem rv" style="--d:5">
       <div class="t">Память в Claude Code</div>
-      <div><b>Индекс</b>~150 символов на запись, всегда в контексте</div>
-      <div><b>Файлы по темам</b>подгружаются по требованию</div>
-      <div><b>Транскрипты</b>доступны только через поиск</div>
+      <div><b>Оглавление</b>короткие записи, всегда под рукой</div>
+      <div><b>Папки по темам</b>открываются, когда нужны</div>
+      <div><b>Полный архив</b>только через поиск</div>
     </div>
   </div>
   <div class="mkt rv" style="--d:6"><b>Маркетинг</b>Клиент ощущает это как «агент не тупеет к концу работы»<span class="pg"></span></div>
@@ -579,9 +578,9 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
     <div class="lab rv">Ошибки, проверка, безопасность</div>
     <h2 class="rv" style="--d:1">Надёжность — то, <span class="g">за что платят</span></h2>
     <div class="cards">
-      <div class="card rv" style="--d:2"><div class="bd">90,4%</div><h3>Ошибки копятся</h3><p>10 шагов по 99% успеха дают на выходе лишь ~90,4%. Сбой возвращают модели как результат, а число повторов ограничивают.</p><small>У Stripe — не больше двух</small></div>
-      <div class="card rv" style="--d:3"><div class="bd">2–3×</div><h3>Проверка работы</h3><p>Тесты, скриншоты через Playwright или отдельный LLM-судья: умение проверять себя поднимает качество в 2–3 раза.</p><small>Boris Cherny, создатель Claude Code</small></div>
-      <div class="card rv" style="--d:4"><div class="bd">~40</div><h3>Права под контролем</h3><p>Модель решает, что попытаться, а система — что разрешено. В Claude Code так контролируются около 40 возможностей.</p><small>Доверие → проверка вызова → подтверждение человеком</small></div>
+      <div class="card rv" style="--d:2"><div class="bd">90,4%</div><h3>Ошибки накапливаются</h3><p>10 шагов по 99% удачных дают в итоге лишь ~90% удачи. Поэтому сбои ловят, а число повторов ограничивают.</p><small>У Stripe — не больше двух повторов</small></div>
+      <div class="card rv" style="--d:3"><div class="bd">2–3×</div><h3>Самопроверка</h3><p>Если агент умеет проверить свою работу (тесты, скриншот, второй ИИ-«судья»), качество растёт в 2–3 раза.</p><small>Boris Cherny, создатель Claude Code</small></div>
+      <div class="card rv" style="--d:4"><div class="bd">~40</div><h3>Права под контролем</h3><p>Модель решает, что попробовать, а система — что разрешено. В Claude Code около 40 действий под отдельным контролем.</p><small>Доверие → проверка перед действием → подтверждение человеком</small></div>
     </div>
   </div>
   <div class="mkt rv" style="--d:5"><b>Маркетинг</b>Надёжность и безопасность — аргументы продаж, а не «ум» модели<span class="pg"></span></div>
@@ -590,20 +589,20 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
 <!-- ================= СУБАГЕНТЫ ================= -->
 <section class="slide sa">
   <div class="inner">
-    <div class="lab rv">Компонент 11 · оркестрация субагентов</div>
+    <div class="lab rv">Компонент 11 · помощники</div>
     <h2 class="rv" style="--d:1">Как делегируют <span class="g">подзадачи</span></h2>
     <div class="cols3">
       <div class="col rv" style="--d:2"><div class="hd"><svg class="lg" viewBox="0 0 24 24"><use href="#lg-claude" fill="#fff" width="100%" height="100%"/></svg>Claude Code</div><div class="bd">
-        <div class="item"><b>Fork</b>копия родительского контекста</div>
-        <div class="item"><b>Teammate</b>отдельная панель терминала, общение через файлы-mailbox</div>
-        <div class="item"><b>Worktree</b>отдельный git worktree: своя ветка на каждого агента</div></div></div>
+        <div class="item"><b>Копия</b>помощник получает всё, что знает главный агент</div>
+        <div class="item"><b>Коллега</b>отдельный «сотрудник», общаются через файлы-записки</div>
+        <div class="item"><b>Своя копия проекта</b>каждый работает у себя и никому не мешает</div></div></div>
       <div class="col rv" style="--d:3"><div class="hd"><svg class="lg" viewBox="0 0 24 24"><use href="#lg-openai" fill="#fff" width="100%" height="100%"/></svg>Agents SDK OpenAI</div><div class="bd">
-        <div class="item"><b>Agents-as-tools</b>специалист решает ограниченную подзадачу</div>
-        <div class="item"><b>Handoffs</b>специалист берёт на себя полное управление</div></div></div>
+        <div class="item"><b>Помощник-инструмент</b>специалист решает узкую задачу и возвращает результат</div>
+        <div class="item"><b>Передача дела</b>специалист полностью берёт задачу на себя</div></div></div>
       <div class="col rv" style="--d:4"><div class="hd"><svg class="lg" viewBox="0 0 24 24"><use href="#lg-langchain" fill="#fff" width="100%" height="100%"/></svg>LangGraph</div><div class="bd">
-        <div class="item"><b>Вложенные графы</b>субагенты — это вложенные графы состояний</div></div></div>
+        <div class="item"><b>Схема в схеме</b>помощники устроены как схемы поменьше внутри главной</div></div></div>
     </div>
-    <div class="note rv" style="--d:5"><b>Сначала один агент</b><p>Anthropic и OpenAI советуют максимально использовать одного. Делить стоит, когда пересекающихся инструментов больше десяти или домены задач явно разные: у мультиагентности есть накладные расходы на маршрутизацию и потери контекста при handoff.</p></div>
+    <div class="note rv" style="--d:5"><b>Сначала один агент</b><p>Anthropic и OpenAI советуют выжать максимум из одного агента. Делить стоит, если инструментов больше десяти или задачи совсем разные: каждый новый помощник — это лишние расходы и риск потерять часть информации при передаче дела.</p></div>
   </div>
   <div class="mkt rv" style="--d:6"><b>Маркетинг</b>Мультиагентность усложняет продукт — начинайте с одного агента<span class="pg"></span></div>
 </section>
@@ -612,16 +611,16 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
 <section class="slide sl">
   <div class="inner">
     <div class="lab rv">Ralph Loop · Anthropic</div>
-    <h2 class="rv" style="--d:1">Задача длиннее <span class="g">контекстного окна</span></h2>
+    <h2 class="rv" style="--d:1">Когда дело не влезает <span class="g">в «память» модели</span></h2>
     <div class="flow">
-      <div class="bx rv" style="--d:2"><div class="lab">Один раз</div><h3>Initializer Agent</h3><ul><li>init-скрипт</li><li>progress-файл</li><li>список фич</li><li>первый git-коммит</li></ul></div>
+      <div class="bx rv" style="--d:2"><div class="lab">Один раз</div><h3>Агент-подготовщик</h3><ul><li>запуск проекта</li><li>файл-отчёт о прогрессе</li><li>список задач</li><li>первое сохранение работы</li></ul></div>
       <div class="arr rv" style="--d:3"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 5.500L19.500 12 13 18.500"/></svg></i></div>
-      <div class="bx deep rv" style="--d:4"><div class="lab">Каждая следующая сессия</div><h3>Coding Agent</h3><ol><li>читает git-логи и progress-файл, чтобы сориентироваться</li><li>берёт незавершённую фичу с наивысшим приоритетом</li><li>работает над ней</li><li>делает коммит и пишет саммари</li></ol></div>
+      <div class="bx deep rv" style="--d:4"><div class="lab">Каждая следующая сессия</div><h3>Агент-исполнитель</h3><ol><li>читает журнал и отчёт, чтобы вспомнить, что уже сделано</li><li>берёт самую важную незавершённую задачу</li><li>выполняет её</li><li>сохраняет работу и пишет краткий итог</li></ol></div>
     </div>
     <div class="chips rv" style="--d:5">
-      <div class="chip"><b><svg class="lg" viewBox="0 0 24 24"><use href="#lg-claude" fill="#D97757" width="100%" height="100%"/></svg>Claude Code</b>git-коммиты как чекпоинты, progress-файлы как структурированные черновики</div>
-      <div class="chip"><b><svg class="lg" viewBox="0 0 24 24"><use href="#lg-langchain" fill="#1C3C3C" width="100%" height="100%"/></svg>LangGraph</b>типизированное состояние, чекпоинты на границах super-step, возобновление и time-travel debugging</div>
-      <div class="chip"><b><svg class="lg" viewBox="0 0 24 24"><use href="#lg-openai" fill="#111111" width="100%" height="100%"/></svg>OpenAI</b>четыре стратегии: память приложения, SDK sessions, Conversations API или previous_response_id</div>
+      <div class="chip"><b><svg class="lg" viewBox="0 0 24 24"><use href="#lg-claude" fill="#D97757" width="100%" height="100%"/></svg>Claude Code</b>сохранения работы — как контрольные точки, файлы-отчёты — как черновики</div>
+      <div class="chip"><b><svg class="lg" viewBox="0 0 24 24"><use href="#lg-langchain" fill="#1C3C3C" width="100%" height="100%"/></svg>LangGraph</b>умеет возобновлять работу с контрольной точки и «отматывать» назад, чтобы найти ошибку</div>
+      <div class="chip"><b><svg class="lg" viewBox="0 0 24 24"><use href="#lg-openai" fill="#111111" width="100%" height="100%"/></svg>OpenAI</b>четыре способа хранить историю: в самом приложении, в сессиях, на сервере OpenAI или цепочкой ответов</div>
     </div>
   </div>
   <div class="mkt rv" style="--d:6"><b>Маркетинг</b>Клиенту важна непрерывность: работа не теряется между сессиями<span class="pg"></span></div>
@@ -633,11 +632,11 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
     <div class="lab rv">Реализации на рынке</div>
     <h2 class="rv" style="--d:1">Один паттерн — <span class="g">разные обещания</span></h2>
     <div class="list">
-      <div class="card row rv" style="--d:2"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-claude" fill="#D97757" width="100%" height="100%"/></svg></div><b>Claude Code<small>Anthropic</small></b><span>Тонкий harness: ставка на улучшение модели, лишние шаги убирают</span></div>
-      <div class="card row rv" style="--d:3"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-openai" fill="#111111" width="100%" height="100%"/></svg></div><b>Codex<small>OpenAI</small></b><span>Один harness на все интерфейсы: CLI, VS Code и веб</span></div>
-      <div class="card row rv" style="--d:4"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-langchain" fill="#1C3C3C" width="100%" height="100%"/></svg></div><b>LangGraph<small>LangChain</small></b><span>Явный граф состояний: ставка на контроль над каждым шагом</span></div>
+      <div class="card row rv" style="--d:2"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-claude" fill="#D97757" width="100%" height="100%"/></svg></div><b>Claude Code<small>Anthropic</small></b><span>Лёгкая обвязка: ставка на то, что модель станет умнее; лишнее убирают</span></div>
+      <div class="card row rv" style="--d:3"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-openai" fill="#111111" width="100%" height="100%"/></svg></div><b>Codex<small>OpenAI</small></b><span>Одна и та же обвязка в терминале, в редакторе кода и в браузере</span></div>
+      <div class="card row rv" style="--d:4"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-langchain" fill="#1C3C3C" width="100%" height="100%"/></svg></div><b>LangGraph<small>LangChain</small></b><span>Работа расписана как схема: каждый шаг под контролем</span></div>
       <div class="card row rv" style="--d:5"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-crewai" fill="#FF5A50" width="100%" height="100%"/></svg></div><b>CrewAI</b><span>Команда агентов: у каждого роль, цель и свои инструменты</span></div>
-      <div class="card row rv" style="--d:6"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-microsoft" fill="#111" width="100%" height="100%"/></svg></div><b>AutoGen<small>Microsoft</small></b><span>Агенты решают задачу в диалоге друг с другом</span></div>
+      <div class="card row rv" style="--d:6"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-microsoft" fill="#111" width="100%" height="100%"/></svg></div><b>AutoGen<small>Microsoft</small></b><span>Агенты решают задачу в общем «чате» друг с другом</span></div>
     </div>
   </div>
   <div class="mkt rv" style="--d:7"><b>Маркетинг</b>Модель одна — продают подход и позиционирование<span class="pg"></span></div>
@@ -646,16 +645,16 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
 <!-- ================= СЕМЬ РЕШЕНИЙ ================= -->
 <section class="slide sd">
   <div class="inner">
-    <div class="lab rv">Проектирование</div>
-    <h2 class="rv" style="--d:1">Семь решений <span class="g">архитектора</span></h2>
+    <div class="lab rv">Выбор создателей</div>
+    <h2 class="rv" style="--d:1">Семь развилок <span class="g">продукта</span></h2>
     <div class="list">
-      <div class="card row rv" style="--d:2"><div class="n">1</div><b>Один агент или несколько</b><span>Сначала один; делить при ~10 и более пересекающихся инструментах</span></div>
-      <div class="card row rv" style="--d:2"><div class="n">2</div><b>ReAct или plan-and-execute</b><span>ReAct гибче, но дороже на шаг; LLMCompiler ускоряет <em>в 3,6 раза</em></span></div>
-      <div class="card row rv" style="--d:3"><div class="n">3</div><b>Управление контекстом</b><span>Пять подходов; ACON: на <em>26–54%</em> меньше токенов при точности 95%+</span></div>
-      <div class="card row rv" style="--d:3"><div class="n">4</div><b>Цикл проверки</b><span>Тесты и линтеры — точно; LLM-судья ловит смысл, но добавляет задержку</span></div>
-      <div class="card row rv" style="--d:4"><div class="n">5</div><b>Права и безопасность</b><span>Свободно — быстро, но рискованно; строго — безопасно, но медленно</span></div>
-      <div class="card row rv" style="--d:4"><div class="n">6</div><b>Набор инструментов</b><span>Больше — часто хуже: Vercel убрал <em>80%</em> инструментов v0, и стало лучше</span></div>
-      <div class="card row rv" style="--d:5"><div class="n">7</div><b>Толщина harness’а</b><span>Anthropic ставит на тонкий, графовые фреймворки — на явный контроль</span></div>
+      <div class="card row rv" style="--d:2"><div class="n">1</div><b>Один агент или команда</b><span>Начинайте с одного; команда нужна, когда инструментов слишком много</span></div>
+      <div class="card row rv" style="--d:2"><div class="n">2</div><b>Думать на ходу или по плану</b><span>На ходу гибче, но дороже; сначала план — быстрее <em>в 3,6 раза</em></span></div>
+      <div class="card row rv" style="--d:3"><div class="n">3</div><b>Как беречь память модели</b><span>Пять приёмов; один дал <em>26–54%</em> экономии при точности 95%+</span></div>
+      <div class="card row rv" style="--d:3"><div class="n">4</div><b>Как проверять результат</b><span>Тесты — точно; второй ИИ-«судья» ловит смысл, но медленнее</span></div>
+      <div class="card row rv" style="--d:4"><div class="n">5</div><b>Сколько доверять</b><span>Свободно — быстро, но рискованно; строго — безопасно, но медленно</span></div>
+      <div class="card row rv" style="--d:4"><div class="n">6</div><b>Сколько инструментов дать</b><span>Больше — часто хуже: Vercel убрал <em>80%</em> инструментов, и стало лучше</span></div>
+      <div class="card row rv" style="--d:5"><div class="n">7</div><b>Насколько плотная обвязка</b><span>Anthropic — на лёгкую, другие — на жёсткий контроль</span></div>
     </div>
   </div>
   <div class="mkt rv" style="--d:6"><b>Маркетинг</b>Каждый выбор — компромисс между скоростью, ценой и риском для клиента<span class="pg"></span></div>
@@ -669,10 +668,10 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
         <div class="lab rv">Жизненный цикл harness’а</div>
         <h2 class="rv" style="--d:1">Леса убирают, <span class="g">когда здание готово</span></h2>
         <ul>
-          <li class="rv" style="--d:2"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.500"/></svg></i><div>Модели улучшаются — сложность harness’а должна <b>снижаться</b></div></li>
-          <li class="rv" style="--d:3"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.500"/></svg></i><div><b>Manus</b> перестраивали пять раз за шесть месяцев, каждый раз убирая сложность</div></li>
-          <li class="rv" style="--d:4"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.500"/></svg></i><div>Anthropic убирает шаги планирования, когда модель их <b>усвоила</b></div></li>
-          <li class="rv" style="--d:5"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.500"/></svg></i><div>Тест: модель сильнее, а harness не сложнее — значит, дизайн верный</div></li>
+          <li class="rv" style="--d:2"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.500"/></svg></i><div>Модели умнеют — обвязка должна становиться <b>проще</b></div></li>
+          <li class="rv" style="--d:3"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.500"/></svg></i><div><b>Manus</b> переделывали пять раз за полгода, каждый раз убирая лишнее</div></li>
+          <li class="rv" style="--d:4"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.500"/></svg></i><div>Anthropic убирает шаги из Claude Code, когда модель <b>учится делать их сама</b></div></li>
+          <li class="rv" style="--d:5"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.500"/></svg></i><div>Проверка: модель сильнее, а обвязка не усложнилась — значит, всё сделано верно</div></li>
         </ul>
       </div>
       <div class="ph rv" style="--d:2;background:#0B4F5C">
