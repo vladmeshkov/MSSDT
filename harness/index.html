@@ -372,6 +372,107 @@ svg.lg { width: 40px; height: 40px; flex: none; max-width: none; max-height: non
 .sl .note p { font-size: 29px; line-height: 1.32; color: #D5ECE6; }
 .sl .flow { margin-top: 34px; }
 
+
+/* ===========================================
+   ПЕРЕСБОРКА: полные формулировки, ровные блоки, крупнее текст
+   =========================================== */
+/* 2. вопрос */
+.s2 .rcol { display: flex; flex-direction: column; }
+.s2 p.t { font-size: 35px; line-height: 1.32; margin-top: 26px; color: var(--text); }
+.s2 .ask { flex: 1; margin-top: 34px; background: var(--deep); color: var(--white); border-radius: 28px; padding: 36px 44px; display: flex; flex-direction: column; justify-content: center; font-family: var(--f-head); font-weight: 800; font-size: 50px; line-height: 1.16; }
+.s2 .ask small { font-family: var(--f-body); font-weight: 700; font-size: 26px; color: #5FE0B8; margin-bottom: 14px; letter-spacing: .02em; }
+/* 3. доказательство */
+.se .two { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 32px; flex: 1; }
+.se .st { padding: 40px 46px; display: flex; flex-direction: column; justify-content: center; }
+.se .st .v { font-family: var(--f-head); font-weight: 800; font-size: 150px; line-height: 1; letter-spacing: -0.04em; color: var(--white); }
+.se .st .v em { font-style: normal; color: #5FE0B8; }
+.se .st h3 { font-family: var(--f-head); font-weight: 800; font-size: 40px; margin: 14px 0 12px; color: #5FE0B8; }
+.se .st p { font-size: 32px; line-height: 1.34; color: #E2F2EE; }
+.se .ans { font-family: var(--f-head); font-weight: 800; font-size: 52px; color: var(--deep); margin-top: 28px; }
+.se .srcl { font-size: 24px; color: var(--mute); margin-top: 8px; }
+/* 4. ответ */
+.s3 .big h3 { font-size: 86px; }
+.s3 .big p { font-size: 33px; }
+.s3 .eq { display: grid; grid-template-columns: 1fr 36px 1fr 36px 1fr; align-items: center; gap: 8px; margin: 30px 0 0; }
+.s3 .eq div { background: rgba(255,255,255,.12); border-radius: 18px; padding: 20px 8px; text-align: center; font-family: var(--f-head); font-weight: 700; font-size: 26px; line-height: 1.15; }
+.s3 .eq i { font-style: normal; font-family: var(--f-head); font-weight: 800; font-size: 42px; color: #5FE0B8; text-align: center; }
+.s3 .eq div.res { background: #5FE0B8; color: #083B46; }
+.s3 .big .q { margin-top: auto; }
+.s3 .nrow { min-height: 210px; }
+.s3 .nrow b { font-size: 38px; }
+.s3 .nrow span { font-size: 31px; }
+/* 5. три слоя */
+.sy .lay3 { display: grid; grid-template-columns: 1fr 76px 1fr 76px 1fr; align-items: stretch; margin-top: 40px; flex: 1; }
+.sy .L { padding: 38px 36px 32px; display: flex; flex-direction: column; }
+.sy .L .n { width: 70px; height: 70px; border-radius: 50%; background: var(--mint); color: var(--deep); font-family: var(--f-head); font-weight: 800; font-size: 38px; display: grid; place-items: center; }
+.sy .L.deep .n { background: var(--green); color: var(--white); }
+.sy .L h3 { font-family: var(--f-head); font-weight: 800; font-size: 54px; margin: 22px 0 12px; color: var(--deep); }
+.sy .L.deep h3 { color: var(--white); }
+.sy .L p { font-size: 33px; line-height: 1.32; }
+.sy .L .an { margin-top: auto; background: var(--mint); border-radius: 16px; padding: 16px 22px; font-size: 28px; font-weight: 700; color: var(--deep); line-height: 1.25; }
+.sy .L.deep .an { background: rgba(255,255,255,.14); color: #D5ECE6; }
+.sy .ar { display: grid; place-items: center; }
+.sy .ar i { width: 60px; height: 60px; border-radius: 50%; background: var(--green); display: grid; place-items: center; }
+.sy .ar svg { width: 32px; height: 32px; }
+.sy .bar2 { margin-top: 30px; font-family: var(--f-head); font-weight: 700; font-size: 36px; color: var(--deep); line-height: 1.25; }
+/* 6. рабочее место */
+.s5 .col .pr { font-size: 33px; padding: 22px 18px; }
+.s5 .col ul { padding: 18px 28px; display: flex; flex-direction: column; justify-content: center; }
+.s5 .col li { font-size: 31px; padding: 18px 0 18px 42px; }
+.s5 .col li::before { top: 29px; }
+/* 7. круг */
+.s6 .nrow b { font-size: 36px; }
+.s6 .nrow span { font-size: 29px; }
+.s6 .stop { font-size: 29px; line-height: 1.34; }
+/* 8. контекст */
+.s7 .side { display: grid; grid-template-rows: 1fr 1fr; gap: 24px; }
+.s7 .side .nrow { height: 100%; align-content: center; }
+.s7 .side .nrow b { font-size: 34px; }
+.s7 .side .nrow span { font-size: 28px; }
+.s7 .mid p { font-size: 31px; }
+.s7 .mid small { font-size: 24px; }
+/* 9. ошибки */
+.s8 .card h3 { font-size: 42px; }
+.s8 .card p { font-size: 31px; }
+.s8 .card small { font-size: 26px; }
+/* 10. журнал смены */
+.sl .flow { flex: 1; }
+.sl .bx { display: flex; flex-direction: column; justify-content: center; }
+.sl .bx h3 { font-size: 50px; }
+.sl .bx li { font-size: 33px; }
+.sl .bx ol li::before { width: 34px; height: 34px; font-size: 21px; }
+.sl .bx ul li::before { top: 20px; }
+.sl .bx .lab { font-size: 27px; }
+.sl .note p { font-size: 30px; }
+/* 11. как делят работу */
+.sh .row { grid-template-columns: 96px 330px 1fr; }
+.sh .row span { font-size: 29px; line-height: 1.3; }
+.sh .row span em { font-style: normal; font-weight: 800; color: var(--deep); }
+.sh .list { flex: 0 0 auto; }
+.sh .note { margin-top: 24px; background: var(--deep); color: var(--white); border-radius: 26px; padding: 26px 40px; display: grid; grid-template-columns: 330px 1fr; gap: 36px; align-items: center; }
+.sh .note b { font-family: var(--f-head); font-weight: 800; font-size: 38px; line-height: 1.1; color: #5FE0B8; }
+.sh .note p { font-size: 28px; line-height: 1.32; color: #D5ECE6; }
+/* 12. рынок */
+.s9:not(.sh) .row span { font-size: 33px; }
+.s9:not(.sh) .row { padding-top: 18px; padding-bottom: 18px; }
+/* 13. леса */
+.s10 li { font-size: 33px; padding: 22px 0; }
+/* 14. вывод */
+.s11 .nrow b { font-size: 36px; }
+.s11 .nrow span { font-size: 29px; }
+.s11 .q4 li { font-size: 33px; padding: 22px 0; }
+
+
+/* подгонка слайдов 9 и 12 */
+.s8 .card { padding: 26px 30px 22px; }
+.s8 .bd { width: 190px; height: 190px; font-size: 52px; border-width: 10px; }
+.s8 .card h3 { font-size: 38px; margin-top: 20px; }
+.s8 .card p { font-size: 28px; margin-top: 10px; }
+.s8 .card small { font-size: 24px; padding-top: 10px; }
+.s9:not(.sh) .row span { font-size: 31px; }
+.s9:not(.sh) .row { padding-top: 12px; padding-bottom: 12px; }
+.s9:not(.sh) .list { gap: 12px; margin-top: 20px; }
+
 /* ===========================================
    ИНТЕРФЕЙС ВНЕ СЦЕНЫ
    =========================================== */
@@ -413,7 +514,7 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
   <div class="by rv" style="--d:4"><b>Мешков Владислав</b><span>группа 477901 · БГУИР, 2026</span></div>
 </section>
 
-<section class="slide s2">
+<section class="slide s2 sq">
   <div class="inner">
     <div class="grid">
       <div class="ph tech rv">
@@ -424,22 +525,31 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
           <div class="tile row"><svg viewBox="0 0 24 24"><use href="#lg-claude" fill="#D97757" width="100%" height="100%"/></svg><span>Claude<small>Anthropic</small></span></div>
           <div class="tile row"><svg viewBox="0 0 24 24"><use href="#lg-googlegemini" fill="#8E75B2" width="100%" height="100%"/></svg><span>Gemini<small>Google</small></span></div>
         </div>
-        <div class="cap" style="bottom:40px;left:50px;right:170px;text-align:left;font-size:26px">любая компания может встроить их в свой продукт</div>
         <div class="corner"></div>
       </div>
-      <div>
+      <div class="rcol">
         <div class="lab rv">Вопрос</div>
         <h2 class="rv" style="--d:1">Модель у всех одна.<br><span class="g">Продукты — разные.</span></h2>
-        <p class="t rv" style="--d:2">ChatGPT, Claude и Gemini может встроить в свой продукт любая компания. Откуда тогда разница?</p>
-        <div class="card deep stats rv" style="--d:3">
-          <div><div class="v">30+ <em>→ 5</em></div><p>место в рейтинге ИИ-агентов. Модель та же, поменяли только «обвязку» (harness)</p></div>
-          <div><div class="v">76,4<em>%</em></div><p>задач решено без ошибок: ИИ сам подобрал себе обвязку и обошёл системы, собранные людьми вручную</p></div>
-          <div class="src">Источник: LangChain, по статье Akshay (перевод на Хабре)</div>
-        </div>
+        <p class="t rv" style="--d:2">ChatGPT, Claude и Gemini может встроить в свой продукт любая компания. Это как мука: у всех пекарен она одна, а хлеб получается разный.</p>
+        <div class="ask rv" style="--d:3"><small>Главный вопрос доклада</small>Почему один ИИ-продукт работает лучше другого, если «мозг» у них одинаковый?</div>
       </div>
     </div>
   </div>
-  <div class="mkt rv" style="--d:4"><b>Маркетинг</b>Клиент сравнивает продукты, а не модели<span class="pg"></span></div>
+  <div class="mkt rv" style="--d:7"><b>Маркетинг</b>Клиент сравнивает продукты, а не модели<span class="pg"></span></div>
+</section>
+
+<section class="slide se">
+  <div class="inner">
+    <div class="lab rv">Доказательство</div>
+    <h2 class="rv" style="--d:1">Та же модель — <span class="g">другой результат</span></h2>
+    <div class="two">
+      <div class="card deep st rv" style="--d:2"><div class="v">30+ <em>→ 5</em></div><h3>Место в рейтинге ИИ-агентов</h3><p>Компания LangChain подняла своего агента из-за пределов тридцатки лучших на пятое место. Модель не меняли — поменяли только всё, что вокруг неё.</p></div>
+      <div class="card deep st rv" style="--d:3"><div class="v">76,4<em>%</em></div><h3>Задач решено без ошибок</h3><p>В другом исследовании ИИ сам подобрал себе окружение и справился лучше систем, которые люди собирали вручную.</p></div>
+    </div>
+    <div class="ans rv" style="--d:4">Значит, секрет не в модели. <span class="g">А в чём?</span></div>
+    <p class="srcl">Источник: LangChain, по статье Akshay (перевод на Хабре)</p>
+  </div>
+  <div class="mkt rv" style="--d:7"><b>Маркетинг</b>Разницу создаёт не модель, а то, что вокруг неё<span class="pg"></span></div>
 </section>
 
 <section class="slide s3">
@@ -448,21 +558,38 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
       <div class="card deep big rv">
         <div class="lab">Ответ</div>
         <h3>Агент = Модель + <span>Обвязка</span></h3>
-        <p>Harness по-русски — «обвязка», дословно «упряжь». Это всё вокруг модели, что позволяет ей работать: инструменты, память, проверки, правила.</p>
+        <p>Harness по-русски — «обвязка», дословно «упряжь». Это всё, что стоит вокруг модели и позволяет ей работать.</p>
+        <div class="eq"><div>Выпускник</div><i>+</i><div>Рабочее место</div><i>=</i><div class="res">Сотрудник</div></div>
         <div class="q">«Если ты не модель — ты харнесс»<small>Vivek Trivedy, LangChain</small></div>
       </div>
       <div class="right">
         <div class="lab rv" style="--d:1">Новый сотрудник</div>
         <h2 class="rv" style="--d:1">ИИ — это <span class="g">сотрудник</span></h2>
         <div class="rows">
-          <div class="card nrow rv" style="--d:2"><div class="n">1</div><div><b>Модель</b><span>гениальный выпускник: знает всё, но сам ничего не сделает</span></div></div>
-          <div class="card nrow rv" style="--d:3"><div class="n">2</div><div><b>Обвязка</b><span>рабочее место: инструменты, блокнот, проверка, доступы</span></div></div>
-          <div class="card nrow on rv" style="--d:4"><div class="n">3</div><div><b>Агент</b><span>сотрудник, который доводит дело до конца</span></div></div>
+          <div class="card nrow rv" style="--d:2"><div class="n">1</div><div><b>Модель — это выпускник</b><span>Он знает очень много, но в пустой комнате сам ничего не сделает.</span></div></div>
+          <div class="card nrow rv" style="--d:3"><div class="n">2</div><div><b>Обвязка — рабочее место</b><span>Инструменты, блокнот, проверка результата и доступы.</span></div></div>
+          <div class="card nrow on rv" style="--d:4"><div class="n">3</div><div><b>Агент — сотрудник</b><span>Он берёт задачу и доводит её до конца.</span></div></div>
         </div>
       </div>
     </div>
   </div>
-  <div class="mkt rv" style="--d:5"><b>Маркетинг</b>Покупают сотрудника, а не «выпускника»<span class="pg"></span></div>
+  <div class="mkt rv" style="--d:7"><b>Маркетинг</b>Покупают сотрудника, а не «выпускника»<span class="pg"></span></div>
+</section>
+
+<section class="slide sy">
+  <div class="inner">
+    <div class="lab rv">Что внутри слова «обвязка»</div>
+    <h2 class="rv" style="--d:1">Три слоя <span class="g">вокруг модели</span></h2>
+    <div class="lay3">
+      <div class="card L rv" style="--d:2"><div class="n">1</div><h3>Промпт</h3><p>Как правильно поставить задачу модели.</p><div class="an">Как вы объяснили задачу сотруднику</div></div>
+      <div class="ar rv" style="--d:3"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 5.500L19.500 12 13 18.500"/></svg></i></div>
+      <div class="card L rv" style="--d:3"><div class="n">2</div><h3>Контекст</h3><p>Что модель видит перед ответом: документы, историю, записи.</p><div class="an">Какие бумаги вы положили ему на стол</div></div>
+      <div class="ar rv" style="--d:4"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 5.500L19.500 12 13 18.500"/></svg></i></div>
+      <div class="card L deep rv" style="--d:4"><div class="n">3</div><h3>Обвязка</h3><p>Всё предыдущее плюс инструменты, память, проверки и правила безопасности.</p><div class="an">Всё рабочее место целиком</div></div>
+    </div>
+    <div class="bar2 rv" style="--d:5">Каждый следующий слой включает предыдущий: обвязка — это и промпт, и контекст, и всё остальное.</div>
+  </div>
+  <div class="mkt rv" style="--d:7"><b>Маркетинг</b>Конкурируют не промптами, а целым рабочим местом<span class="pg"></span></div>
 </section>
 
 <section class="slide s5">
@@ -470,13 +597,13 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
     <div class="lab rv">Рабочее место</div>
     <h2 class="rv" style="--d:1">Из чего состоит <span class="g">обвязка</span></h2>
     <div class="cols">
-      <div class="col rv" style="--d:2"><div class="hd">РУКИ</div><div class="pr">Умеет действовать</div><ul><li>открыть файл</li><li>найти в интернете</li><li>запустить программу</li></ul><div class="bt">ХАРАКТЕРИСТИКА 1</div></div>
-      <div class="col rv" style="--d:3"><div class="hd">БЛОКНОТ</div><div class="pr">Помнит, что сделано</div><ul><li>память между сессиями</li><li>записи и список задач</li></ul><div class="bt">ХАРАКТЕРИСТИКА 2</div></div>
-      <div class="col rv" style="--d:4"><div class="hd">КОНТРОЛЁР</div><div class="pr">Ловит свои ошибки</div><ul><li>проверяет результат</li><li>справляется со сбоями</li></ul><div class="bt">ХАРАКТЕРИСТИКА 3</div></div>
-      <div class="col rv" style="--d:5"><div class="hd">ПРОПУСК</div><div class="pr">Знает свои границы</div><ul><li>что можно самому</li><li>что — только с разрешения человека</li></ul><div class="bt">ХАРАКТЕРИСТИКА 4</div></div>
+      <div class="col rv" style="--d:2"><div class="hd">РУКИ</div><div class="pr">Не только говорит, но и делает</div><ul><li>открывает и читает файлы</li><li>ищет информацию в интернете</li><li>запускает программы</li></ul><div class="bt">ХАРАКТЕРИСТИКА 1</div></div>
+      <div class="col rv" style="--d:3"><div class="hd">БЛОКНОТ</div><div class="pr">Помнит, о чём договорились</div><ul><li>хранит записи между сессиями</li><li>ведёт список задач</li><li>знает, что уже сделано</li></ul><div class="bt">ХАРАКТЕРИСТИКА 2</div></div>
+      <div class="col rv" style="--d:4"><div class="hd">КОНТРОЛЁР</div><div class="pr">Проверяет свою работу</div><ul><li>сверяет результат до сдачи</li><li>при сбое пробует иначе</li><li>ловит ошибки до клиента</li></ul><div class="bt">ХАРАКТЕРИСТИКА 3</div></div>
+      <div class="col rv" style="--d:5"><div class="hd">ПРОПУСК</div><div class="pr">Знает, что ему разрешено</div><ul><li>что делает сам</li><li>что — только с одобрения человека</li><li>останавливается, если что-то не так</li></ul><div class="bt">ХАРАКТЕРИСТИКА 4</div></div>
     </div>
   </div>
-  <div class="mkt rv" style="--d:6"><b>Маркетинг</b>Это характеристики для карточки сравнения продуктов<span class="pg"></span></div>
+  <div class="mkt rv" style="--d:7"><b>Маркетинг</b>Это характеристики для карточки сравнения продуктов<span class="pg"></span></div>
 </section>
 
 <section class="slide s6">
@@ -501,13 +628,13 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
       <div class="rows">
         <div class="card nrow rv" style="--d:3"><div class="n">1</div><div><b>Получил задание</b><span>инструкции, записи и вопрос человека</span></div></div>
         <div class="card nrow rv" style="--d:4"><div class="n">2</div><div><b>Подумал</b><span>модель решает, что делать дальше</span></div></div>
-        <div class="card nrow rv" style="--d:5"><div class="n">3</div><div><b>Сделал</b><span>инструмент выполняет действие</span></div></div>
-        <div class="card nrow on rv" style="--d:6"><div class="n">4</div><div><b>Записал результат</b><span>и снова по кругу; дело сделано — отвечает человеку</span></div></div>
-        <p class="stop rv" style="--d:7"><b>Сама программа простая.</b> Anthropic называет её «тупым циклом»: весь ум — в модели, а круг лишь следит за порядком.</p>
+        <div class="card nrow rv" style="--d:5"><div class="n">3</div><div><b>Сделал</b><span>нужный инструмент выполняет действие</span></div></div>
+        <div class="card nrow on rv" style="--d:6"><div class="n">4</div><div><b>Записал результат</b><span>и снова по кругу; когда дело сделано — отвечает человеку</span></div></div>
+        <p class="stop rv" style="--d:7"><b>Сам круг — простая программа.</b> В Anthropic её в шутку называют «тупым циклом»: весь ум в модели, а круг только следит за порядком.</p>
       </div>
     </div>
   </div>
-  <div class="mkt rv" style="--d:8"><b>Маркетинг</b>Клиент видит итог: «агент сам довёл дело до конца»<span class="pg"></span></div>
+  <div class="mkt rv" style="--d:8"><b>Маркетинг</b>Клиент видит только итог: «агент сам довёл дело до конца»<span class="pg"></span></div>
 </section>
 
 <section class="slide s7">
@@ -515,17 +642,17 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
     <div class="band rv"><h2>Беда №1: места на столе <span class="g">мало</span></h2></div>
     <div class="grid">
       <div class="side">
-        <div class="card nrow rv" style="--d:1"><div class="n">1</div><div><b>Конспект</b><span>длинную переписку сжимают: решения оставляют, лишнее убирают</span></div></div>
-        <div class="card nrow rv" style="--d:2"><div class="n">2</div><div><b>Убрать со стола</b><span>старые бумаги прячут, а что было сделано — помнят</span></div></div>
+        <div class="card nrow rv" style="--d:1"><div class="n">1</div><div><b>Конспект</b><span>Длинную переписку сжимают до краткого пересказа: важное остаётся, лишнее уходит.</span></div></div>
+        <div class="card nrow rv" style="--d:2"><div class="n">2</div><div><b>Убрать со стола</b><span>Старые бумаги прячут, но помнят, что с ними было сделано.</span></div></div>
       </div>
       <div class="mid rv" style="--d:2">
         <div class="v">30<em>%+</em></div>
-        <p>на столько хуже работает модель, если важное оказалось «в середине» длинного текста. Как лекция: середина забывается</p>
+        <p>на столько хуже работает модель, если важное оказалось в середине длинного текста. Как на лекции: начало и конец помним, середину теряем</p>
         <small>Chroma; «Lost in the Middle», Stanford</small>
       </div>
       <div class="side">
-        <div class="card nrow rv" style="--d:3"><div class="n">3</div><div><b>Искать по нужде</b><span>не читают всё подряд, а ищут нужный документ</span></div></div>
-        <div class="card nrow on rv" style="--d:4"><div class="n">4</div><div><b>Помощник</b><span>изучает тему отдельно и приносит короткую выжимку</span></div></div>
+        <div class="card nrow rv" style="--d:3"><div class="n">3</div><div><b>Искать, когда нужно</b><span>Не читают всё подряд, а ищут нужный документ в момент, когда он понадобился.</span></div></div>
+        <div class="card nrow on rv" style="--d:4"><div class="n">4</div><div><b>Позвать помощника</b><span>Он изучает тему отдельно и приносит короткую выжимку.</span></div></div>
       </div>
     </div>
   </div>
@@ -534,29 +661,43 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
 
 <section class="slide s8">
   <div class="inner">
-    <div class="lab rv">Беда №2</div>
-    <h2 class="rv" style="--d:1">Ошибки <span class="g">копятся</span></h2>
+    <div class="lab rv">Надёжность</div>
+    <h2 class="rv" style="--d:1">Беда №2: ошибки <span class="g">копятся</span></h2>
     <div class="cards">
-      <div class="card rv" style="--d:2"><div class="bd">90,4%</div><h3>Каждое десятое — мимо</h3><p>10 шагов по 99% удачных — это всего ~90% удачных дел. Поэтому ошибки надо ловить.</p><small>У Stripe — не больше двух повторов</small></div>
-      <div class="card rv" style="--d:3"><div class="bd">2–3×</div><h3>Самопроверка</h3><p>Если агент умеет проверить свою работу (тесты, скриншот, второй ИИ-«судья»), качество растёт в 2–3 раза.</p><small>Boris Cherny, создатель Claude Code</small></div>
-      <div class="card rv" style="--d:4"><div class="bd">~40</div><h3>Границы</h3><p>Модель решает, что попробовать, а система — что разрешено. В Claude Code около 40 действий под контролем.</p><small>Доверие → проверка → подтверждение человеком</small></div>
+      <div class="card rv" style="--d:2"><div class="bd">90,4%</div><h3>Каждое десятое дело — с ошибкой</h3><p>Если на каждом шаге ИИ прав в 99 случаях из 100, то после десяти шагов без ошибок доходит лишь около 90 дел из ста. Поэтому ошибки нужно ловить на ходу.</p><small>Stripe разрешает не больше двух повторных попыток</small></div>
+      <div class="card rv" style="--d:3"><div class="bd">2–3×</div><h3>ИИ, который проверяет сам себя</h3><p>Если агент умеет проверить результат (прогнать тесты, посмотреть на экран, показать второму ИИ), качество растёт в 2–3 раза.</p><small>Так говорит Boris Cherny, создатель Claude Code</small></div>
+      <div class="card rv" style="--d:4"><div class="bd">~40</div><h3>Что разрешено, а что нет</h3><p>Модель решает, что попробовать, а система — что разрешить. В Claude Code около 40 действий проверяются отдельно.</p><small>Доверие → проверка перед действием → одобрение человека</small></div>
     </div>
   </div>
-  <div class="mkt rv" style="--d:5"><b>Маркетинг</b>Надёжность и безопасность — аргументы продаж<span class="pg"></span></div>
+  <div class="mkt rv" style="--d:5"><b>Маркетинг</b>Надёжность и безопасность — это аргументы продаж<span class="pg"></span></div>
 </section>
 
 <section class="slide sl">
   <div class="inner">
     <div class="lab rv">Если дело большое</div>
-    <h2 class="rv" style="--d:1">Журнал <span class="g">смены</span></h2>
+    <h2 class="rv" style="--d:1">Большое дело — <span class="g">журнал смены</span></h2>
     <div class="flow">
-      <div class="bx rv" style="--d:2"><div class="lab">Один раз</div><h3>Подготовщик</h3><ul><li>оформляет рабочее место</li><li>список задач</li><li>отчёт о прогрессе</li><li>первое сохранение работы</li></ul></div>
+      <div class="bx rv" style="--d:2"><div class="lab">Приходит один раз</div><h3>Подготовщик</h3><ul><li>готовит рабочее место</li><li>составляет список задач</li><li>заводит отчёт: что уже сделано</li><li>делает первое сохранение работы</li></ul></div>
       <div class="arr rv" style="--d:3"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 5.500L19.500 12 13 18.500"/></svg></i></div>
-      <div class="bx deep rv" style="--d:4"><div class="lab">Каждую смену</div><h3>Исполнитель</h3><ol><li>читает журнал: что уже сделано?</li><li>берёт самую важную задачу</li><li>делает её</li><li>записывает итог для следующей смены</li></ol></div>
+      <div class="bx deep rv" style="--d:4"><div class="lab">Приходит каждую смену</div><h3>Исполнитель</h3><ol><li>читает журнал и вспоминает, что уже сделано</li><li>берёт самую важную задачу</li><li>выполняет её</li><li>записывает итог для следующей смены</li></ol></div>
     </div>
-    <div class="note rv" style="--d:5"><b>Сначала один сотрудник</b><p>Anthropic и OpenAI советуют выжать максимум из одного агента: каждый новый помощник — лишние расходы и риск потерять часть информации при передаче дела.</p></div>
+    <div class="note rv" style="--d:5"><b>Зачем это</b><p>Модель помнит ограниченный объём. Журнал позволяет делать большое дело частями: каждая следующая смена просто читает записи предыдущей. Как в больнице: люди меняются, журнал остаётся.</p></div>
   </div>
-  <div class="mkt rv" style="--d:6"><b>Маркетинг</b>Непрерывность работы — тоже характеристика продукта<span class="pg"></span></div>
+  <div class="mkt rv" style="--d:7"><b>Маркетинг</b>Непрерывность работы — тоже характеристика продукта<span class="pg"></span></div>
+</section>
+
+<section class="slide s9 sh">
+  <div class="inner">
+    <div class="lab rv">Когда сотрудников несколько</div>
+    <h2 class="rv" style="--d:1">Как сотрудники <span class="g">делят работу</span></h2>
+    <div class="list">
+      <div class="card row rv" style="--d:2"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-claude" fill="#D97757" width="100%" height="100%"/></svg></div><b>Claude Code<small>Anthropic</small></b><span><em>Три способа.</em> Помощник получает копию всего, что знает главный агент; или работает как отдельный коллега и общается через файлы-записки; или трудится в своей копии проекта и не мешает остальным.</span></div>
+      <div class="card row rv" style="--d:3"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-openai" fill="#111" width="100%" height="100%"/></svg></div><b>OpenAI<small>Agents SDK</small></b><span><em>Два способа.</em> Специалист решает узкую задачу и возвращает результат — или полностью берёт задачу на себя.</span></div>
+      <div class="card row rv" style="--d:4"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-langchain" fill="#1C3C3C" width="100%" height="100%"/></svg></div><b>LangGraph<small>LangChain</small></b><span><em>Схема в схеме.</em> Помощники устроены как небольшие схемы внутри большой схемы.</span></div>
+    </div>
+    <div class="note rv" style="--d:5"><b>Сначала один сотрудник</b><p>Anthropic и OpenAI советуют выжать максимум из одного агента. Делить работу стоит, если инструментов больше десяти или задачи совсем разные: каждый новый помощник — это расходы и риск потерять часть информации при передаче дела.</p></div>
+  </div>
+  <div class="mkt rv" style="--d:7"><b>Маркетинг</b>Больше помощников — дороже и рискованнее для клиента<span class="pg"></span></div>
 </section>
 
 <section class="slide s9">
@@ -564,11 +705,11 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
     <div class="lab rv">Рынок</div>
     <h2 class="rv" style="--d:1">Одна модель — <span class="g">разные обещания</span></h2>
     <div class="list">
-      <div class="card row rv" style="--d:2"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-claude" fill="#D97757" width="100%" height="100%"/></svg></div><b>Claude Code<small>Anthropic</small></b><span>Лёгкая обвязка: ставка на то, что модель станет умнее; лишнее убирают</span></div>
-      <div class="card row rv" style="--d:3"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-openai" fill="#111111" width="100%" height="100%"/></svg></div><b>Codex<small>OpenAI</small></b><span>Одна и та же обвязка в терминале, в редакторе кода и в браузере</span></div>
-      <div class="card row rv" style="--d:4"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-langchain" fill="#1C3C3C" width="100%" height="100%"/></svg></div><b>LangGraph<small>LangChain</small></b><span>Работа расписана как схема: каждый шаг под контролем</span></div>
-      <div class="card row rv" style="--d:5"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-crewai" fill="#FF5A50" width="100%" height="100%"/></svg></div><b>CrewAI</b><span>Команда агентов: у каждого роль, цель и свои инструменты</span></div>
-      <div class="card row rv" style="--d:6"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-microsoft" fill="#111" width="100%" height="100%"/></svg></div><b>AutoGen<small>Microsoft</small></b><span>Агенты решают задачу в общем «чате» друг с другом</span></div>
+      <div class="card row rv" style="--d:2"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-claude" fill="#D97757" width="100%" height="100%"/></svg></div><b>Claude Code<small>Anthropic</small></b><span>Лёгкая обвязка. Ставка на то, что модель станет умнее, поэтому лишние шаги убирают.</span></div>
+      <div class="card row rv" style="--d:3"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-openai" fill="#111111" width="100%" height="100%"/></svg></div><b>Codex<small>OpenAI</small></b><span>Одна и та же обвязка работает в терминале, в редакторе кода и в браузере.</span></div>
+      <div class="card row rv" style="--d:4"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-langchain" fill="#1C3C3C" width="100%" height="100%"/></svg></div><b>LangGraph<small>LangChain</small></b><span>Работа расписана как схема, поэтому каждый шаг под контролем.</span></div>
+      <div class="card row rv" style="--d:5"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-crewai" fill="#FF5A50" width="100%" height="100%"/></svg></div><b>CrewAI</b><span>Команда агентов: у каждого своя роль, цель и свои инструменты.</span></div>
+      <div class="card row rv" style="--d:6"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-microsoft" fill="#111" width="100%" height="100%"/></svg></div><b>AutoGen<small>Microsoft</small></b><span>Агенты решают задачу вместе, как в общем чате.</span></div>
     </div>
   </div>
   <div class="mkt rv" style="--d:7"><b>Маркетинг</b>Модель одна — продают подход (позиционирование)<span class="pg"></span></div>
@@ -581,10 +722,10 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
         <div class="lab rv">Будущее</div>
         <h2 class="rv" style="--d:1">Леса убирают, <span class="g">когда здание готово</span></h2>
         <ul>
-          <li class="rv" style="--d:2"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.500"/></svg></i><div>Модели умнеют — обвязка должна становиться <b>проще</b></div></li>
-          <li class="rv" style="--d:3"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.500"/></svg></i><div><b>Manus</b> переделывали пять раз за полгода, каждый раз убирая лишнее</div></li>
-          <li class="rv" style="--d:4"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.500"/></svg></i><div>Anthropic убирает шаги из Claude Code, когда модель <b>учится делать их сама</b></div></li>
-          <li class="rv" style="--d:5"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.500"/></svg></i><div>Проверка: модель сильнее, а обвязка не усложнилась — значит, всё сделано верно</div></li>
+          <li class="rv" style="--d:2"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.500"/></svg></i><div>Модели умнеют, поэтому обвязка со временем должна становиться <b>проще</b>.</div></li>
+          <li class="rv" style="--d:3"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.500"/></svg></i><div>Продукт <b>Manus</b> за полгода переделывали пять раз — и каждый раз убирали лишнее.</div></li>
+          <li class="rv" style="--d:4"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.500"/></svg></i><div>В Anthropic убирают шаги из Claude Code, когда модель <b>научилась делать их сама</b>.</div></li>
+          <li class="rv" style="--d:5"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.500"/></svg></i><div>Проверка: модель стала сильнее, а обвязка не усложнилась — значит, всё сделано верно.</div></li>
         </ul>
       </div>
       <div class="ph rv" style="--d:2;background:#0B4F5C">
@@ -610,9 +751,9 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
     <h2 class="rv" style="--d:1">Модель — товар, <span class="g">обвязка — продукт</span></h2>
     <div class="grid">
       <div class="rows">
-        <div class="card nrow rv" style="--d:2"><div class="n">1</div><div><b>Модели доступны всем</b><span>подключить GPT, Claude или Gemini может любой разработчик</span></div></div>
-        <div class="card nrow rv" style="--d:3"><div class="n">2</div><div><b>Отличие уходит в обвязку</b><span>на одной модели продукты работают по-разному</span></div></div>
-        <div class="card nrow on rv" style="--d:4"><div class="n">3</div><div><b>Обвязка — преимущество</b><span>его трудно скопировать: в нём опыт и ошибки команды</span></div></div>
+        <div class="card nrow rv" style="--d:2"><div class="n">1</div><div><b>Модели доступны всем</b><span>ChatGPT, Claude или Gemini может подключить любая компания</span></div></div>
+        <div class="card nrow rv" style="--d:3"><div class="n">2</div><div><b>Отличие уходит в обвязку</b><span>на одной и той же модели продукты работают по-разному</span></div></div>
+        <div class="card nrow on rv" style="--d:4"><div class="n">3</div><div><b>Обвязка — это преимущество</b><span>её трудно скопировать: в ней опыт и ошибки команды</span></div></div>
       </div>
       <div class="card deep q4 rv" style="--d:3">
         <div class="lab">Чек-лист</div>
