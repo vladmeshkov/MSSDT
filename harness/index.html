@@ -58,15 +58,22 @@ svg text { font-family:var(--f-body); }
 .chip { display:inline-block; font-size:22px; font-weight:700; border-radius:30px; padding:6px 18px; }
 .c-h { background:var(--sky); color:var(--navy); } .c-m { background:var(--or); color:var(--black); } .c-p { background:var(--white); color:var(--black); border:2px solid var(--black); }
 
-/* ===== 1. титул ===== */
-.s1 .circle { position:absolute; right:-190px; bottom:-380px; width:900px; height:900px; border-radius:50%; background:var(--or); }
-.s1 .circle2 { position:absolute; right:250px; bottom:70px; width:130px; height:130px; border-radius:50%; background:var(--navy2); }
-.s1 .kick { position:absolute; left:100px; top:170px; font-size:36px; font-weight:600; color:var(--sky); }
-.s1 h1 { position:absolute; left:92px; top:230px; font-family:var(--f-head); font-weight:800; font-size:210px; line-height:1; letter-spacing:-.03em; }
-.s1 h1 em { font-style:normal; color:var(--or); }
-.s1 .sub { position:absolute; left:100px; top:520px; width:980px; font-size:56px; line-height:1.2; font-weight:600; }
-.s1 .by { position:absolute; left:100px; bottom:70px; font-size:28px; line-height:1.55; color:var(--mute-d); }
-.s1 .by b { color:var(--white); font-weight:700; }
+/* ===== 1. титул (светло-бирюзовая тема) ===== */
+.s1 { background:#FFFFFF; color:#0B4F5C; }
+.s1 .tag, .s1 .pgn { display:none; }
+.s1 .pill { position:absolute; left:100px; top:84px; background:#E4F3EE; color:#0B4F5C; font-size:27px; font-weight:700; padding:13px 32px; border-radius:40px; }
+.s1::before { content:""; position:absolute; left:0; top:0; width:520px; height:18px; background:#0B4F5C; }
+.s1::after { content:""; position:absolute; right:0; top:0; width:64px; height:64px; background:#2BB48C; }
+.s1 h1 { position:absolute; left:96px; top:170px; font-family:var(--f-head); font-weight:800; font-size:158px; line-height:1; letter-spacing:-.03em; color:#0B4F5C; }
+.s1 h1 em { font-style:normal; color:#2BB48C; }
+.s1 .sub { position:absolute; left:100px; top:360px; width:1500px; font-size:42px; line-height:1.25; font-weight:500; color:#5A7176; }
+.s1 .ph { position:absolute; left:100px; right:100px; top:470px; bottom:70px; border-radius:34px; overflow:hidden; background:#0B4F5C; }
+.s1 .ph img { position:absolute; inset:0; width:100%; height:100%; max-width:none; max-height:none; object-fit:cover; }
+.s1 .ph .shade { position:absolute; inset:0; background:linear-gradient(100deg,rgba(11,79,92,.55) 0%,rgba(11,79,92,.12) 60%,rgba(11,79,92,0) 100%); }
+.s1 .ph .corner { position:absolute; right:0; top:0; width:170px; height:100px; background:#0B4F5C; border-radius:0 0 0 34px; }
+.s1 .by { position:absolute; left:0; bottom:0; background:#0B4F5C; color:#fff; padding:28px 48px 30px; border-radius:0 34px 0 0; font-size:30px; line-height:1.4; }
+.s1 .by b { display:block; font-family:var(--f-head); font-weight:700; font-size:34px; margin-bottom:4px; }
+.s1 .by span { color:#BFE3DA; font-size:27px; }
 
 /* ===== 2. опрос ===== */
 .s2 .q { font-family:var(--f-head); font-weight:700; font-size:58px; line-height:1.14; max-width:1600px; }
@@ -304,13 +311,13 @@ body.editing .progress::after { content:"РЕЖИМ РЕДАКТИРОВАНИЯ
 <div class="deck-viewport">
 <main class="deck-stage" id="deckStage">
 
-<section class="slide dk s1 active">
-  <div class="tag">Маркетинг программных продуктов и услуг</div><div class="pgn"></div>
-<div class="circle"></div><div class="circle2"></div>
-  <div class="kick rv">Доклад</div>
-  <h1 class="rv" style="--d:1">Harness <em>в&nbsp;ИИ</em></h1>
+<section class="slide s1 active">
+  <div class="tag"></div><div class="pgn"></div>
+<div class="pill rv">Маркетинг программных продуктов и услуг</div>
+  <h1 class="rv" style="--d:1">HARNESS <em>в&nbsp;ИИ</em></h1>
   <p class="sub rv" style="--d:2">Что на самом деле покупает клиент, когда покупает ИИ‑продукт</p>
-  <div class="by rv" style="--d:3"><b>Мешков Владислав</b><br>группа 477901 · БГУИР, 2026</div>
+  <div class="ph rv" style="--d:3"><img src="images/cover.jpg" alt="Код на экране монитора"><div class="shade"></div><div class="corner"></div>
+    <div class="by"><b>Мешков Владислав</b><span>группа 477901 · БГУИР, 2026</span></div></div>
 
 </section>
 <section class="slide lt s2">
@@ -548,7 +555,7 @@ body.editing .progress::after { content:"РЕЖИМ РЕДАКТИРОВАНИЯ
   <div class="photo"><img src="images/thanks.jpg" alt="Нейросеть на процессоре"></div>
   <h1 class="rv">Спасибо <em>за внимание</em></h1>
   <p class="fin rv" style="--d:1">Когда ИИ-агент в следующий раз даст сбой — не вините модель. <b>Смотрите на harness.</b></p>
-  <div class="cr rv" style="--d:2"><b>Мешков Владислав</b> · группа 477901 · БГУИР, 2026 · по материалам статьи Akshay «Что такое Harness?» (перевод на Хабре)<br>Фото: mikemacmarketing, CC BY 2.0 · логотипы: Simple Icons (CC0), Wikimedia Commons; товарные знаки принадлежат владельцам</div>
+  <div class="cr rv" style="--d:2"><b>Мешков Владислав</b> · группа 477901 · БГУИР, 2026 · по материалам статьи Akshay «Что такое Harness?» (перевод на Хабре)<br>Фото: Markus Spiske (CC0); mikemacmarketing, CC BY 2.0 · логотипы: Simple Icons (CC0), Wikimedia Commons; товарные знаки принадлежат владельцам</div>
 
 </section>
 
