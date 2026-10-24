@@ -3,35 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Что такое harness?</title>
+<title>Harness в ИИ</title>
 
-<!-- Шрифты: Playfair Display (заголовки), Golos Text (текст), PT Mono (схемы кода) — все с кириллицей -->
+<!-- Шрифты: Montserrat (заголовки), Nunito Sans (текст) — оба с кириллицей -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,500;1,700&family=PT+Mono&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
 /* ===========================================
    ТЕМА — цвета и шрифты меняются здесь
    =========================================== */
 :root {
-    --paper:  #F3EFE6;   /* основной светлый фон */
-    --paper-2:#E7E1D3;   /* второй тон бумаги */
-    --ink:    #1F1D1A;   /* тёмный фон и текст */
-    --mute:   #6B6459;   /* второстепенный текст на светлом */
-    --mute-d: #A9A296;   /* второстепенный текст на тёмном */
-    --clay:   #B4472B;   /* акцент на светлом */
-    --clay-d: #E58468;   /* акцент на тёмном */
-    --line:   rgba(31,29,26,0.28);
-    --line-d: rgba(243,239,230,0.28);
+    --deep:   #0B4F5C;   /* тёмно-бирюзовый: заголовки, шапки, блоки */
+    --deep-2: #083B46;   /* ещё темнее: тени, второй тон */
+    --green:  #2BB48C;   /* яркий изумрудный акцент */
+    --mint:   #E4F3EE;   /* светлая подложка карточек */
+    --line:   #CFE3DD;   /* тонкие линии и рамки */
+    --white:  #FFFFFF;
+    --text:   #1C2F33;
+    --mute:   #5A7176;
 
-    --f-display: 'Playfair Display', Georgia, serif;
-    --f-body:    'Golos Text', 'Segoe UI', sans-serif;
-    --f-code:    'PT Mono', ui-monospace, monospace;
+    --f-head: 'Montserrat', 'Segoe UI', sans-serif;
+    --f-body: 'Nunito Sans', 'Segoe UI', sans-serif;
 
-    --ease: cubic-bezier(0.22, 0.8, 0.3, 1);
-    --stage-bg: #12110F;
-    --slide-bg: #F3EFE6;
+    --ease: cubic-bezier(0.2, 0.8, 0.3, 1);
+    --stage-bg: #0a2a31;
+    --slide-bg: #FFFFFF;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -65,811 +63,551 @@ img, video, canvas, svg { max-width: 100%; max-height: 100%; }
 }
 
 /* ===========================================
-   ОБЩИЕ ПРАВИЛА СЛАЙДОВ
+   ОБЩИЕ ПРАВИЛА
    =========================================== */
-.slide { font-family: var(--f-body); font-size: 32px; line-height: 1.38; }
-.paper { background: var(--paper); color: var(--ink); }
-.paper2{ background: var(--paper-2); color: var(--ink); }
-.dark  { background: var(--ink); color: var(--paper); }
-.clay  { background: var(--clay); color: var(--paper); }
+.slide { font-family: var(--f-body); font-size: 31px; font-weight: 400; line-height: 1.35; color: var(--text); background: var(--white); }
 
-/* бегущий колонтитул: название слева, раздел справа, тонкая линия */
-.hdr { position: absolute; left: 140px; right: 140px; top: 56px; display: flex; justify-content: space-between; padding-bottom: 14px; border-bottom: 1px solid var(--line); font-size: 24px; letter-spacing: .1em; text-transform: uppercase; color: var(--mute); }
-.dark .hdr { border-color: var(--line-d); color: var(--mute-d); }
-.clay .hdr { border-color: rgba(243,239,230,.45); color: rgba(243,239,230,.85); }
-.ftr { position: absolute; left: 140px; right: 140px; bottom: 44px; display: flex; justify-content: space-between; align-items: flex-end; gap: 60px; font-size: 24px; color: var(--mute); line-height: 1.3; }
-.dark .ftr { color: var(--mute-d); }
-.clay .ftr { color: rgba(243,239,230,.85); }
-.ftr .pg { font-family: var(--f-display); font-style: italic; font-size: 30px; white-space: nowrap; }
+/* фирменная рамка: тёмная полоса слева сверху и изумрудный квадрат в углу */
+.slide::before { content: ""; position: absolute; left: 0; top: 0; width: 520px; height: 18px; background: var(--deep); }
+.slide::after  { content: ""; position: absolute; right: 0; top: 0; width: 64px; height: 64px; background: var(--green); }
 
-.inner { position: absolute; left: 140px; right: 140px; top: 132px; bottom: 112px; display: flex; flex-direction: column; }
+.inner { position: absolute; left: 110px; right: 110px; top: 92px; bottom: 140px; display: flex; flex-direction: column; }
 
-h2 { font-family: var(--f-display); font-weight: 700; font-size: 68px; line-height: 1.1; letter-spacing: -0.01em; }
-h2 i, .em { font-style: italic; color: var(--clay); font-weight: 700; }
-.dark h2 i, .dark .em { color: var(--clay-d); }
-.kick { font-size: 24px; letter-spacing: .14em; text-transform: uppercase; color: var(--clay); font-weight: 600; margin-bottom: 18px; }
-.dark .kick { color: var(--clay-d); }
-.lede { font-size: 36px; line-height: 1.35; color: var(--mute); margin-top: 22px; max-width: 1400px; }
-.dark .lede { color: var(--mute-d); }
+h2 { font-family: var(--f-head); font-weight: 800; font-size: 64px; line-height: 1.1; color: var(--deep); letter-spacing: -0.01em; }
+h2 .g, .g { color: var(--green); }
+.lab { font-family: var(--f-head); font-weight: 700; font-size: 26px; color: var(--green); margin-bottom: 12px; letter-spacing: .02em; }
 .mut { color: var(--mute); }
-.dark .mut { color: var(--mute-d); }
-b, strong { font-weight: 600; }
-.serif { font-family: var(--f-display); }
-.hr { height: 1px; background: var(--line); }
-.dark .hr { background: var(--line-d); }
 
-/* анимация: мягкое появление */
-.rv { opacity: 0; transform: translateY(22px); transition: opacity .7s var(--ease), transform .7s var(--ease); transition-delay: calc(var(--d, 0) * 90ms + 60ms); }
+/* нижняя плашка: привязка к маркетингу + номер слайда */
+.mkt { position: absolute; left: 110px; right: 110px; bottom: 44px; height: 76px; border-radius: 38px; background: var(--mint); display: flex; align-items: center; gap: 24px; padding: 0 34px 0 8px; font-size: 29px; font-weight: 600; color: var(--deep); }
+.mkt b { flex: none; font-family: var(--f-head); font-weight: 700; font-size: 24px; letter-spacing: .04em; text-transform: uppercase; background: var(--deep); color: var(--white); border-radius: 30px; padding: 13px 30px; }
+.mkt .pg { margin-left: auto; font-family: var(--f-head); font-weight: 700; font-size: 26px; color: var(--green); white-space: nowrap; }
+.mkt .pg span { color: var(--mute); font-weight: 600; }
+
+/* карточки */
+.card { background: var(--white); border: 2px solid var(--line); border-radius: 26px; box-shadow: 0 10px 30px rgba(11,79,92,.08); }
+.card.deep { background: var(--deep); border-color: var(--deep); color: var(--white); box-shadow: none; }
+
+/* «фото» — рисованный пейзаж в скруглённой рамке */
+.ph { position: relative; border-radius: 30px; overflow: hidden; background: #cfe9ea; }
+.ph svg.art { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; max-height: none; }
+.ph .corner { position: absolute; width: 130px; height: 130px; background: var(--deep); }
+
+/* нумерованная строка */
+.nrow { display: grid; grid-template-columns: 86px 1fr; align-items: center; gap: 22px; padding: 20px 28px 20px 20px; }
+.nrow .n { width: 86px; height: 86px; border-radius: 18px; background: var(--mint); color: var(--deep); font-family: var(--f-head); font-weight: 800; font-size: 44px; display: grid; place-items: center; }
+.nrow.on { background: var(--deep); border-color: var(--deep); color: var(--white); box-shadow: none; }
+.nrow.on .n { background: var(--green); color: var(--white); }
+.nrow b { display: block; font-family: var(--f-head); font-weight: 700; font-size: 34px; line-height: 1.15; margin-bottom: 4px; }
+.nrow span { font-size: 28px; line-height: 1.3; }
+.nrow:not(.on) span { color: var(--mute); }
+
+/* анимация */
+.rv { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .7s var(--ease); transition-delay: calc(var(--d, 0) * 90ms + 60ms); }
 .slide.visible .rv { opacity: 1; transform: none; }
 
 /* ===========================================
    01 ТИТУЛ
    =========================================== */
-.s-title .left { position: absolute; left: 140px; top: 120px; width: 1100px; }
-.s-title .org { font-size: 26px; letter-spacing: .14em; text-transform: uppercase; color: var(--mute); }
-.s-title h1 { font-family: var(--f-display); font-weight: 800; font-size: 168px; line-height: 1.0; letter-spacing: -0.03em; margin-top: 70px; }
-.s-title h1 i { color: var(--clay); font-weight: 700; }
-.s-title .sub { font-size: 44px; line-height: 1.3; margin-top: 50px; max-width: 920px; }
-.s-title .by { position: absolute; left: 140px; bottom: 80px; font-size: 28px; line-height: 1.5; }
-.s-title .by span { color: var(--mute); }
-.s-title .panel { position: absolute; right: 0; top: 0; bottom: 0; width: 560px; background: var(--clay); display: grid; place-items: center; }
-.s-title .panel svg { width: 380px; height: 740px; }
-.s-title .panel p { position: absolute; left: 50px; right: 50px; bottom: 62px; color: var(--paper); font-family: var(--f-display); font-style: italic; font-size: 30px; line-height: 1.3; }
+.s1 .tagp { position: absolute; left: 110px; top: 96px; background: var(--mint); color: var(--deep); font-family: var(--f-head); font-weight: 700; font-size: 26px; padding: 12px 30px; border-radius: 30px; }
+.s1 h1 { position: absolute; left: 104px; top: 168px; font-family: var(--f-head); font-weight: 800; font-size: 156px; line-height: 1; color: var(--deep); letter-spacing: -0.03em; }
+.s1 h1 span { color: var(--green); }
+.s1 .sub { position: absolute; left: 110px; top: 346px; font-size: 38px; color: var(--mute); width: 1500px; }
+.s1 .ph { position: absolute; left: 110px; right: 110px; top: 450px; bottom: 80px; }
+.s1 .ph .corner { right: 0; top: 0; border-radius: 0 0 0 30px; width: 150px; height: 90px; }
+.s1 .by { position: absolute; left: 110px; bottom: 80px; background: var(--deep); color: var(--white); padding: 26px 44px 28px; border-radius: 0 28px 0 30px; font-size: 30px; line-height: 1.4; }
+.s1 .by b { font-family: var(--f-head); font-weight: 700; font-size: 34px; display: block; }
+.s1 .by span { color: #BFE3DA; font-size: 26px; }
 
 /* ===========================================
    02 ПРОБЛЕМА
    =========================================== */
-.s-prob h2 { font-size: 112px; font-weight: 800; line-height: 1.04; letter-spacing: -0.025em; margin-top: 30px; }
-.sym { display: grid; grid-template-columns: repeat(3, 1fr); gap: 60px; margin-top: 70px; }
-.sym div { border-top: 1px solid var(--line-d); padding-top: 24px; font-size: 36px; line-height: 1.3; }
-.sym small { display: block; font-family: var(--f-display); font-style: italic; font-size: 34px; color: var(--clay-d); margin-bottom: 10px; }
-.s-prob .turn { margin-top: auto; font-family: var(--f-display); font-size: 54px; line-height: 1.2; font-weight: 500; }
-.s-prob .turn i { color: var(--clay-d); }
+.s2 .grid { display: grid; grid-template-columns: 700px 1fr; gap: 80px; flex: 1; }
+.s2 .ph { height: 100%; }
+.s2 .ph .corner { right: 0; bottom: 0; border-radius: 40px 0 30px 0; }
+.s2 h2 { font-size: 66px; }
+.s2 p.t { font-size: 31px; margin-top: 22px; color: var(--mute); }
+.s2 .stats { margin-top: 30px; padding: 30px 40px; border-radius: 26px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.s2 .stats .v { font-family: var(--f-head); font-weight: 800; font-size: 88px; line-height: 1; color: var(--white); }
+.s2 .stats .v em { font-style: normal; color: #5FE0B8; }
+.s2 .stats p { font-size: 26px; line-height: 1.3; margin-top: 10px; color: #CFE9E2; }
+.s2 .stats .src { grid-column: 1 / -1; font-size: 24px; color: #9CCBC1; border-top: 1px solid rgba(255,255,255,.25); padding-top: 14px; }
 
 /* ===========================================
-   03 LANGCHAIN
+   03 ЧТО ТАКОЕ HARNESS
    =========================================== */
-.proof { display: grid; grid-template-columns: 1.15fr 1px 0.85fr; gap: 70px; margin-top: 50px; flex: 1; }
-.proof .vr { background: var(--line); }
-.proof .cap { font-size: 24px; letter-spacing: .12em; text-transform: uppercase; color: var(--mute); margin-bottom: 18px; }
-.proof .big { font-family: var(--f-display); font-weight: 800; font-size: 180px; line-height: 1; letter-spacing: -0.04em; }
-.proof .big i { color: var(--clay); }
-.proof p { font-size: 34px; line-height: 1.35; margin-top: 20px; }
-.proof svg { width: 100%; height: 190px; margin-top: 36px; }
-.proof .q { margin-top: 30px; font-size: 30px; color: var(--mute); }
+.s3 .grid { display: grid; grid-template-columns: 780px 1fr; gap: 70px; flex: 1; }
+.s3 .big { padding: 46px 48px; display: flex; flex-direction: column; border-radius: 30px; }
+.s3 .big .lab { color: #5FE0B8; }
+.s3 .big h3 { font-family: var(--f-head); font-weight: 800; font-size: 78px; line-height: 1.04; letter-spacing: -0.02em; }
+.s3 .big h3 span { color: #5FE0B8; }
+.s3 .big p { font-size: 30px; line-height: 1.35; margin-top: 26px; color: #D5ECE6; }
+.s3 .big .q { margin-top: auto; border-radius: 20px; background: rgba(255,255,255,.1); padding: 22px 28px; font-family: var(--f-head); font-weight: 700; font-size: 32px; line-height: 1.25; }
+.s3 .big .q small { display: block; font-family: var(--f-body); font-weight: 400; font-size: 24px; color: #A9D6CC; margin-top: 6px; }
+.s3 .right { display: flex; flex-direction: column; }
+.s3 .rows { display: flex; flex-direction: column; gap: 22px; margin-top: 28px; flex: 1; justify-content: center; }
+.s3 .nrow { min-height: 170px; }
 
 /* ===========================================
-   04 ОПРЕДЕЛЕНИЕ
+   04 АНАЛОГИЯ С ОС
    =========================================== */
-.def { display: grid; grid-template-columns: 760px 1fr; gap: 90px; margin-top: 44px; }
-.pull { font-family: var(--f-display); font-weight: 700; font-size: 70px; line-height: 1.1; letter-spacing: -0.015em; border-top: 6px solid var(--clay); padding-top: 30px; }
-.pull small { display: block; font-family: var(--f-body); font-weight: 400; font-size: 28px; letter-spacing: 0; color: var(--mute); margin-top: 30px; line-height: 1.35; }
-.dl dt { font-size: 24px; letter-spacing: .12em; text-transform: uppercase; color: var(--clay); font-weight: 600; margin-top: 26px; }
-.dl dt:first-child { margin-top: 0; }
-.dl dd { font-size: 31px; line-height: 1.34; margin-top: 6px; }
+.s4 .head { text-align: center; }
+.s4 .head p { font-size: 31px; color: var(--mute); margin-top: 14px; }
+.s4 .chain { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 70px; }
+.s4 .chain::before { content: ""; position: absolute; left: 12.5%; right: 12.5%; top: 94px; height: 4px; background: var(--line); }
+.s4 .it { position: relative; text-align: center; padding: 0 24px; }
+.s4 .it .c { width: 190px; height: 190px; margin: 0 auto; border-radius: 50%; background: var(--deep); display: grid; place-items: center; border: 10px solid var(--white); box-shadow: 0 0 0 4px var(--line); }
+.s4 .it.on .c { background: var(--green); box-shadow: 0 0 0 4px #9BDCC8; }
+.s4 .it .c svg { width: 96px; height: 96px; }
+.s4 .it small { display: block; font-family: var(--f-head); font-weight: 600; font-size: 26px; color: var(--mute); margin-top: 28px; }
+.s4 .it h3 { font-family: var(--f-head); font-weight: 800; font-size: 42px; line-height: 1.1; color: var(--deep); margin-top: 6px; }
+.s4 .it.on h3 { color: var(--green); }
+.s4 .it p { font-size: 28px; color: var(--mute); margin-top: 10px; line-height: 1.3; }
+.s4 .quote { margin: auto auto 0; font-family: var(--f-head); font-weight: 700; font-size: 38px; color: var(--deep); text-align: center; }
+.s4 .quote span { color: var(--green); }
 
 /* ===========================================
-   05 АНАЛОГИЯ С ОС
+   05 ИЗ ЧЕГО СОСТОИТ ПРОДУКТ (как тарифы)
    =========================================== */
-.os { margin-top: 26px; }
-.os .row { display: grid; grid-template-columns: 1fr 120px 1fr; align-items: baseline; padding: 15px 0; border-bottom: 1px solid var(--line); }
-.os .row:first-child { border-top: 2px solid var(--ink); }
-.os .row.h { font-size: 24px; letter-spacing: .12em; text-transform: uppercase; color: var(--mute); padding: 14px 0; }
-.os .a { font-size: 36px; font-family: var(--f-display); }
-.os .a small { display: block; font-family: var(--f-body); font-size: 25px; color: var(--mute); margin-top: 4px; }
-.os .ar { font-size: 40px; color: var(--clay); text-align: center; }
-.os .b { font-size: 38px; font-weight: 600; }
-.os .row.last { background: var(--clay); color: var(--paper); padding-left: 24px; padding-right: 24px; margin: 0 -24px; border-bottom: none; }
-.os .row.last .a small, .os .row.last .ar { color: var(--paper); }
-.os .note { margin-top: 30px; font-family: var(--f-display); font-style: italic; font-size: 36px; color: var(--mute); }
+.s5 .cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-top: 34px; flex: 1; }
+.s5 .col { border-radius: 26px; overflow: hidden; border: 2px solid var(--line); background: var(--white); box-shadow: 0 10px 30px rgba(11,79,92,.08); display: flex; flex-direction: column; }
+.s5 .col .hd { background: var(--deep); color: var(--white); font-family: var(--f-head); font-weight: 700; font-size: 32px; text-align: center; padding: 22px 16px; line-height: 1.12; min-height: 108px; display: grid; place-items: center; }
+.s5 .col .pr { background: var(--mint); text-align: center; padding: 22px 14px; font-family: var(--f-head); font-weight: 800; font-size: 34px; color: var(--deep); line-height: 1.12; min-height: 118px; display: grid; place-items: center; }
+.s5 .col ul { list-style: none; padding: 20px 24px; flex: 1; }
+.s5 .col li { font-size: 28px; line-height: 1.25; padding: 12px 0 12px 36px; position: relative; border-bottom: 1px solid var(--line); }
+.s5 .col li:last-child { border-bottom: none; }
+.s5 .col li::before { content: ""; position: absolute; left: 4px; top: 22px; width: 16px; height: 16px; border-radius: 50%; background: var(--green); }
+.s5 .col .bt { margin: 0 24px 24px; background: var(--green); color: var(--white); font-family: var(--f-head); font-weight: 700; font-size: 24px; text-align: center; padding: 14px; border-radius: 12px; letter-spacing: .04em; }
 
 /* ===========================================
-   06 ТРИ УРОВНЯ
+   06 ЦИКЛ
    =========================================== */
-.lv { display: grid; grid-template-columns: 700px 1fr; gap: 100px; margin-top: 30px; flex: 1; align-items: center; }
-.lv svg { width: 700px; height: 645px; }
-.lv ol { list-style: none; }
-.lv li { padding: 26px 0; border-top: 1px solid var(--line); }
-.lv li:last-child { border-bottom: 1px solid var(--line); }
-.lv li b { font-family: var(--f-display); font-size: 44px; font-weight: 700; display: block; margin-bottom: 6px; }
-.lv li:last-child b { color: var(--clay); }
-.lv li span { font-size: 31px; line-height: 1.34; color: var(--mute); display: block; }
-.lv li:last-child span { color: var(--ink); }
+.s6 .grid { display: grid; grid-template-columns: 700px 1fr; gap: 70px; flex: 1; align-items: center; }
+.s6 svg.don { width: 700px; height: 700px; }
+.s6 .rows { display: flex; flex-direction: column; gap: 18px; }
+.s6 .nrow { padding: 14px 24px 14px 16px; grid-template-columns: 76px 1fr; }
+.s6 .nrow .n { width: 76px; height: 76px; font-size: 40px; }
+.s6 .nrow b { font-size: 32px; }
+.s6 .nrow span { font-size: 27px; }
+.s6 .stop { margin-top: 10px; font-size: 27px; line-height: 1.35; color: var(--mute); }
+.s6 .stop b { color: var(--deep); font-family: var(--f-head); font-weight: 700; }
 
 /* ===========================================
-   07 ПЕРЕЧЕНЬ КОМПОНЕНТОВ
+   07 КОНТЕКСТ
    =========================================== */
-.toc { display: grid; grid-template-columns: 1fr 1fr; gap: 0 90px; margin-top: 26px; }
-.toc .it { display: grid; grid-template-columns: 76px 1fr; padding: 11px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
-.toc .n { font-family: var(--f-display); font-style: italic; font-size: 46px; color: var(--clay); line-height: 1; }
-.toc b { font-size: 32px; font-weight: 600; display: block; line-height: 1.2; }
-.toc span { font-size: 26px; color: var(--mute); display: block; line-height: 1.3; margin-top: 2px; }
-.note-s { font-size: 24px; color: var(--mute); margin-top: auto; }
+.s7 .band { background: var(--deep); color: var(--white); border-radius: 26px; text-align: center; padding: 22px 30px 26px; }
+.s7 .band h2 { color: var(--white); font-size: 56px; }
+.s7 .band h2 .g { color: #5FE0B8; }
+.s7 .grid { display: grid; grid-template-columns: 1fr 480px 1fr; gap: 36px; margin-top: 30px; flex: 1; align-items: stretch; }
+.s7 .side { display: flex; flex-direction: column; gap: 22px; justify-content: center; }
+.s7 .side .nrow { grid-template-columns: 70px 1fr; padding: 16px 22px 16px 16px; }
+.s7 .side .nrow .n { width: 70px; height: 70px; font-size: 38px; }
+.s7 .side .nrow b { font-size: 31px; }
+.s7 .side .nrow span { font-size: 26px; }
+.s7 .mid { border-radius: 30px; background: linear-gradient(160deg, var(--mint), #CDEBE2); border: 2px solid var(--line); text-align: center; padding: 34px 28px; display: flex; flex-direction: column; justify-content: center; }
+.s7 .mid .v { font-family: var(--f-head); font-weight: 800; font-size: 150px; line-height: 1; color: var(--deep); letter-spacing: -0.04em; }
+.s7 .mid .v em { font-style: normal; color: var(--green); }
+.s7 .mid p { font-size: 28px; line-height: 1.3; margin-top: 14px; color: var(--text); }
+.s7 .mid small { font-size: 22px; color: var(--mute); margin-top: 10px; display: block; }
+.s7 .mem { margin-top: 26px; display: grid; grid-template-columns: 260px 1fr 1fr 1fr; gap: 16px; align-items: stretch; }
+.s7 .mem div { border-radius: 16px; padding: 12px 20px; font-size: 25px; line-height: 1.25; background: var(--mint); }
+.s7 .mem div b { font-family: var(--f-head); font-weight: 700; display: block; color: var(--deep); font-size: 27px; }
+.s7 .mem .t { background: var(--green); color: var(--white); font-family: var(--f-head); font-weight: 700; font-size: 27px; display: grid; place-items: center; text-align: center; }
 
 /* ===========================================
-   08 ЦИКЛ
+   08 НАДЁЖНОСТЬ
    =========================================== */
-.lp { display: grid; grid-template-columns: 790px 1fr; gap: 90px; margin-top: 28px; }
-.code { background: var(--ink); color: #E9E3D3; font-family: var(--f-code); font-size: 27px; line-height: 1.6; padding: 30px 40px; white-space: pre; }
-.code .c { color: #8E877B; }
-.code .k { color: var(--clay-d); }
-.code-cap { font-size: 24px; color: var(--mute); margin: 14px 0 26px; }
-.stop { font-size: 28px; line-height: 1.4; }
-.stop b { display: block; font-size: 24px; letter-spacing: .12em; text-transform: uppercase; color: var(--clay); margin-bottom: 8px; }
-.steps { list-style: none; counter-reset: s; }
-.steps li { display: grid; grid-template-columns: 70px 1fr; padding: 9px 0; border-top: 1px solid var(--line); align-items: baseline; }
-.steps li:last-child { border-bottom: 1px solid var(--line); }
-.steps .n { font-family: var(--f-display); font-style: italic; font-size: 40px; color: var(--clay); line-height: 1; }
-.steps b { font-size: 33px; font-weight: 600; display: block; line-height: 1.2; }
-.steps span { font-size: 26px; color: var(--mute); display: block; line-height: 1.25; }
+.s8 .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 40px; flex: 1; }
+.s8 .card { padding: 34px 32px 28px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+.s8 .bd { width: 232px; height: 232px; border-radius: 50%; background: var(--deep); color: var(--white); display: grid; place-items: center; font-family: var(--f-head); font-weight: 800; font-size: 66px; letter-spacing: -0.03em; border: 12px solid var(--white); box-shadow: 0 0 0 5px var(--line); }
+.s8 .card:nth-child(2) .bd { background: var(--green); }
+.s8 .card h3 { font-family: var(--f-head); font-weight: 800; font-size: 40px; color: var(--deep); margin-top: 30px; line-height: 1.1; }
+.s8 .card p { font-size: 28px; line-height: 1.32; margin-top: 12px; color: var(--text); }
+.s8 .card small { margin-top: auto; padding-top: 14px; font-size: 24px; color: var(--mute); }
 
 /* ===========================================
-   КОЛОНКИ (газетная вёрстка)
+   09 РЫНОК
    =========================================== */
-.cols3 { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 44px; }
-.cols3 > div { padding: 0 44px; border-left: 1px solid var(--line); }
-.cols3 > div:first-child { padding-left: 0; border-left: none; }
-.cols3 > div:last-child { padding-right: 0; }
-.cols3 h3 { font-family: var(--f-display); font-size: 40px; font-weight: 700; line-height: 1.15; margin-bottom: 20px; }
-.cols3 p, .cols3 li { font-size: 30px; line-height: 1.36; }
-.cols3 ul { list-style: none; }
-.cols3 li { padding: 7px 0 7px 26px; position: relative; }
-.cols3 li::before { content: ""; position: absolute; left: 0; top: 24px; width: 12px; height: 2px; background: var(--clay); }
-.cols3 .mono { font-family: var(--f-code); font-size: 26px; color: var(--clay); }
-.band { margin-top: auto; padding-top: 26px; border-top: 2px solid var(--ink); display: grid; grid-template-columns: 300px 1fr; gap: 40px; align-items: baseline; }
-.band h3 { font-family: var(--f-display); font-size: 40px; line-height: 1.15; }
-.band p { font-size: 32px; line-height: 1.36; }
+.s9 .list { display: flex; flex-direction: column; gap: 14px; margin-top: 22px; }
+.s9 .row { display: grid; grid-template-columns: 96px 440px 1fr; align-items: center; gap: 30px; padding: 14px 34px 14px 20px; border-radius: 22px; }
+.s9 .row .i { width: 96px; height: 96px; border-radius: 50%; background: var(--deep); color: var(--white); font-family: var(--f-head); font-weight: 800; font-size: 36px; display: grid; place-items: center; }
+.s9 .row:nth-child(even) .i { background: var(--green); }
+.s9 .row b { font-family: var(--f-head); font-weight: 800; font-size: 40px; color: var(--deep); line-height: 1.05; }
+.s9 .row b small { display: block; font-family: var(--f-body); font-weight: 600; font-size: 24px; color: var(--mute); margin-top: 3px; }
+.s9 .row span { font-size: 30px; line-height: 1.28; }
 
 /* ===========================================
-   10 ПАМЯТЬ
+   10 ЛЕСА
    =========================================== */
-.mem { display: grid; grid-template-columns: 700px 1fr; gap: 100px; margin-top: 40px; flex: 1; }
-.mem h3 { font-size: 24px; letter-spacing: .12em; text-transform: uppercase; color: var(--clay); font-weight: 600; margin-bottom: 14px; }
-.mem .tm { border-top: 1px solid var(--line); padding: 20px 0; }
-.mem .tm b { font-size: 36px; font-weight: 600; display: block; }
-.mem .tm span { font-size: 29px; color: var(--mute); line-height: 1.34; display: block; margin-top: 4px; }
-.lay { display: flex; flex-direction: column; gap: 20px; }
-.lay .l { border-left: 8px solid var(--clay); padding: 8px 0 8px 30px; }
-.lay .l:nth-child(2) { margin-left: 60px; border-color: #D08A74; }
-.lay .l:nth-child(3) { margin-left: 120px; border-color: #E0B8A9; }
-.lay .l small { font-size: 24px; letter-spacing: .12em; text-transform: uppercase; color: var(--mute); display: block; }
-.lay .l b { font-family: var(--f-display); font-size: 42px; font-weight: 700; display: block; line-height: 1.2; margin: 2px 0 4px; }
-.lay .l span { font-size: 30px; line-height: 1.34; display: block; }
-.tip { margin-top: auto; font-family: var(--f-display); font-style: italic; font-size: 40px; line-height: 1.28; border-top: 2px solid var(--ink); padding-top: 24px; }
+.s10 .grid { display: grid; grid-template-columns: 1fr 760px; gap: 80px; flex: 1; }
+.s10 .ph { height: 100%; }
+.s10 .ph .corner { left: 0; bottom: 0; border-radius: 0 40px 0 30px; }
+.s10 ul { list-style: none; margin-top: 26px; }
+.s10 li { display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding: 17px 0; border-bottom: 2px solid var(--line); font-size: 31px; line-height: 1.3; }
+.s10 li:last-child { border-bottom: none; }
+.s10 li i { width: 48px; height: 48px; border-radius: 50%; background: var(--green); display: grid; place-items: center; margin-top: 2px; }
+.s10 li i svg { width: 26px; height: 26px; }
+.s10 li b { color: var(--deep); font-weight: 700; }
 
 /* ===========================================
-   11 КОНТЕКСТ
+   11 ВЫВОД
    =========================================== */
-.ctx { display: grid; grid-template-columns: 640px 1fr; gap: 90px; margin-top: 20px; }
-.ctx .big { font-family: var(--f-display); font-weight: 800; font-size: 200px; line-height: 0.95; letter-spacing: -0.05em; color: var(--clay); }
-.ctx .big + p { font-size: 32px; line-height: 1.36; margin-top: 18px; }
-.ctx .big + p + p { font-size: 26px; line-height: 1.36; color: var(--mute); margin-top: 18px; }
-.ctx ol { list-style: none; }
-.ctx li { display: grid; grid-template-columns: 70px 1fr; padding: 14px 0; border-top: 1px solid var(--line); }
-.ctx li:last-child { border-bottom: 1px solid var(--line); }
-.ctx .n { font-family: var(--f-display); font-style: italic; font-size: 44px; color: var(--clay); line-height: 1; }
-.ctx li b { font-size: 34px; font-weight: 600; display: block; line-height: 1.2; }
-.ctx li span { font-size: 27px; color: var(--mute); line-height: 1.32; display: block; margin-top: 4px; }
-.goal { margin-top: auto; font-family: var(--f-display); font-style: italic; font-size: 34px; line-height: 1.28; border-top: 2px solid var(--ink); padding-top: 18px; }
-.goal small { display: none; }
+.s11 .inner { bottom: 168px; }
+.s11 .grid { display: grid; grid-template-columns: 1fr 760px; gap: 70px; margin-top: 28px; flex: 1; }
+.s11 .rows { display: flex; flex-direction: column; gap: 22px; justify-content: center; }
+.s11 .nrow { min-height: 150px; }
+.s11 .q4 { padding: 40px 44px; border-radius: 30px; display: flex; flex-direction: column; }
+.s11 .q4 .lab { color: #5FE0B8; }
+.s11 .q4 h3 { font-family: var(--f-head); font-weight: 800; font-size: 46px; line-height: 1.1; margin-bottom: 18px; }
+.s11 .q4 li { list-style: none; display: grid; grid-template-columns: 54px 1fr; gap: 16px; align-items: center; padding: 18px 0; border-top: 1px solid rgba(255,255,255,.22); font-size: 30px; line-height: 1.25; }
+.s11 .q4 li i { width: 44px; height: 44px; border-radius: 50%; background: var(--green); display: grid; place-items: center; font-style: normal; font-family: var(--f-head); font-weight: 800; font-size: 26px; }
+.s11 .final { position: absolute; left: 110px; right: 110px; bottom: 44px; height: 92px; border-radius: 46px; background: var(--deep); color: var(--white); display: flex; align-items: center; padding: 0 44px; font-family: var(--f-head); font-weight: 700; font-size: 36px; }
+.s11 .final span { color: #5FE0B8; margin-left: 10px; }
+.s11 .final .pg { margin-left: auto; font-size: 26px; color: #5FE0B8; white-space: nowrap; }
+.s11 .final .pg span { color: #9CCBC1; margin: 0; }
 
 /* ===========================================
-   12 ОШИБКИ
+   12 СПАСИБО
    =========================================== */
-.err { display: grid; grid-template-columns: 700px 1fr; gap: 100px; margin-top: 36px; flex: 1; }
-.calc { font-family: var(--f-display); font-weight: 800; font-size: 100px; line-height: 1; letter-spacing: -0.03em; }
-.calc sup { font-size: 54px; vertical-align: 42px; letter-spacing: 0; }
-.calc i { color: var(--clay); }
-.err .calc + p { font-size: 32px; line-height: 1.36; margin-top: 22px; }
-.err .stripe { margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 30px; line-height: 1.34; }
-.err .stripe b { font-family: var(--f-display); font-size: 40px; color: var(--clay); font-weight: 700; }
-.etab .row { display: grid; grid-template-columns: 330px 1fr; gap: 30px; padding: 22px 0; border-top: 1px solid var(--line); align-items: baseline; }
-.etab .row:last-child { border-bottom: 1px solid var(--line); }
-.etab .row b { font-size: 33px; font-weight: 600; line-height: 1.2; }
-.etab .row span { font-size: 30px; line-height: 1.32; }
-.etab .row span em { font-style: normal; color: var(--clay); font-weight: 600; }
-.etab .hd { font-size: 24px; letter-spacing: .12em; text-transform: uppercase; color: var(--mute); margin-bottom: 14px; }
-
-/* ===========================================
-   13 ОГРАНИЧИТЕЛИ
-   =========================================== */
-.gd { position: relative; margin-top: 60px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px; }
-.gd::before { content: ""; position: absolute; left: 0; right: 0; top: 17px; height: 2px; background: var(--ink); }
-.gd > div { position: relative; padding-top: 58px; }
-.gd > div::before { content: ""; position: absolute; left: 0; top: 4px; width: 28px; height: 28px; border-radius: 50%; background: var(--paper); border: 4px solid var(--clay); }
-.gd h3 { font-family: var(--f-display); font-size: 42px; font-weight: 700; }
-.gd p { font-size: 31px; line-height: 1.34; margin-top: 8px; color: var(--mute); }
-.gd .trip { grid-column: 1 / -1; padding-top: 0; }
-.gd .trip::before { display: none; }
-.split2 { display: grid; grid-template-columns: 1fr 1fr; gap: 90px; margin-top: auto; padding-top: 30px; border-top: 2px solid var(--ink); }
-.split2 h3 { font-family: var(--f-display); font-size: 40px; line-height: 1.15; margin-bottom: 14px; }
-.split2 p { font-size: 31px; line-height: 1.36; }
-.split2 .big2 { font-family: var(--f-display); font-style: italic; font-size: 44px; line-height: 1.22; }
-
-/* ===========================================
-   14 ПРОВЕРКА
-   =========================================== */
-.vr3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 44px; }
-.vr3 > div { padding: 0 44px; border-left: 1px solid var(--line); }
-.vr3 > div:first-child { padding-left: 0; border-left: none; }
-.vr3 .n { font-family: var(--f-display); font-style: italic; font-size: 96px; color: var(--clay); line-height: 1; }
-.vr3 h3 { font-size: 38px; font-weight: 600; margin: 12px 0 10px; line-height: 1.2; }
-.vr3 p { font-size: 30px; line-height: 1.36; color: var(--mute); }
-.stat { display: grid; grid-template-columns: 560px 1fr; gap: 70px; margin-top: auto; padding-top: 28px; border-top: 2px solid var(--ink); align-items: center; }
-.stat .big { font-family: var(--f-display); font-weight: 800; font-size: 170px; line-height: 1; color: var(--clay); letter-spacing: -0.04em; }
-.stat p { font-size: 32px; line-height: 1.36; }
-.stat p + p { font-size: 28px; color: var(--mute); margin-top: 14px; }
-
-/* ===========================================
-   15 СУБАГЕНТЫ
-   =========================================== */
-.tbl .row { display: grid; grid-template-columns: 320px 1fr; gap: 40px; padding: 26px 0; border-top: 1px solid var(--line); align-items: baseline; }
-.tbl .row:last-child { border-bottom: 1px solid var(--line); }
-.tbl .row > b { font-family: var(--f-display); font-size: 40px; font-weight: 700; line-height: 1.15; }
-.tbl .row > div { font-size: 30px; line-height: 1.36; }
-.tbl .row > div em { font-style: normal; font-weight: 600; color: var(--clay); }
-.tbl.first { margin-top: 36px; }
-.callout { margin-top: auto; background: var(--paper-2); padding: 28px 36px; font-size: 32px; line-height: 1.36; border-left: 8px solid var(--clay); }
-
-/* ===========================================
-   16 ФРЕЙМВОРКИ
-   =========================================== */
-.fw .row { grid-template-columns: 330px 1fr 1fr; padding: 18px 0; }
-.fw .row > b { font-size: 36px; }
-.fw .row > div { font-size: 27px; line-height: 1.32; }
-.fw .row.h { padding: 10px 0; font-size: 24px; letter-spacing: .12em; text-transform: uppercase; color: var(--mute); }
-.fw .row.h > * { font-family: var(--f-body); font-size: 24px; font-weight: 500; }
-.fw .row .code-i { font-family: var(--f-code); font-size: 25px; color: var(--clay); }
-
-/* ===========================================
-   17 ДОЛГИЕ ЗАДАЧИ
-   =========================================== */
-.rl { display: grid; grid-template-columns: 1fr 100px 1.25fr; align-items: stretch; margin-top: 26px; }
-.rl .bx { border: 2px solid var(--ink); padding: 24px 34px 26px; }
-.rl .bx small { font-size: 24px; letter-spacing: .12em; text-transform: uppercase; color: var(--clay); font-weight: 600; display: block; }
-.rl .bx h3 { font-family: var(--f-display); font-size: 40px; line-height: 1.12; margin: 6px 0 12px; }
-.rl .bx li { font-size: 28px; line-height: 1.32; padding: 3px 0; list-style: none; }
-.rl .bx ol li { display: grid; grid-template-columns: 44px 1fr; }
-.rl .bx ol li::before { content: counter(c) "."; counter-increment: c; font-family: var(--f-display); font-style: italic; color: var(--clay); }
-.rl .bx ol { counter-reset: c; }
-.rl .bx ul li::before { content: "— "; color: var(--clay); }
-.rl .ar { display: grid; place-items: center; }
-.rl .ar svg { width: 80px; height: 40px; }
-.rl .bx.on { background: var(--ink); color: var(--paper); }
-.rl .bx.on small { color: var(--clay-d); }
-.rl .bx.on li::before { color: var(--clay-d); }
-.after { margin-top: 22px; font-family: var(--f-display); font-style: italic; font-size: 34px; }
-.two-n { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-top: auto; padding-top: 24px; border-top: 1px solid var(--line); }
-.two-n h3 { font-size: 24px; letter-spacing: .12em; text-transform: uppercase; color: var(--clay); font-weight: 600; margin-bottom: 8px; }
-.two-n p { font-size: 27px; line-height: 1.34; }
-
-/* ===========================================
-   18 ЛЕСА
-   =========================================== */
-.sc { display: grid; grid-template-columns: 1fr 700px; gap: 80px; margin-top: 24px; }
-.sc .stm { font-family: var(--f-display); font-size: 44px; line-height: 1.2; font-weight: 500; }
-.sc .stm i { color: var(--clay-d); }
-.sc ul { list-style: none; margin-top: 26px; }
-.sc li { padding: 14px 0; border-top: 1px solid var(--line-d); font-size: 28px; line-height: 1.36; }
-.sc li b { color: var(--clay-d); font-weight: 600; }
-.sc .test { margin-top: 20px; border-left: 6px solid var(--clay-d); padding-left: 26px; font-size: 29px; line-height: 1.36; }
-.sc .drawing { align-self: stretch; display: flex; align-items: flex-end; }
-.sc .drawing svg { width: 700px; height: 640px; }
-
-/* ===========================================
-   19 СЕМЬ РЕШЕНИЙ
-   =========================================== */
-.sev .row { display: grid; grid-template-columns: 80px 500px 1fr; gap: 20px; padding: 19px 0; border-top: 1px solid var(--line); align-items: baseline; }
-.sev .row:last-child { border-bottom: 1px solid var(--line); }
-.sev .row > .n { font-family: var(--f-display); font-style: italic; font-size: 40px; color: var(--clay); line-height: 1; font-weight: 400; }
-.sev .row > b { font-family: var(--f-body); font-size: 33px; font-weight: 600; line-height: 1.2; }
-.sev .row > span { font-size: 28px; line-height: 1.32; color: var(--ink); }
-.sev span em { font-style: normal; color: var(--clay); font-weight: 600; }
-
-/* ===========================================
-   20 ПРОДУКТ
-   =========================================== */
-.prod { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 50px; }
-.prod > div { padding: 0 44px; border-left: 1px solid var(--line); }
-.prod > div:first-child { padding-left: 0; border-left: none; }
-.prod .n { font-family: var(--f-display); font-style: italic; font-size: 90px; color: var(--clay); line-height: 1; }
-.prod h3 { font-family: var(--f-display); font-size: 42px; line-height: 1.15; margin: 12px 0 14px; }
-.prod p { font-size: 30px; line-height: 1.36; color: var(--mute); }
-
-/* ===========================================
-   21 ФИНАЛ
-   =========================================== */
-.fin { display: flex; flex-direction: column; justify-content: center; flex: 1; }
-.fin .q { font-family: var(--f-display); font-weight: 700; font-size: 104px; line-height: 1.06; letter-spacing: -0.02em; max-width: 1500px; }
-.fin .q i { font-weight: 700; }
-.fin .th { margin-top: 70px; font-size: 40px; display: flex; gap: 50px; align-items: baseline; border-top: 1px solid rgba(243,239,230,.5); padding-top: 28px; }
-.fin .th span { font-family: var(--f-display); font-style: italic; font-size: 54px; }
+.s12 .ph { position: absolute; left: 0; right: 0; top: 0; height: 640px; border-radius: 0 0 0 0; }
+.s12::before { z-index: 3; }
+.s12 .ph .corner { left: 0; bottom: 0; width: 360px; height: 90px; border-radius: 0 40px 0 0; }
+.s12 .ttl { position: absolute; left: 0; right: 0; top: 690px; text-align: center; font-family: var(--f-head); font-weight: 800; font-size: 112px; line-height: 1; color: var(--deep); letter-spacing: -0.02em; }
+.s12 .ttl span { color: var(--green); }
+.s12 .sub { position: absolute; left: 0; right: 0; top: 836px; text-align: center; font-size: 40px; color: var(--mute); font-weight: 600; }
+.s12 .by { position: absolute; left: 0; right: 0; bottom: 56px; text-align: center; font-size: 28px; color: var(--mute); }
+.s12 .by b { color: var(--deep); font-family: var(--f-head); }
 
 /* ===========================================
    ИНТЕРФЕЙС ВНЕ СЦЕНЫ
    =========================================== */
-.progress { position: fixed; left: 0; bottom: 0; height: 4px; background: #B4472B; width: 0; transition: width .5s var(--ease); z-index: 50; }
-body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИЯ · E — выйти"; position: fixed; left: 16px; top: 12px; background: #B4472B; color: #fff; font: 600 14px 'Golos Text', sans-serif; padding: 6px 12px; }
+.progress { position: fixed; left: 0; bottom: 0; height: 5px; background: #2BB48C; width: 0; transition: width .4s ease; z-index: 50; }
+body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИЯ · E — выйти"; position: fixed; left: 16px; top: 12px; background: #2BB48C; color: #fff; font: 700 14px 'Montserrat', sans-serif; padding: 6px 12px; border-radius: 6px; }
 </style>
 </head>
 <body>
+
+<!-- ===========================================
+     СПРАЙТ: рисованные пейзажи вместо фото.
+     Чтобы поставить своё фото, замените <svg class="art"> внутри .ph на <img>.
+     =========================================== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9FD6E6"/><stop offset="1" stop-color="#E8F6EE"/></linearGradient>
+    <linearGradient id="lake" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3FB6B0"/><stop offset="1" stop-color="#0E6E78"/></linearGradient>
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5FD0C2"/><stop offset="1" stop-color="#0F7F86"/></linearGradient>
+  </defs>
+
+  <!-- озеро и горы -->
+  <symbol id="land1" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice">
+    <rect width="800" height="330" fill="url(#sky)"/>
+    <circle cx="610" cy="110" r="46" fill="#FFF4CC"/>
+    <path d="M0 300L110 180 190 250 330 120 470 262 560 200 700 282 800 220V330H0Z" fill="#8DB9C0"/>
+    <path d="M330 120L300 160 330 150 360 168Z M110 180L88 208 110 200 130 214Z" fill="#fff" opacity=".85"/>
+    <path d="M0 320L90 248 200 308 320 226 440 310 560 258 690 318 800 276V340H0Z" fill="#4C9091"/>
+    <path d="M0 338Q160 286 320 330T640 326T800 312V360H0Z" fill="#1E6B5E"/>
+    <path d="M30 336l14-42 14 42zM70 340l12-36 12 36zM110 336l15-44 15 44zM170 332l13-38 13 38zM250 338l14-40 14 40zM330 340l12-34 12 34zM420 336l15-42 15 42zM520 336l13-36 13 36zM610 334l15-42 15 42zM700 330l13-36 13 36zM760 326l12-34 12 34z" fill="#0F4D45"/>
+    <rect y="350" width="800" height="150" fill="url(#lake)"/>
+    <g stroke="#fff" stroke-width="3" opacity=".28" stroke-linecap="round"><path d="M60 392H240M300 420H520M110 450H330M470 476H700M560 384H740"/></g>
+    <path d="M380 356l8 40M420 356l8 44M340 360l6 30" stroke="#0F4D45" stroke-width="10" opacity=".35"/>
+  </symbol>
+
+  <!-- бухта и скала -->
+  <symbol id="land2" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice">
+    <rect width="800" height="620" fill="url(#sky)"/>
+    <circle cx="560" cy="170" r="60" fill="#FFF4CC"/>
+    <path d="M0 520L180 410 330 500 520 380 800 500V620H0Z" fill="#8DB9C0"/>
+    <rect y="600" width="800" height="400" fill="url(#sea)"/>
+    <g stroke="#fff" stroke-width="4" opacity=".35" stroke-linecap="round"><path d="M360 660H560M420 720H700M300 790H520M480 870H740M380 940H600"/></g>
+    <path d="M0 140L230 90 340 250 280 420 380 560 300 700 190 1000H0Z" fill="#2F8F6B"/>
+    <path d="M0 140L230 90 340 250 280 420 380 560 300 700 190 1000" fill="none" stroke="#E7D7A8" stroke-width="22" stroke-linecap="round" opacity=".85"/>
+    <path d="M40 300l16-48 16 48zM100 340l14-44 14 44zM60 440l16-48 16 48zM140 470l14-42 14 42zM90 600l16-50 16 50z" fill="#0F4D45" opacity=".8"/>
+    <path d="M440 800q40-26 90-8l-14 24q-40-12-76 8z" fill="#fff" opacity=".9"/>
+  </symbol>
+
+  <!-- панорама: лес, озеро, снежные вершины -->
+  <symbol id="land3" viewBox="0 0 1920 640" preserveAspectRatio="xMidYMid slice">
+    <rect width="1920" height="400" fill="url(#sky)"/>
+    <circle cx="1480" cy="130" r="64" fill="#FFF4CC"/>
+    <path d="M0 360L180 180 320 290 520 90 740 310 900 210 1100 330 1300 150 1500 300 1700 200 1920 330V400H0Z" fill="#8DB9C0"/>
+    <path d="M520 90L470 160 520 148 560 172Z M1300 150L1260 206 1300 196 1336 214Z M180 180L146 228 180 220 208 236Z" fill="#fff" opacity=".9"/>
+    <path d="M0 390L220 280 420 380 700 270 980 390 1240 290 1520 392 1760 300 1920 372V440H0Z" fill="#4C9091"/>
+    <path d="M0 420Q300 350 640 410T1280 406T1920 392V470H0Z" fill="#1E6B5E"/>
+    <g fill="#0F4D45"><path d="M60 420l20-60 20 60zM140 428l18-52 18 52zM240 420l22-62 22 62zM380 424l18-54 18 54zM520 428l20-58 20 58zM700 424l22-60 22 60zM900 426l18-54 18 54zM1100 424l22-60 22 60zM1300 424l20-58 20 58zM1500 424l22-62 22 62zM1700 420l18-54 18 54zM1840 416l20-58 20 58z"/></g>
+    <rect y="450" width="1920" height="190" fill="url(#lake)"/>
+    <g stroke="#fff" stroke-width="4" opacity=".28" stroke-linecap="round"><path d="M120 500H520M700 540H1180M260 590H700M1000 600H1500M1300 510H1740"/></g>
+  </symbol>
+</svg>
+
 <div class="deck-viewport">
 <main class="deck-stage" id="deckStage">
 
 <!-- ================= 01 ТИТУЛ ================= -->
-<section class="slide paper s-title active">
-  <div class="left">
-    <div class="org rv">Маркетинг программных продуктов и услуг</div>
-    <h1 class="rv" style="--d:1">Что такое <i>harness?</i></h1>
-    <p class="sub rv" style="--d:2">Разбор на примере Claude Code, OpenAI и LangChain</p>
+<section class="slide s1 active">
+  <div class="tagp rv">Маркетинг программных продуктов и услуг</div>
+  <h1 class="rv" style="--d:1">HARNESS <span>в ИИ</span></h1>
+  <p class="sub rv" style="--d:2">Что на самом деле покупает клиент, когда покупает ИИ-продукт</p>
+  <div class="ph rv" style="--d:3">
+    <svg class="art" aria-label="Пейзаж: озеро и горы"><use href="#land1" width="100%" height="100%"/></svg>
+    <div class="corner"></div>
   </div>
-  <div class="by rv" style="--d:3">Мешков Владислав <span>· группа 477901 · БГУИР, 2026</span><br><span>По материалам статьи Akshay, перевод на Хабре</span></div>
-  <div class="panel">
-    <!-- строительные леса: образ, на котором держится вся статья -->
-    <svg viewBox="0 0 380 740" fill="none" stroke="#F3EFE6" stroke-width="5" stroke-linecap="square" aria-label="Строительные леса">
-      <path d="M40 20V720M190 20V720M340 20V720"/>
-      <path d="M20 120H360M20 280H360M20 440H360M20 600H360" stroke-width="7"/>
-      <path d="M40 120L190 280M190 120L40 280M190 120L340 280M340 120L190 280" stroke-width="3"/>
-      <path d="M40 440L190 600M190 440L340 600" stroke-width="3"/>
-      <path d="M40 280L190 440M340 280L190 440" stroke-width="3" opacity=".55"/>
-    </svg>
-    <p>Леса сами ничего не строят, но без них до верхних этажей не добраться</p>
-  </div>
+  <div class="by rv" style="--d:4"><b>Мешков Владислав</b><span>группа 477901 · БГУИР, 2026</span></div>
 </section>
 
 <!-- ================= 02 ПРОБЛЕМА ================= -->
-<section class="slide dark s-prob">
-  <div class="hdr"><span>Что такое harness?</span><span>Проблема</span></div>
+<section class="slide s2">
   <div class="inner">
-    <h2 class="rv">Демо работает.<br><i>Production</i> — нет.</h2>
-    <div class="sym">
-      <div class="rv" style="--d:1"><small>раз</small>Модель забывает, что делала три шага назад</div>
-      <div class="rv" style="--d:2"><small>два</small>Вызовы инструментов падают без ошибок</div>
-      <div class="rv" style="--d:3"><small>три</small>Контекстное окно забивается мусором</div>
-    </div>
-    <p class="turn rv" style="--d:4">Проблема не в модели.<br>Проблема <i>во всём, что её окружает.</i></p>
-  </div>
-  <div class="ftr"><span></span><span class="pg"></span></div>
-</section>
-
-<!-- ================= 03 LANGCHAIN ================= -->
-<section class="slide paper">
-  <div class="hdr"><span>Что такое harness?</span><span>Доказательство</span></div>
-  <div class="inner">
-    <div class="kick rv">LangChain</div>
-    <h2 class="rv" style="--d:1">Та же модель, те же веса — <i>другая обвязка</i></h2>
-    <div class="proof">
-      <div>
-        <div class="cap rv" style="--d:2">TerminalBench 2.0 · место в рейтинге</div>
-        <div class="big rv" style="--d:2">30+ → <i>5</i></div>
-        <p class="rv" style="--d:3">Агент поднялся из-за пределов топ-30 на 5-е место, изменив только инфраструктуру вокруг LLM.</p>
-        <svg class="rv" style="--d:4" viewBox="0 0 1000 190" aria-label="Шкала мест: с 30+ на 5-е">
-          <line x1="40" y1="110" x2="960" y2="110" stroke="#1F1D1A" stroke-width="2"/>
-          <g stroke="#1F1D1A" stroke-width="2"><path d="M40 98v24M270 98v24M500 98v24M730 98v24M960 98v24"/></g>
-          <g font-family="Golos Text" font-size="26" fill="#6B6459" text-anchor="middle"><text x="40" y="160">1</text><text x="270" y="160">10</text><text x="500" y="160">20</text><text x="730" y="160">30</text><text x="960" y="160">30+</text></g>
-          <circle cx="960" cy="110" r="16" fill="#F3EFE6" stroke="#1F1D1A" stroke-width="4"/>
-          <circle cx="155" cy="110" r="16" fill="#B4472B"/>
-          <path d="M945 86C760 10 340 10 170 84" stroke="#B4472B" stroke-width="4" fill="none"/>
-          <path d="M186 70L164 88L190 98" stroke="#B4472B" stroke-width="4" fill="none"/>
-          <text x="155" y="60" font-family="Golos Text" font-size="26" fill="#B4472B" text-anchor="middle" font-weight="600">5</text>
-        </svg>
-      </div>
-      <div class="vr"></div>
-      <div>
-        <div class="cap rv" style="--d:3">Отдельное исследование</div>
-        <div class="big rv" style="--d:3">76,4<span style="font-size:90px">%</span></div>
-        <p class="rv" style="--d:4">pass rate: LLM оптимизировал саму инфраструктуру и превзошёл системы, спроектированные вручную.</p>
-        <p class="q rv" style="--d:5">У этой инфраструктуры теперь есть название — <b>agent harness</b>.</p>
-      </div>
-    </div>
-  </div>
-  <div class="ftr"><span>Источник: статья Akshay (перевод на Хабре)</span><span class="pg"></span></div>
-</section>
-
-<!-- ================= 04 ОПРЕДЕЛЕНИЕ ================= -->
-<section class="slide paper2">
-  <div class="hdr"><span>Что такое harness?</span><span>Определение</span></div>
-  <div class="inner">
-    <div class="kick rv">Agent harness</div>
-    <h2 class="rv" style="--d:1">Всё, что не модель</h2>
-    <div class="def">
-      <div class="pull rv" style="--d:2">«Если ты не модель — ты <i class="em">харнесс</i>»<small>Vivek Trivedy, LangChain</small></div>
-      <dl class="dl rv" style="--d:3">
-        <dt>Что это</dt>
-        <dd>Вся программная инфраструктура вокруг LLM: цикл, инструменты, память, контекст, состояние, ошибки, ограничения.</dd>
-        <dt>Агент и harness</dt>
-        <dd><b>Агент</b> — результирующее поведение, с которым общается пользователь. <b>Harness</b> — механизм, который это поведение производит.</dd>
-        <dt>На практике</dt>
-        <dd>Кто говорит «я построил агента» — построил harness и направил его на модель.</dd>
-      </dl>
-    </div>
-  </div>
-  <div class="ftr"><span></span><span class="pg"></span></div>
-</section>
-
-<!-- ================= 05 АНАЛОГИЯ ================= -->
-<section class="slide paper">
-  <div class="hdr"><span>Что такое harness?</span><span>Аналогия</span></div>
-  <div class="inner">
-    <div class="kick rv">Beren Millidge, 2023</div>
-    <h2 class="rv" style="--d:1">Harness — это <i>операционная система</i></h2>
-    <div class="os">
-      <div class="row h rv" style="--d:2"><span>В компьютере</span><span></span><span>В LLM-системе</span></div>
-      <div class="row rv" style="--d:2"><div class="a">CPU без RAM, диска и I/O</div><div class="ar">→</div><div class="b">Голая LLM</div></div>
-      <div class="row rv" style="--d:3"><div class="a">RAM<small>быстрая, но ограниченная</small></div><div class="ar">→</div><div class="b">Контекстное окно</div></div>
-      <div class="row rv" style="--d:4"><div class="a">Диск<small>большой, но медленный</small></div><div class="ar">→</div><div class="b">Внешние базы данных</div></div>
-      <div class="row rv" style="--d:5"><div class="a">Драйверы устройств</div><div class="ar">→</div><div class="b">Интеграции с инструментами</div></div>
-      <div class="row last rv" style="--d:6"><div class="a">Операционная система</div><div class="ar">→</div><div class="b">Harness</div></div>
-    </div>
-    <p class="note rv os" style="--d:7;font-family:var(--f-display);font-style:italic;font-size:36px;color:var(--mute);margin-top:24px">«Мы заново изобрели архитектуру фон Неймана»</p>
-  </div>
-  <div class="ftr"><span>«Scaffolded LLMs as Natural Language Computers»</span><span class="pg"></span></div>
-</section>
-
-<!-- ================= 06 ТРИ УРОВНЯ ================= -->
-<section class="slide paper2">
-  <div class="hdr"><span>Что такое harness?</span><span>Уровни инжиниринга</span></div>
-  <div class="inner">
-    <div class="kick rv">Три концентрических уровня</div>
-    <h2 class="rv" style="--d:1">Вокруг модели <i>три слоя</i></h2>
-    <div class="lv">
-      <svg class="rv" style="--d:2" viewBox="0 0 760 700" aria-label="Вложенные круги: prompt, context, harness engineering">
-        <circle cx="380" cy="350" r="340" fill="#B4472B"/>
-        <circle cx="380" cy="440" r="250" fill="#F3EFE6"/>
-        <circle cx="380" cy="530" r="160" fill="#1F1D1A"/>
-        <g font-family="Playfair Display" font-weight="700" text-anchor="middle">
-          <text x="380" y="118" font-size="34" fill="#F3EFE6">Harness engineering</text>
-          <text x="380" y="296" font-size="32" fill="#1F1D1A">Context engineering</text>
-          <text x="380" y="520" font-size="32" fill="#F3EFE6">Prompt</text>
-          <text x="380" y="562" font-size="32" fill="#F3EFE6">engineering</text>
-        </g>
-      </svg>
-      <ol>
-        <li class="rv" style="--d:3"><b>Prompt engineering</b><span>Формирует инструкции, которые получает модель.</span></li>
-        <li class="rv" style="--d:4"><b>Context engineering</b><span>Управляет тем, что модель видит и когда.</span></li>
-        <li class="rv" style="--d:5"><b>Harness engineering</b><span>Оба предыдущих плюс вся прикладная инфраструктура: оркестрация инструментов, состояние, восстановление после ошибок, проверка, безопасность, жизненный цикл.</span></li>
-      </ol>
-    </div>
-  </div>
-  <div class="ftr"><span>Harness — не обёртка вокруг промпта, а система автономного поведения</span><span class="pg"></span></div>
-</section>
-
-<!-- ================= 07 КОМПОНЕНТЫ ================= -->
-<section class="slide paper">
-  <div class="hdr"><span>Что такое harness?</span><span>Устройство</span></div>
-  <div class="inner">
-    <div class="kick rv">Production-харнесс</div>
-    <h2 class="rv" style="--d:1">Из чего он <i>состоит</i></h2>
-    <div class="toc">
-      <div>
-        <div class="it rv" style="--d:2"><div class="n">1</div><div><b>Оркестрационный цикл</b><span>сердцебиение системы</span></div></div>
-        <div class="it rv" style="--d:2"><div class="n">2</div><div><b>Инструменты</b><span>руки агента</span></div></div>
-        <div class="it rv" style="--d:3"><div class="n">3</div><div><b>Память</b><span>внутри сессии и между сессиями</span></div></div>
-        <div class="it rv" style="--d:3"><div class="n">4</div><div><b>Управление контекстом</b><span>борьба с context rot</span></div></div>
-        <div class="it rv" style="--d:4"><div class="n">5</div><div><b>Конструирование промпта</b><span>что модель видит на каждом шаге</span></div></div>
-        <div class="it rv" style="--d:4"><div class="n">6</div><div><b>Парсинг вывода</b><span>структурированные tool_calls вместо текста</span></div></div>
+    <div class="grid">
+      <div class="ph rv">
+        <svg class="art" aria-label="Пейзаж: бухта и скала"><use href="#land2" width="100%" height="100%"/></svg>
+        <div class="corner"></div>
       </div>
       <div>
-        <div class="it rv" style="--d:3"><div class="n">7</div><div><b>Управление состоянием</b><span>чекпоинты и возобновление работы</span></div></div>
-        <div class="it rv" style="--d:3"><div class="n">8</div><div><b>Обработка ошибок</b><span>сбои не должны накапливаться</span></div></div>
-        <div class="it rv" style="--d:4"><div class="n">9</div><div><b>Ограничители и безопасность</b><span>что агенту разрешено</span></div></div>
-        <div class="it rv" style="--d:4"><div class="n">10</div><div><b>Циклы верификации</b><span>отличие демо от production</span></div></div>
-        <div class="it rv" style="--d:5"><div class="n">11</div><div><b>Оркестрация субагентов</b><span>делегирование подзадач</span></div></div>
-      </div>
-    </div>
-  </div>
-  <div class="ftr"><span>В статье заявлено 12 компонентов, в тексте подробно описаны 11</span><span class="pg"></span></div>
-</section>
-
-<!-- ================= 08 ЦИКЛ ================= -->
-<section class="slide paper2">
-  <div class="hdr"><span>Что такое harness?</span><span>Компонент 1 · Цикл</span></div>
-  <div class="inner">
-    <div class="kick rv">Thought → Action → Observation</div>
-    <h2 class="rv" style="--d:1">Сердцебиение агента — <i>обычный цикл</i></h2>
-    <div class="lp">
-      <div>
-        <div class="code rv" style="--d:2"><span class="k">пока</span> задача не решена:
-    промпт = <span class="k">собрать</span>(контекст)
-    ответ  = <span class="k">llm</span>(промпт)
-    <span class="k">если</span> вызовов нет:
-        <span class="k">вернуть</span> ответ     <span class="c"># финал</span>
-    результаты = <span class="k">выполнить</span>(вызовы)
-    контекст  += результаты</div>
-        <p class="code-cap rv" style="--d:3">Схема, не реальный код. Anthropic называет свой runtime «тупым циклом»: интеллект живёт в модели.</p>
-        <div class="stop rv" style="--d:4"><b>Когда цикл заканчивается</b>ответ без вызовов, лимит ходов, бюджет токенов, tripwire, прерывание пользователем, safety refusal</div>
-      </div>
-      <ol class="steps">
-        <li class="rv" style="--d:2"><div class="n">1</div><div><b>Сборка промпта</b><span>всё, что увидит модель</span></div></li>
-        <li class="rv" style="--d:3"><div class="n">2</div><div><b>Вызов модели</b><span>текст и/или запросы на вызов инструментов</span></div></li>
-        <li class="rv" style="--d:3"><div class="n">3</div><div><b>Разбор ответа</b><span>вызовов нет — конец, есть — идём дальше</span></div></li>
-        <li class="rv" style="--d:4"><div class="n">4</div><div><b>Выполнение инструментов</b><span>права, изоляция, параллельное чтение</span></div></li>
-        <li class="rv" style="--d:4"><div class="n">5</div><div><b>Упаковка результатов</b><span>ошибка — тоже результат: модель исправится</span></div></li>
-        <li class="rv" style="--d:5"><div class="n">6</div><div><b>Обновление контекста</b><span>при нехватке места запускается compaction</span></div></li>
-        <li class="rv" style="--d:5"><div class="n">7</div><div><b>Повтор</b><span>пока не сработает условие завершения</span></div></li>
-      </ol>
-    </div>
-  </div>
-  <div class="ftr"><span>Простой вопрос — 1–2 итерации, сложный рефакторинг — десятки вызовов</span><span class="pg"></span></div>
-</section>
-
-<!-- ================= 09 ИНСТРУМЕНТЫ ================= -->
-<section class="slide paper">
-  <div class="hdr"><span>Что такое harness?</span><span>Компоненты 2 и 6 · Инструменты</span></div>
-  <div class="inner">
-    <div class="kick rv">Руки агента</div>
-    <h2 class="rv" style="--d:1">Инструменты <i>и разбор вывода</i></h2>
-    <div class="cols3">
-      <div class="rv" style="--d:2">
-        <h3>Как это устроено</h3>
-        <p>Инструмент описан схемой: имя, описание, типы параметров. Схема попадает в контекст, и модель знает, что ей доступно.</p>
-        <ul style="margin-top:14px"><li>регистрация и проверка схем</li><li>извлечение аргументов</li><li>изолированное выполнение</li><li>результат — в виде наблюдения</li></ul>
-      </div>
-      <div class="rv" style="--d:3">
-        <h3>Claude Code</h3>
-        <p>Шесть категорий инструментов:</p>
-        <ul style="margin-top:14px"><li>файловые операции</li><li>поиск</li><li>выполнение</li><li>веб-доступ</li><li>анализ кода</li><li>запуск субагентов</li></ul>
-      </div>
-      <div class="rv" style="--d:4">
-        <h3>Agents SDK OpenAI</h3>
-        <p>Три вида инструментов:</p>
-        <ul style="margin-top:14px"><li><span class="mono">@function_tool</span> — свои функции</li><li>hosted tools: WebSearch, CodeInterpreter, FileSearch</li><li>инструменты MCP</li></ul>
-      </div>
-    </div>
-    <div class="band rv" style="--d:5"><h3>Парсинг вывода</h3><p>Современные harness’ы опираются на native tool calling: модель возвращает структурированные <b>tool_calls</b>, а не свободный текст. Вызовы есть — выполняем и продолжаем цикл; нет — это финальный ответ.</p></div>
-  </div>
-  <div class="ftr"><span></span><span class="pg"></span></div>
-</section>
-
-<!-- ================= 10 ПАМЯТЬ ================= -->
-<section class="slide paper2">
-  <div class="hdr"><span>Что такое harness?</span><span>Компонент 3 · Память</span></div>
-  <div class="inner">
-    <div class="kick rv">Memory</div>
-    <h2 class="rv" style="--d:1">Память работает <i>в нескольких масштабах</i></h2>
-    <div class="mem">
-      <div>
-        <h3 class="rv" style="--d:2">Два горизонта</h3>
-        <div class="tm rv" style="--d:2"><b>Краткосрочная</b><span>история диалога в рамках одной сессии</span></div>
-        <div class="tm rv" style="--d:3"><b>Долгосрочная</b><span>сохраняется между сессиями: файлы CLAUDE.md и MEMORY.md (Anthropic), JSON-хранилища с namespace (LangGraph), Sessions на SQLite или Redis (OpenAI)</span></div>
-      </div>
-      <div>
-        <h3 class="rv" style="--d:2">Три уровня в Claude Code</h3>
-        <div class="lay">
-          <div class="l rv" style="--d:3"><small>всегда загружен</small><b>Лёгкий индекс</b><span>около 150 символов на запись</span></div>
-          <div class="l rv" style="--d:4"><small>по требованию</small><b>Файлы по темам</b><span>подгружаются, когда нужны</span></div>
-          <div class="l rv" style="--d:5"><small>только через поиск</small><b>Сырые транскрипты</b><span>полная история работы</span></div>
+        <div class="lab rv">Проблема</div>
+        <h2 class="rv" style="--d:1">Модели доступны всем.<br><span class="g">Продукты — нет.</span></h2>
+        <p class="t rv" style="--d:2">GPT, Claude и Gemini подключает через API любой разработчик. А продукты на их основе работают очень по-разному.</p>
+        <div class="card deep stats rv" style="--d:3">
+          <div><div class="v">30+ <em>→ 5</em></div><p>место в рейтинге TerminalBench 2.0: та же модель, те же веса, другая обвязка</p></div>
+          <div><div class="v">76,4<em>%</em></div><p>pass rate: LLM сам оптимизировал инфраструктуру и обошёл системы, собранные вручную</p></div>
+          <div class="src">Источник: LangChain, по статье Akshay (перевод на Хабре)</div>
         </div>
       </div>
     </div>
-    <p class="tip rv" style="--d:6">Агент считает свою память подсказкой и сверяет её с актуальным состоянием, прежде чем действовать.</p>
   </div>
-  <div class="ftr"><span></span><span class="pg"></span></div>
+  <div class="mkt rv" style="--d:4"><b>Маркетинг</b>Клиент сравнивает продукты, а не модели<span class="pg"></span></div>
 </section>
 
-<!-- ================= 11 КОНТЕКСТ ================= -->
-<section class="slide paper">
-  <div class="hdr"><span>Что такое harness?</span><span>Компонент 4 · Контекст</span></div>
+<!-- ================= 03 ЧТО ТАКОЕ HARNESS ================= -->
+<section class="slide s3">
   <div class="inner">
-    <div class="kick rv">Context rot</div>
-    <h2 class="rv" style="--d:1">Контекст — <i>дефицитный ресурс</i></h2>
-    <div class="ctx">
-      <div>
-        <div class="big rv" style="--d:2">30%+</div>
-        <p class="rv" style="--d:3">на столько падает качество, когда важное оказывается в середине окна.</p>
-        <p class="rv" style="--d:4">Исследование Chroma, подтверждённое «Lost in the Middle» (Stanford). Даже окна в миллион токенов теряют в следовании инструкциям. Поэтому важное кладут в начало и конец промпта.</p>
+    <div class="grid">
+      <div class="card deep big rv">
+        <div class="lab">Определение</div>
+        <h3>Агент = Модель + <span>Harness</span></h3>
+        <p>Агент — поведение, которое видит пользователь. Harness — вся программная инфраструктура вокруг LLM: механизм, который это поведение производит.</p>
+        <div class="q">«Если ты не модель — ты харнесс»<small>Vivek Trivedy, LangChain</small></div>
       </div>
-      <ol>
-        <li class="rv" style="--d:3"><div class="n">1</div><div><b>Compaction</b><span>суммаризация истории у лимита; Claude Code сохраняет архитектурные решения и нерешённые баги</span></div></li>
-        <li class="rv" style="--d:4"><div class="n">2</div><div><b>Observation masking</b><span>старые выводы инструментов скрыты, вызовы видны (JetBrains Junie)</span></div></li>
-        <li class="rv" style="--d:5"><div class="n">3</div><div><b>Just-in-time retrieval</b><span>лёгкие идентификаторы, данные грузятся по ходу: grep, glob, head, tail вместо целых файлов</span></div></li>
-        <li class="rv" style="--d:6"><div class="n">4</div><div><b>Делегирование субагентам</b><span>исследуют широко, возвращают саммари на 1000–2000 токенов</span></div></li>
-      </ol>
-    </div>
-    <p class="goal rv" style="--d:7">Цель — минимальный набор высокосигнальных токенов, который максимизирует вероятность нужного результата.<small>Руководство Anthropic по context engineering</small></p>
-  </div>
-  <div class="ftr"><span></span><span class="pg"></span></div>
-</section>
-
-<!-- ================= 12 ОШИБКИ ================= -->
-<section class="slide paper2">
-  <div class="hdr"><span>Что такое harness?</span><span>Компонент 8 · Ошибки</span></div>
-  <div class="inner">
-    <div class="kick rv">Error handling</div>
-    <h2 class="rv" style="--d:1">Ошибки <i>накапливаются</i></h2>
-    <div class="err">
-      <div>
-        <div class="calc rv" style="--d:2">0,99<sup>10</sup> ≈ <i>0,904</i></div>
-        <p class="rv" style="--d:3">Процесс из 10 шагов с 99% успеха на каждом даёт лишь около <b>90,4%</b> сквозного успеха.</p>
-        <p class="stripe rv" style="--d:4"><b>2</b> — столько retry разрешает production-harness Stripe.</p>
-      </div>
-      <div class="etab">
-        <div class="hd rv" style="--d:2">Четыре типа ошибок в LangGraph</div>
-        <div class="row rv" style="--d:3"><b>Транзиентные</b><span>повторить с задержкой <em>(retry with backoff)</em></span></div>
-        <div class="row rv" style="--d:4"><b>Исправимые моделью</b><span>вернуть ошибку как <em>ToolMessage</em>, пусть скорректируется</span></div>
-        <div class="row rv" style="--d:5"><b>Исправимые человеком</b><span>прервать работу и запросить ввод</span></div>
-        <div class="row rv" style="--d:6"><b>Неожиданные</b><span>пробросить наружу для отладки</span></div>
+      <div class="right">
+        <div class="lab rv" style="--d:1">Три слоя вокруг модели</div>
+        <h2 class="rv" style="--d:1">От промпта <span class="g">к harness</span></h2>
+        <div class="rows">
+          <div class="card nrow rv" style="--d:2"><div class="n">1</div><div><b>Prompt engineering</b><span>формирует инструкции, которые получает модель</span></div></div>
+          <div class="card nrow rv" style="--d:3"><div class="n">2</div><div><b>Context engineering</b><span>управляет тем, что модель видит и когда</span></div></div>
+          <div class="card nrow on rv" style="--d:4"><div class="n">3</div><div><b>Harness engineering</b><span>оба слоя плюс инструменты, состояние, ошибки, проверка и безопасность</span></div></div>
+        </div>
       </div>
     </div>
   </div>
-  <div class="ftr"><span>Anthropic перехватывает сбои в обработчиках инструментов и возвращает их как результат, чтобы цикл продолжал работу</span><span class="pg"></span></div>
+  <div class="mkt rv" style="--d:5"><b>Маркетинг</b>Покупают поведение агента, а создаёт его harness<span class="pg"></span></div>
 </section>
 
-<!-- ================= 13 ОГРАНИЧИТЕЛИ ================= -->
-<section class="slide paper">
-  <div class="hdr"><span>Что такое harness?</span><span>Компонент 9 · Безопасность</span></div>
+<!-- ================= 04 АНАЛОГИЯ С ОС ================= -->
+<section class="slide s4">
   <div class="inner">
-    <div class="kick rv">Guardrails</div>
-    <h2 class="rv" style="--d:1">Модель решает, что попытаться. <i>Система — что разрешено</i></h2>
-    <div class="gd">
-      <div class="rv" style="--d:2"><h3>Input guardrails</h3><p>запускаются на первом агенте</p></div>
-      <div class="rv" style="--d:3"><h3>Tool guardrails</h3><p>запускаются при каждом вызове инструмента</p></div>
-      <div class="rv" style="--d:4"><h3>Output guardrails</h3><p>запускаются на финальном выводе</p></div>
+    <div class="head rv">
+      <div class="lab">Аналогия Beren Millidge, 2023</div>
+      <h2>Harness — это <span class="g">операционная система</span></h2>
+      <p>Голая LLM — как процессор без памяти, диска и ввода-вывода</p>
     </div>
-    <p class="rv mut" style="--d:5;font-size:30px;margin-top:26px">Три уровня в SDK OpenAI. Механизм tripwire немедленно останавливает агента.</p>
-    <div class="split2 rv" style="--d:6">
-      <div><h3>Anthropic: разрешения отделены от рассуждений модели</h3><p>Claude Code независимо контролирует около 40 возможностей инструментов.</p></div>
-      <div><h3>Три стадии</h3><p>Доверие при загрузке проекта → проверка перед каждым вызовом → явное подтверждение пользователя для рискованных операций.</p></div>
+    <div class="chain">
+      <div class="it rv" style="--d:1">
+        <div class="c"><svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><rect x="24" y="30" width="52" height="40" rx="6"/><path d="M36 30V18M50 30V18M64 30V18M36 82V70M50 82V70M64 82V70M24 42H12M24 58H12M88 42H76M88 58H76"/></svg></div>
+        <small>В компьютере: RAM</small><h3>Контекстное окно</h3><p>быстрое, но ограниченное</p>
+      </div>
+      <div class="it rv" style="--d:2">
+        <div class="c"><svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="50" cy="26" rx="28" ry="10"/><path d="M22 26V72C22 78 34 84 50 84S78 78 78 72V26M22 49C22 55 34 60 50 60S78 55 78 49"/></svg></div>
+        <small>В компьютере: диск</small><h3>Внешние базы данных</h3><p>большие, но медленные</p>
+      </div>
+      <div class="it rv" style="--d:3">
+        <div class="c"><svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="14"/><path d="M50 18V30M50 70V82M18 50H30M70 50H82M27 27L36 36M64 64L73 73M73 27L64 36M36 64L27 73"/></svg></div>
+        <small>В компьютере: драйверы</small><h3>Инструменты</h3><p>руки агента: файлы, поиск, код</p>
+      </div>
+      <div class="it on rv" style="--d:4">
+        <div class="c"><svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="22" width="68" height="56" rx="8"/><path d="M16 38H84M28 30H30M40 30H42M30 56L42 64L30 72M50 72H68"/></svg></div>
+        <small>В компьютере: ОС</small><h3>Harness</h3><p>управляет всем остальным</p>
+      </div>
+    </div>
+    <p class="quote rv" style="--d:5">«Мы заново изобрели <span>архитектуру фон Неймана</span>»</p>
+  </div>
+  <div class="mkt rv" style="--d:6"><b>Маркетинг</b>Ценность продукта — в «операционной системе», а не в «процессоре»<span class="pg"></span></div>
+</section>
+
+<!-- ================= 05 ИЗ ЧЕГО СОСТОИТ ПРОДУКТ ================= -->
+<section class="slide s5">
+  <div class="inner">
+    <div class="lab rv">Компоненты production-харнесса</div>
+    <h2 class="rv" style="--d:1">Из чего состоит <span class="g">продукт</span></h2>
+    <div class="cols">
+      <div class="col rv" style="--d:2"><div class="hd">ДЕЙСТВУЕТ</div><div class="pr">Доводит дело до конца</div><ul><li>оркестрационный цикл</li><li>инструменты</li><li>парсинг вывода</li></ul><div class="bt">АТРИБУТ 1</div></div>
+      <div class="col rv" style="--d:3"><div class="hd">ПОМНИТ</div><div class="pr">Не теряет нить</div><ul><li>память</li><li>управление контекстом</li><li>управление состоянием</li><li>конструирование промпта</li></ul><div class="bt">АТРИБУТ 2</div></div>
+      <div class="col rv" style="--d:4"><div class="hd">НЕ ПОДВОДИТ</div><div class="pr">Ловит свои ошибки</div><ul><li>обработка ошибок</li><li>циклы верификации</li></ul><div class="bt">АТРИБУТ 3</div></div>
+      <div class="col rv" style="--d:5"><div class="hd">БЕЗОПАСЕН И РАСТЁТ</div><div class="pr">Знает свои границы</div><ul><li>ограничители и безопасность</li><li>оркестрация субагентов</li></ul><div class="bt">АТРИБУТ 4</div></div>
     </div>
   </div>
-  <div class="ftr"><span></span><span class="pg"></span></div>
+  <div class="mkt rv" style="--d:6"><b>Маркетинг</b>Это характеристики для карточки сравнения продуктов<span class="pg"></span></div>
 </section>
 
-<!-- ================= 14 ПРОВЕРКА ================= -->
-<section class="slide paper2">
-  <div class="hdr"><span>Что такое harness?</span><span>Компонент 10 · Верификация</span></div>
+<!-- ================= 06 ЦИКЛ ================= -->
+<section class="slide s6">
   <div class="inner">
-    <div class="kick rv">Verification loops</div>
-    <h2 class="rv" style="--d:1">Проверка отделяет <i>демо от production</i></h2>
-    <div class="vr3">
-      <div class="rv" style="--d:2"><div class="n">i</div><h3>Правила</h3><p>Тесты, линтеры, проверка типов — детерминированная истина.</p></div>
-      <div class="rv" style="--d:3"><div class="n">ii</div><h3>Картинка</h3><p>Скриншоты через Playwright для задач с интерфейсом.</p></div>
-      <div class="rv" style="--d:4"><div class="n">iii</div><h3>LLM как судья</h3><p>Отдельный субагент оценивает результат: ловит смысловые проблемы, но добавляет задержку.</p></div>
-    </div>
-    <div class="stat rv" style="--d:5">
-      <div class="big">2–3×</div>
-      <div>
-        <p>Boris Cherny, создатель Claude Code: способность проверять свою работу улучшает качество модели в 2–3 раза.</p>
-        <p>Thoughtworks (команда Мартина Фаулера): <b>guides</b> направляют до действия, <b>sensors</b> наблюдают после.</p>
+    <div class="lab rv">Компонент 1 · оркестрационный цикл</div>
+    <h2 class="rv" style="--d:1">Цикл — <span class="g">обычный while</span></h2>
+    <div class="grid">
+      <svg class="don rv" style="--d:2" viewBox="0 0 700 700" aria-label="Цикл из четырёх шагов">
+        <g fill="none" stroke-width="140" transform="rotate(-90 350 350)">
+          <circle cx="350" cy="350" r="235" stroke="#0B4F5C" stroke-dasharray="351 1125.5" stroke-dashoffset="0"/>
+          <circle cx="350" cy="350" r="235" stroke="#2BB48C" stroke-dasharray="351 1125.5" stroke-dashoffset="-369.1"/>
+          <circle cx="350" cy="350" r="235" stroke="#0B4F5C" stroke-dasharray="351 1125.5" stroke-dashoffset="-738.2"/>
+          <circle cx="350" cy="350" r="235" stroke="#2BB48C" stroke-dasharray="351 1125.5" stroke-dashoffset="-1107.3"/>
+        </g>
+        <g font-family="Montserrat" font-weight="800" font-size="58" fill="#fff" text-anchor="middle">
+          <text x="516" y="203">1</text><text x="516" y="552">2</text><text x="184" y="552">3</text><text x="184" y="203">4</text>
+        </g>
+        <circle cx="350" cy="350" r="150" fill="#fff"/>
+        <text x="350" y="352" font-family="Montserrat" font-weight="800" font-size="56" fill="#0B4F5C" text-anchor="middle">ЦИКЛ</text>
+        <text x="350" y="396" font-family="Nunito Sans" font-weight="600" font-size="28" fill="#5A7176" text-anchor="middle">пока задача не решена</text>
+      </svg>
+      <div class="rows">
+        <div class="card nrow rv" style="--d:3"><div class="n">1</div><div><b>Собрать промпт</b><span>система, инструменты, память, история, запрос</span></div></div>
+        <div class="card nrow rv" style="--d:4"><div class="n">2</div><div><b>Вызвать модель</b><span>она отвечает текстом и/или просит вызвать инструмент</span></div></div>
+        <div class="card nrow rv" style="--d:5"><div class="n">3</div><div><b>Выполнить инструмент</b><span>проверка прав и изоляция; ошибка — тоже результат</span></div></div>
+        <div class="card nrow on rv" style="--d:6"><div class="n">4</div><div><b>Добавить результат в контекст</b><span>и снова к шагу 1; вызовов нет — это финальный ответ</span></div></div>
+        <p class="stop rv" style="--d:7"><b>Цикл останавливается:</b> ответ без вызовов, лимит ходов, бюджет токенов, tripwire, прерывание пользователем. Anthropic называет свой runtime «тупым циклом»: ум в модели, работа в harness.</p>
       </div>
     </div>
   </div>
-  <div class="ftr"><span>Подходы, которые рекомендует Anthropic</span><span class="pg"></span></div>
+  <div class="mkt rv" style="--d:8"><b>Маркетинг</b>Для клиента это «агент сам довёл дело до конца»<span class="pg"></span></div>
 </section>
 
-<!-- ================= 15 СУБАГЕНТЫ ================= -->
-<section class="slide paper">
-  <div class="hdr"><span>Что такое harness?</span><span>Компонент 11 · Субагенты</span></div>
+<!-- ================= 07 КОНТЕКСТ ================= -->
+<section class="slide s7">
   <div class="inner">
-    <div class="kick rv">Subagent orchestration</div>
-    <h2 class="rv" style="--d:1">Как делегируют <i>подзадачи</i></h2>
-    <div class="tbl first">
-      <div class="row rv" style="--d:2"><b>Claude Code</b><div><em>Fork</em> — байт-в-байт копия родительского контекста. <em>Teammate</em> — отдельная панель терминала, общение через файлы-mailbox. <em>Worktree</em> — отдельный git worktree: своя ветка на каждого агента.</div></div>
-      <div class="row rv" style="--d:3"><b>Agents SDK OpenAI</b><div><em>Agents-as-tools</em> — специалист решает ограниченную подзадачу. <em>Handoffs</em> — специалист берёт полное управление.</div></div>
-      <div class="row rv" style="--d:4"><b>LangGraph</b><div>Субагенты — вложенные графы состояний.</div></div>
+    <div class="band rv"><h2>Контекст — <span class="g">дефицитный ресурс</span></h2></div>
+    <div class="grid">
+      <div class="side">
+        <div class="card nrow rv" style="--d:1"><div class="n">1</div><div><b>Compaction</b><span>сжатие истории у лимита: решения сохраняем, мусор выбрасываем</span></div></div>
+        <div class="card nrow rv" style="--d:2"><div class="n">2</div><div><b>Маскирование</b><span>старые выводы инструментов скрыты, сами вызовы видны</span></div></div>
+      </div>
+      <div class="mid rv" style="--d:2">
+        <div class="v">30<em>%+</em></div>
+        <p>на столько падает качество, когда важное оказывается в середине окна</p>
+        <small>Chroma; «Lost in the Middle», Stanford</small>
+      </div>
+      <div class="side">
+        <div class="card nrow rv" style="--d:3"><div class="n">3</div><div><b>По требованию</b><span>данные грузятся по ходу: grep и glob вместо целых файлов</span></div></div>
+        <div class="card nrow on rv" style="--d:4"><div class="n">4</div><div><b>Субагенты</b><span>исследуют широко, возвращают саммари на 1000–2000 токенов</span></div></div>
+      </div>
     </div>
-    <p class="callout rv" style="--d:5"><b>Сначала один агент.</b> Anthropic и OpenAI советуют максимально использовать одного. Делить стоит, когда пересекающихся инструментов больше десяти или домены задач явно разделены: у мультиагентности есть накладные расходы на маршрутизацию и потери контекста при handoff.</p>
-  </div>
-  <div class="ftr"><span></span><span class="pg"></span></div>
-</section>
-
-<!-- ================= 16 ФРЕЙМВОРКИ ================= -->
-<section class="slide paper2">
-  <div class="hdr"><span>Что такое harness?</span><span>Реализации</span></div>
-  <div class="inner">
-    <div class="kick rv">Один паттерн, разные подходы</div>
-    <h2 class="rv" style="--d:1">Как harness строят <i>на практике</i></h2>
-    <div class="tbl fw" style="margin-top:20px">
-      <div class="row h rv" style="--d:2"><span>Фреймворк</span><span>Как устроен</span><span>Что особенного</span></div>
-      <div class="row rv" style="--d:2"><b>Claude Agent SDK</b><div>Одна функция <span class="code-i">query()</span> возвращает async-итератор сообщений</div><div>Цикл Gather → Act → Verify; интеллект в модели</div></div>
-      <div class="row rv" style="--d:3"><b>OpenAI Agents SDK</b><div>Класс Runner: async, sync, streamed</div><div>Code-first: логика на Python, без графовых DSL. Codex: Core, App Server, клиенты с одним harness’ом</div></div>
-      <div class="row rv" style="--d:4"><b>LangGraph</b><div>Граф состояний: узлы <span class="code-i">llm_call</span> и <span class="code-i">tool_node</span></div><div>Условное ребро: есть вызовы — в tool_node, нет — в END. Вырос из AgentExecutor</div></div>
-      <div class="row rv" style="--d:5"><b>CrewAI</b><div>Agent, Task, Crew: роли, цели, предыстория</div><div>Flows — детерминированный скелет вокруг автономных Crews</div></div>
-      <div class="row rv" style="--d:6"><b>AutoGen</b><div>Core, AgentChat, Extensions</div><div>Пять паттернов: sequential, concurrent, group chat, handoff, magentic</div></div>
+    <div class="mem rv" style="--d:5">
+      <div class="t">Память в Claude Code</div>
+      <div><b>Индекс</b>~150 символов на запись, всегда в контексте</div>
+      <div><b>Файлы по темам</b>подгружаются по требованию</div>
+      <div><b>Транскрипты</b>доступны только через поиск</div>
     </div>
   </div>
-  <div class="ftr"><span>AutoGen эволюционирует в Microsoft Agent Framework</span><span class="pg"></span></div>
+  <div class="mkt rv" style="--d:6"><b>Маркетинг</b>Клиент ощущает это как «агент не тупеет к концу работы»<span class="pg"></span></div>
 </section>
 
-<!-- ================= 17 ДОЛГИЕ ЗАДАЧИ ================= -->
-<section class="slide paper">
-  <div class="hdr"><span>Что такое harness?</span><span>Долгие задачи · Состояние</span></div>
+<!-- ================= 08 НАДЁЖНОСТЬ ================= -->
+<section class="slide s8">
   <div class="inner">
-    <div class="kick rv">Ralph Loop · Anthropic</div>
-    <h2 class="rv" style="--d:1">Когда задача длиннее <i>одного контекстного окна</i></h2>
-    <div class="rl">
-      <div class="bx rv" style="--d:2"><small>один раз</small><h3>Initializer Agent</h3><ul><li>init-скрипт</li><li>progress-файл</li><li>список фич</li><li>первый git-коммит</li></ul></div>
-      <div class="ar rv" style="--d:3"><svg viewBox="0 0 80 40" fill="none" stroke="#B4472B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20h62M52 6l16 14-16 14"/></svg></div>
-      <div class="bx on rv" style="--d:4"><small>каждая следующая сессия</small><h3>Coding Agent</h3><ol><li>Читает git-логи и progress-файл, чтобы сориентироваться</li><li>Берёт незавершённую фичу с наивысшим приоритетом</li><li>Работает над ней</li><li>Делает коммит и пишет саммари</li></ol></div>
-    </div>
-    <p class="after rv" style="--d:5">Файловая система обеспечивает преемственность между окнами: git-коммиты — чекпоинты, progress-файлы — черновики.</p>
-    <div class="two-n rv" style="--d:6">
-      <div><h3>LangGraph</h3><p>Состояние — типизированные словари; чекпоинты на границах super-step: возобновление и отладка «с машиной времени».</p></div>
-      <div><h3>OpenAI</h3><p>Четыре стратегии: память приложения, SDK sessions, Conversations API на сервере или цепочка <b>previous_response_id</b>.</p></div>
+    <div class="lab rv">Ошибки, проверка, безопасность</div>
+    <h2 class="rv" style="--d:1">Надёжность — то, <span class="g">за что платят</span></h2>
+    <div class="cards">
+      <div class="card rv" style="--d:2"><div class="bd">90,4%</div><h3>Ошибки копятся</h3><p>10 шагов по 99% успеха дают на выходе лишь ~90,4%. Сбой возвращают модели как результат, а число повторов ограничивают.</p><small>У Stripe — не больше двух</small></div>
+      <div class="card rv" style="--d:3"><div class="bd">2–3×</div><h3>Проверка работы</h3><p>Тесты, скриншоты через Playwright или отдельный LLM-судья: умение проверять себя поднимает качество в 2–3 раза.</p><small>Boris Cherny, создатель Claude Code</small></div>
+      <div class="card rv" style="--d:4"><div class="bd">~40</div><h3>Права под контролем</h3><p>Модель решает, что попытаться, а система — что разрешено. В Claude Code так контролируются около 40 возможностей.</p><small>Доверие → проверка вызова → подтверждение человеком</small></div>
     </div>
   </div>
-  <div class="ftr"><span></span><span class="pg"></span></div>
+  <div class="mkt rv" style="--d:5"><b>Маркетинг</b>Надёжность и безопасность — аргументы продаж, а не «ум» модели<span class="pg"></span></div>
 </section>
 
-<!-- ================= 18 ЛЕСА ================= -->
-<section class="slide dark">
-  <div class="hdr"><span>Что такое harness?</span><span>Метафора</span></div>
+<!-- ================= 09 РЫНОК ================= -->
+<section class="slide s9">
   <div class="inner">
-    <div class="kick rv">Строительные леса</div>
-    <h2 class="rv" style="--d:1">Леса убирают, <i>когда здание готово</i></h2>
-    <div class="sc">
+    <div class="lab rv">Реализации на рынке</div>
+    <h2 class="rv" style="--d:1">Один паттерн — <span class="g">разные обещания</span></h2>
+    <div class="list">
+      <div class="card row rv" style="--d:2"><div class="i">CC</div><b>Claude Code<small>Anthropic</small></b><span>Тонкий harness: ставка на улучшение модели, лишние шаги убирают</span></div>
+      <div class="card row rv" style="--d:3"><div class="i">CX</div><b>Codex<small>OpenAI</small></b><span>Один harness на все интерфейсы: CLI, VS Code и веб</span></div>
+      <div class="card row rv" style="--d:4"><div class="i">LG</div><b>LangGraph<small>LangChain</small></b><span>Явный граф состояний: ставка на контроль над каждым шагом</span></div>
+      <div class="card row rv" style="--d:5"><div class="i">CR</div><b>CrewAI</b><span>Команда агентов: у каждого роль, цель и свои инструменты</span></div>
+      <div class="card row rv" style="--d:6"><div class="i">AG</div><b>AutoGen<small>Microsoft</small></b><span>Агенты решают задачу в диалоге друг с другом</span></div>
+    </div>
+  </div>
+  <div class="mkt rv" style="--d:7"><b>Маркетинг</b>Модель одна — продают подход и позиционирование<span class="pg"></span></div>
+</section>
+
+<!-- ================= 10 ЛЕСА ================= -->
+<section class="slide s10">
+  <div class="inner">
+    <div class="grid">
       <div>
-        <p class="stm rv" style="--d:2">По мере улучшения моделей сложность харнесса должна <i>снижаться</i>.</p>
+        <div class="lab rv">Жизненный цикл harness’а</div>
+        <h2 class="rv" style="--d:1">Леса убирают, <span class="g">когда здание готово</span></h2>
         <ul>
-          <li class="rv" style="--d:3"><b>Manus</b> перестраивали пять раз за шесть месяцев, каждый раз убирая сложность: хитрые определения инструментов стали общим shell, «управляющие агенты» — простыми handoff’ами.</li>
-          <li class="rv" style="--d:4"><b>Ко-эволюция:</b> модели дообучают со своими харнессами. Смена реализации инструментов может ухудшить результат.</li>
+          <li class="rv" style="--d:2"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.500"/></svg></i><div>Модели улучшаются — сложность harness’а должна <b>снижаться</b></div></li>
+          <li class="rv" style="--d:3"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.500"/></svg></i><div><b>Manus</b> перестраивали пять раз за шесть месяцев, каждый раз убирая сложность</div></li>
+          <li class="rv" style="--d:4"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.500"/></svg></i><div>Anthropic убирает шаги планирования, когда модель их <b>усвоила</b></div></li>
+          <li class="rv" style="--d:5"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.500"/></svg></i><div>Тест: модель сильнее, а harness не сложнее — значит, дизайн верный</div></li>
         </ul>
-        <p class="test rv" style="--d:5">Тест на будущее: качество растёт с более мощной моделью, а сложность харнесса — нет. Значит, дизайн верный.</p>
       </div>
-      <div class="drawing rv" style="--d:3">
-        <svg viewBox="0 0 760 780" fill="none" stroke="#F3EFE6" stroke-width="5" stroke-linecap="square" aria-label="Здание строится, леса снимаются">
-          <!-- здание -->
-          <rect x="60" y="360" width="300" height="400" stroke-width="6"/>
-          <path d="M60 480H360M60 600H360M60 700H360" stroke-width="3" opacity=".6"/>
-          <path d="M150 360V760M270 360V760" stroke-width="3" opacity=".6"/>
-          <!-- леса справа, частично разобраны -->
-          <path d="M420 360V760M560 360V760M700 360V760" opacity=".9"/>
-          <path d="M400 480H720M400 640H720" stroke-width="7"/>
-          <path d="M420 480L560 640M560 480L420 640M560 480L700 640M700 480L560 640" stroke-width="3"/>
-          <path d="M400 760H720" stroke-width="3" opacity=".5"/>
-          <path d="M420 360L560 480M700 360L560 480" stroke-dasharray="14 14" stroke-width="3" opacity=".5"/>
+      <div class="ph rv" style="--d:2">
+        <svg class="art" aria-label="Здание построено, леса разбирают" viewBox="0 0 760 800" preserveAspectRatio="xMidYMid slice">
+          <rect width="760" height="800" fill="#0B4F5C"/>
+          <circle cx="600" cy="140" r="70" fill="#2BB48C" opacity=".35"/>
+          <rect x="70" y="330" width="290" height="400" fill="#2BB48C" stroke="#fff" stroke-width="6"/>
+          <path d="M70 430H360M70 530H360M70 630H360M215 330V730" stroke="#0B4F5C" stroke-width="6"/>
+          <g fill="none" stroke="#fff" stroke-width="7" stroke-linecap="square">
+            <path d="M420 200V730M540 200V730M660 200V730"/>
+            <path d="M400 330H680M400 520H680" stroke-width="10"/>
+            <path d="M420 330L540 520M540 330L420 520M540 330L660 520M660 330L540 520"/>
+            <path d="M420 200L540 330M660 200L540 330" stroke-dasharray="16 16" opacity=".6"/>
+            <path d="M400 730H680" opacity=".7"/>
+          </g>
         </svg>
+        <div class="corner"></div>
       </div>
     </div>
   </div>
-  <div class="ftr"><span></span><span class="pg"></span></div>
+  <div class="mkt rv" style="--d:6"><b>Маркетинг</b>Преимущество в harness’е придётся пересобирать<span class="pg"></span></div>
 </section>
 
-<!-- ================= 19 СЕМЬ РЕШЕНИЙ ================= -->
-<section class="slide paper2">
-  <div class="hdr"><span>Что такое harness?</span><span>Проектирование</span></div>
+<!-- ================= 11 ВЫВОД ================= -->
+<section class="slide s11">
   <div class="inner">
-    <div class="kick rv">Семь решений</div>
-    <h2 class="rv" style="--d:1">Что выбирает <i>каждый архитектор</i></h2>
-    <div class="tbl sev" style="margin-top:20px">
-      <div class="row rv" style="--d:2"><div class="n">1</div><b>Один агент или несколько</b><span>Сначала один. Делить, когда больше ~10 пересекающихся инструментов.</span></div>
-      <div class="row rv" style="--d:2"><div class="n">2</div><b>ReAct или plan-and-execute</b><span>ReAct гибок, но дороже на шаг. LLMCompiler: ускорение <em>в 3,6 раза</em>.</span></div>
-      <div class="row rv" style="--d:3"><div class="n">3</div><b>Управление контекстом</b><span>Пять подходов. ACON: на <em>26–54%</em> меньше токенов при точности 95%+.</span></div>
-      <div class="row rv" style="--d:3"><div class="n">4</div><b>Цикл проверки</b><span>Вычислительная (тесты) или inferential (LLM-судья, с задержкой).</span></div>
-      <div class="row rv" style="--d:4"><div class="n">5</div><b>Права и безопасность</b><span>Permissive: быстро, но рискованно. Restrictive: безопасно, но медленно.</span></div>
-      <div class="row rv" style="--d:4"><div class="n">6</div><b>Набор инструментов</b><span>Больше — часто хуже. Vercel убрал <em>80%</em> инструментов v0; Claude Code экономит <em>95%</em> контекста.</span></div>
-      <div class="row rv" style="--d:5"><div class="n">7</div><b>Толщина harness’а</b><span>Anthropic ставит на тонкий и убирает шаги, когда модель их усвоила.</span></div>
+    <div class="lab rv">Взгляд маркетолога</div>
+    <h2 class="rv" style="--d:1">Модель — товар, <span class="g">harness — продукт</span></h2>
+    <div class="grid">
+      <div class="rows">
+        <div class="card nrow rv" style="--d:2"><div class="n">1</div><div><b>Модели доступны всем</b><span>подключить GPT, Claude или Gemini может любой разработчик</span></div></div>
+        <div class="card nrow rv" style="--d:3"><div class="n">2</div><div><b>Отличие уходит в обвязку</b><span>на одной модели продукты работают по-разному</span></div></div>
+        <div class="card nrow on rv" style="--d:4"><div class="n">3</div><div><b>Harness — преимущество</b><span>его трудно скопировать: в нём опыт и ошибки команды</span></div></div>
+      </div>
+      <div class="card deep q4 rv" style="--d:3">
+        <div class="lab">Чек-лист</div>
+        <h3>4 вопроса любому ИИ-продукту</h3>
+        <ul>
+          <li><i>?</i>Что он помнит между сессиями?</li>
+          <li><i>?</i>Как проверяет свою работу?</li>
+          <li><i>?</i>Что ему разрешено без человека?</li>
+          <li><i>?</i>Что делает, когда ошибается?</li>
+        </ul>
+      </div>
     </div>
   </div>
-  <div class="ftr"><span></span><span class="pg"></span></div>
+  <div class="final rv" style="--d:5">Клиенту продают не «доступ к ИИ», а <span>выполненную задачу</span><div class="pg"></div></div>
 </section>
 
-<!-- ================= 20 ПРОДУКТ ================= -->
-<section class="slide paper">
-  <div class="hdr"><span>Что такое harness?</span><span>Взгляд маркетолога</span></div>
-  <div class="inner">
-    <div class="kick rv">Harness — это и есть продукт</div>
-    <h2 class="rv" style="--d:1">Модель — товар, <i>harness — продукт</i></h2>
-    <div class="prod">
-      <div class="rv" style="--d:2"><div class="n">1</div><h3>Модели доступны всем</h3><p>GPT, Claude и Gemini подключает через API любой разработчик.</p></div>
-      <div class="rv" style="--d:3"><div class="n">2</div><h3>Отличие уходит в обвязку</h3><p>На одинаковых моделях продукты работают по-разному: в TerminalBench смена одного harness’а двигала агентов на 20+ позиций.</p></div>
-      <div class="rv" style="--d:4"><div class="n">3</div><h3>Это не коммодити</h3><p>Контекст как дефицит, проверка, память без галлюцинаций, ставка на толщину — слой, где живёт сложный инжиниринг.</p></div>
-    </div>
-    <p class="goal rv" style="--d:5;margin-top:auto">Клиенту продают не «доступ к ИИ», а выполненную задачу. И эту задачу делает harness.</p>
+<!-- ================= 12 СПАСИБО ================= -->
+<section class="slide s12">
+  <div class="ph">
+    <svg class="art" aria-label="Панорама: лес, озеро и горы"><use href="#land3" width="100%" height="100%"/></svg>
+    <div class="corner"></div>
   </div>
-  <div class="ftr"><span></span><span class="pg"></span></div>
-</section>
-
-<!-- ================= 21 ФИНАЛ ================= -->
-<section class="slide clay">
-  <div class="hdr"><span>Что такое harness?</span><span>Вывод</span></div>
-  <div class="inner">
-    <div class="fin">
-      <p class="q rv">Когда агент в следующий раз даст сбой — не вините модель. <span style="font-style:italic">Смотрите на harness.</span></p>
-      <div class="th rv" style="--d:2"><span>Спасибо за внимание!</span> Вопросы?</div>
-    </div>
-  </div>
-  <div class="ftr"><span>Мешков Владислав · группа 477901 · БГУИР, 2026</span><span class="pg"></span></div>
+  <div class="ttl rv">СПАСИБО <span>ЗА ВНИМАНИЕ</span></div>
+  <div class="sub rv" style="--d:1">Не вините модель. Смотрите на harness.</div>
+  <div class="by rv" style="--d:2"><b>Мешков Владислав</b> · группа 477901 · БГУИР, 2026 · по материалам статьи Akshay (перевод на Хабре)</div>
 </section>
 
 </main>
@@ -898,12 +636,12 @@ class SlidePresentation {
         this.show(Number.isFinite(start) ? start - 1 : 0);
     }
 
-    /* «03 / 21» в колонтитуле каждого слайда */
+    /* «03 / 12» в нижней плашке слайда */
     fillPageNumbers() {
         const n = this.slides.length;
         this.slides.forEach((s, k) => {
             const pg = s.querySelector('.pg');
-            if (pg) pg.textContent = (k + 1) + ' / ' + n;
+            if (pg) pg.innerHTML = String(k + 1).padStart(2, '0') + '<span> / ' + n + '</span>';
         });
     }
 
