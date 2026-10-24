@@ -366,6 +366,12 @@ svg.lg { width: 40px; height: 40px; flex: none; max-width: none; max-height: non
 .win pre { margin: 0; padding: 14px 22px 16px; font-family: ui-monospace, 'DejaVu Sans Mono', Menlo, Consolas, monospace; font-size: 26px; line-height: 1.45; color: #D5ECE6; }
 .win pre b { color: #5FE0B8; font-weight: 700; }
 
+
+.sl .note { margin-top: 30px; background: var(--deep); color: var(--white); border-radius: 26px; padding: 28px 40px; display: grid; grid-template-columns: 360px 1fr; gap: 36px; align-items: center; }
+.sl .note b { font-family: var(--f-head); font-weight: 800; font-size: 40px; line-height: 1.1; color: #5FE0B8; }
+.sl .note p { font-size: 29px; line-height: 1.32; color: #D5ECE6; }
+.sl .flow { margin-top: 34px; }
+
 /* ===========================================
    ИНТЕРФЕЙС ВНЕ СЦЕНЫ
    =========================================== */
@@ -395,8 +401,6 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
 
 <div class="deck-viewport">
 <main class="deck-stage" id="deckStage">
-
-<!-- ================= 01 ТИТУЛ ================= -->
 <section class="slide s1 active">
   <div class="tagp rv">Маркетинг программных продуктов и услуг</div>
   <h1 class="rv" style="--d:1">HARNESS <span>в ИИ</span></h1>
@@ -409,7 +413,6 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
   <div class="by rv" style="--d:4"><b>Мешков Владислав</b><span>группа 477901 · БГУИР, 2026</span></div>
 </section>
 
-<!-- ================= 02 ПРОБЛЕМА ================= -->
 <section class="slide s2">
   <div class="inner">
     <div class="grid">
@@ -425,11 +428,11 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
         <div class="corner"></div>
       </div>
       <div>
-        <div class="lab rv">Проблема</div>
-        <h2 class="rv" style="--d:1">Модели доступны всем.<br><span class="g">Продукты — нет.</span></h2>
-        <p class="t rv" style="--d:2">ChatGPT, Claude и Gemini может встроить в свой продукт любая компания. А продукты получаются очень разными.</p>
+        <div class="lab rv">Вопрос</div>
+        <h2 class="rv" style="--d:1">Модель у всех одна.<br><span class="g">Продукты — разные.</span></h2>
+        <p class="t rv" style="--d:2">ChatGPT, Claude и Gemini может встроить в свой продукт любая компания. Откуда тогда разница?</p>
         <div class="card deep stats rv" style="--d:3">
-          <div><div class="v">30+ <em>→ 5</em></div><p>место в рейтинге ИИ-агентов для программистов. Модель та же, поменяли только «обвязку» (harness)</p></div>
+          <div><div class="v">30+ <em>→ 5</em></div><p>место в рейтинге ИИ-агентов. Модель та же, поменяли только «обвязку» (harness)</p></div>
           <div><div class="v">76,4<em>%</em></div><p>задач решено без ошибок: ИИ сам подобрал себе обвязку и обошёл системы, собранные людьми вручную</p></div>
           <div class="src">Источник: LangChain, по статье Akshay (перевод на Хабре)</div>
         </div>
@@ -439,83 +442,47 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
   <div class="mkt rv" style="--d:4"><b>Маркетинг</b>Клиент сравнивает продукты, а не модели<span class="pg"></span></div>
 </section>
 
-<!-- ================= 03 ЧТО ТАКОЕ HARNESS ================= -->
 <section class="slide s3">
   <div class="inner">
     <div class="grid">
       <div class="card deep big rv">
-        <div class="lab">Определение</div>
-        <h3>Агент = Модель + <span>Harness</span></h3>
-        <p>Агент — это то, что видит пользователь: ИИ, который сам делает работу. Harness («обвязка») — всё вокруг модели, что помогает ей работать: инструменты, память, правила, проверки.</p>
-        <div class="win"><div class="bar"><i></i><i></i><i></i><span>как работает агент</span></div><pre><b>пока</b> задача не решена:
-    подумать → сделать → проверить</pre></div>
+        <div class="lab">Ответ</div>
+        <h3>Агент = Модель + <span>Обвязка</span></h3>
+        <p>Harness по-русски — «обвязка», дословно «упряжь». Это всё вокруг модели, что позволяет ей работать: инструменты, память, проверки, правила.</p>
         <div class="q">«Если ты не модель — ты харнесс»<small>Vivek Trivedy, LangChain</small></div>
       </div>
       <div class="right">
-        <div class="lab rv" style="--d:1">Три слоя вокруг модели</div>
-        <h2 class="rv" style="--d:1">От промпта <span class="g">к harness</span></h2>
+        <div class="lab rv" style="--d:1">Новый сотрудник</div>
+        <h2 class="rv" style="--d:1">ИИ — это <span class="g">сотрудник</span></h2>
         <div class="rows">
-          <div class="card nrow rv" style="--d:2"><div class="n">1</div><div><b>Промпт</b><span>как правильно поставить задачу модели</span></div></div>
-          <div class="card nrow rv" style="--d:3"><div class="n">2</div><div><b>Контекст</b><span>что модель видит перед ответом и когда</span></div></div>
-          <div class="card nrow on rv" style="--d:4"><div class="n">3</div><div><b>Harness (обвязка)</b><span>всё предыдущее плюс инструменты, память, проверки и правила безопасности</span></div></div>
+          <div class="card nrow rv" style="--d:2"><div class="n">1</div><div><b>Модель</b><span>гениальный выпускник: знает всё, но сам ничего не сделает</span></div></div>
+          <div class="card nrow rv" style="--d:3"><div class="n">2</div><div><b>Обвязка</b><span>рабочее место: инструменты, блокнот, проверка, доступы</span></div></div>
+          <div class="card nrow on rv" style="--d:4"><div class="n">3</div><div><b>Агент</b><span>сотрудник, который доводит дело до конца</span></div></div>
         </div>
       </div>
     </div>
   </div>
-  <div class="mkt rv" style="--d:5"><b>Маркетинг</b>Покупают поведение агента, а создаёт его harness<span class="pg"></span></div>
+  <div class="mkt rv" style="--d:5"><b>Маркетинг</b>Покупают сотрудника, а не «выпускника»<span class="pg"></span></div>
 </section>
 
-<!-- ================= 04 АНАЛОГИЯ С ОС ================= -->
-<section class="slide s4">
-  <div class="inner">
-    <div class="head rv">
-      <div class="lab">Аналогия Beren Millidge, 2023</div>
-      <h2>Harness — это <span class="g">операционная система</span></h2>
-      <p>Сама модель — как процессор: быстро думает, но без памяти, диска и программ ничего не сделает</p>
-    </div>
-    <div class="chain">
-      <div class="it rv" style="--d:1">
-        <div class="c"><svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><rect x="24" y="30" width="52" height="40" rx="6"/><path d="M36 30V18M50 30V18M64 30V18M36 82V70M50 82V70M64 82V70M24 42H12M24 58H12M88 42H76M88 58H76"/></svg></div>
-        <small>В компьютере: оперативная память</small><h3>Контекстное окно</h3><p>то, что модель «держит в голове» сейчас; места мало</p>
-      </div>
-      <div class="it rv" style="--d:2">
-        <div class="c"><svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="50" cy="26" rx="28" ry="10"/><path d="M22 26V72C22 78 34 84 50 84S78 78 78 72V26M22 49C22 55 34 60 50 60S78 55 78 49"/></svg></div>
-        <small>В компьютере: жёсткий диск</small><h3>Базы данных</h3><p>долгая память: места много, но достать дольше</p>
-      </div>
-      <div class="it rv" style="--d:3">
-        <div class="c"><svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="14"/><path d="M50 18V30M50 70V82M18 50H30M70 50H82M27 27L36 36M64 64L73 73M73 27L64 36M36 64L27 73"/></svg></div>
-        <small>В компьютере: программы</small><h3>Инструменты</h3><p>«руки» агента: открыть файл, найти в интернете, запустить программу</p>
-      </div>
-      <div class="it on rv" style="--d:4">
-        <div class="c"><svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="22" width="68" height="56" rx="8"/><path d="M16 38H84M28 30H30M40 30H42M30 56L42 64L30 72M50 72H68"/></svg></div>
-        <small>В компьютере: ОС</small><h3>Harness</h3><p>управляет всем остальным</p>
-      </div>
-    </div>
-    <p class="quote rv" style="--d:5">Это <span>устройство обычного компьютера</span> — только для ИИ</p>
-  </div>
-  <div class="mkt rv" style="--d:6"><b>Маркетинг</b>Ценность продукта — в «операционной системе», а не в «процессоре»<span class="pg"></span></div>
-</section>
-
-<!-- ================= 05 ИЗ ЧЕГО СОСТОИТ ПРОДУКТ ================= -->
 <section class="slide s5">
   <div class="inner">
-    <div class="lab rv">Комплектация ИИ-продукта</div>
-    <h2 class="rv" style="--d:1">Из чего состоит <span class="g">продукт</span></h2>
+    <div class="lab rv">Рабочее место</div>
+    <h2 class="rv" style="--d:1">Из чего состоит <span class="g">обвязка</span></h2>
     <div class="cols">
-      <div class="col rv" style="--d:2"><div class="hd">ДЕЙСТВУЕТ</div><div class="pr">Доводит дело до конца</div><ul><li>повторяет шаги, пока дело не сделано</li><li>пользуется инструментами</li><li>понимает ответ модели</li></ul><div class="bt">АТРИБУТ 1</div></div>
-      <div class="col rv" style="--d:3"><div class="hd">ПОМНИТ</div><div class="pr">Не теряет нить</div><ul><li>память между сессиями</li><li>следит, что видит модель</li><li>помнит, что уже сделано</li><li>собирает задание для модели</li></ul><div class="bt">АТРИБУТ 2</div></div>
-      <div class="col rv" style="--d:4"><div class="hd">НЕ ПОДВОДИТ</div><div class="pr">Ловит свои ошибки</div><ul><li>справляется со сбоями</li><li>проверяет результат</li></ul><div class="bt">АТРИБУТ 3</div></div>
-      <div class="col rv" style="--d:5"><div class="hd">БЕЗОПАСЕН И РАСТЁТ</div><div class="pr">Знает свои границы</div><ul><li>правила: что можно, что нельзя</li><li>помощники для подзадач</li></ul><div class="bt">АТРИБУТ 4</div></div>
+      <div class="col rv" style="--d:2"><div class="hd">РУКИ</div><div class="pr">Умеет действовать</div><ul><li>открыть файл</li><li>найти в интернете</li><li>запустить программу</li></ul><div class="bt">ХАРАКТЕРИСТИКА 1</div></div>
+      <div class="col rv" style="--d:3"><div class="hd">БЛОКНОТ</div><div class="pr">Помнит, что сделано</div><ul><li>память между сессиями</li><li>записи и список задач</li></ul><div class="bt">ХАРАКТЕРИСТИКА 2</div></div>
+      <div class="col rv" style="--d:4"><div class="hd">КОНТРОЛЁР</div><div class="pr">Ловит свои ошибки</div><ul><li>проверяет результат</li><li>справляется со сбоями</li></ul><div class="bt">ХАРАКТЕРИСТИКА 3</div></div>
+      <div class="col rv" style="--d:5"><div class="hd">ПРОПУСК</div><div class="pr">Знает свои границы</div><ul><li>что можно самому</li><li>что — только с разрешения человека</li></ul><div class="bt">ХАРАКТЕРИСТИКА 4</div></div>
     </div>
   </div>
   <div class="mkt rv" style="--d:6"><b>Маркетинг</b>Это характеристики для карточки сравнения продуктов<span class="pg"></span></div>
 </section>
 
-<!-- ================= 06 ЦИКЛ ================= -->
 <section class="slide s6">
   <div class="inner">
-    <div class="lab rv">Как агент работает</div>
-    <h2 class="rv" style="--d:1">Агент работает <span class="g">по кругу</span></h2>
+    <div class="lab rv">Как он работает</div>
+    <h2 class="rv" style="--d:1">Рабочий день — <span class="g">круг</span></h2>
     <div class="grid">
       <svg class="don rv" style="--d:2" viewBox="0 0 700 700" aria-label="Цикл из четырёх шагов">
         <g fill="none" stroke-width="140" transform="rotate(-90 350 350)">
@@ -528,109 +495,74 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
           <text x="516" y="203">1</text><text x="516" y="552">2</text><text x="184" y="552">3</text><text x="184" y="203">4</text>
         </g>
         <circle cx="350" cy="350" r="150" fill="#fff"/>
-        <text x="350" y="352" font-family="Montserrat" font-weight="800" font-size="56" fill="#0B4F5C" text-anchor="middle">ЦИКЛ</text>
-        <text x="350" y="396" font-family="Nunito Sans" font-weight="600" font-size="28" fill="#5A7176" text-anchor="middle">пока задача не решена</text>
+        <text x="350" y="352" font-family="Montserrat" font-weight="800" font-size="56" fill="#0B4F5C" text-anchor="middle">КРУГ</text>
+        <text x="350" y="396" font-family="Nunito Sans" font-weight="600" font-size="28" fill="#5A7176" text-anchor="middle">пока дело не сделано</text>
       </svg>
       <div class="rows">
-        <div class="card nrow rv" style="--d:3"><div class="n">1</div><div><b>Собрать задание</b><span>инструкции, память, история и вопрос человека</span></div></div>
-        <div class="card nrow rv" style="--d:4"><div class="n">2</div><div><b>Спросить модель</b><span>она отвечает или просит воспользоваться инструментом</span></div></div>
-        <div class="card nrow rv" style="--d:5"><div class="n">3</div><div><b>Сделать</b><span>программа выполняет действие; ошибка — тоже результат</span></div></div>
-        <div class="card nrow on rv" style="--d:6"><div class="n">4</div><div><b>Запомнить результат</b><span>и снова по кругу; действий больше нет — это ответ</span></div></div>
-        <p class="stop rv" style="--d:7"><b>Круг заканчивается, когда:</b> ответ готов, кончились ходы или бюджет, сработала защита или человек сказал «стоп». Anthropic: сама программа «простая», весь ум — в модели.</p>
+        <div class="card nrow rv" style="--d:3"><div class="n">1</div><div><b>Получил задание</b><span>инструкции, записи и вопрос человека</span></div></div>
+        <div class="card nrow rv" style="--d:4"><div class="n">2</div><div><b>Подумал</b><span>модель решает, что делать дальше</span></div></div>
+        <div class="card nrow rv" style="--d:5"><div class="n">3</div><div><b>Сделал</b><span>инструмент выполняет действие</span></div></div>
+        <div class="card nrow on rv" style="--d:6"><div class="n">4</div><div><b>Записал результат</b><span>и снова по кругу; дело сделано — отвечает человеку</span></div></div>
+        <p class="stop rv" style="--d:7"><b>Сама программа простая.</b> Anthropic называет её «тупым циклом»: весь ум — в модели, а круг лишь следит за порядком.</p>
       </div>
     </div>
   </div>
-  <div class="mkt rv" style="--d:8"><b>Маркетинг</b>Для клиента это «агент сам довёл дело до конца»<span class="pg"></span></div>
+  <div class="mkt rv" style="--d:8"><b>Маркетинг</b>Клиент видит итог: «агент сам довёл дело до конца»<span class="pg"></span></div>
 </section>
 
-<!-- ================= 07 КОНТЕКСТ ================= -->
 <section class="slide s7">
   <div class="inner">
-    <div class="band rv"><h2>Память модели — <span class="g">ограничена</span></h2></div>
+    <div class="band rv"><h2>Беда №1: места на столе <span class="g">мало</span></h2></div>
     <div class="grid">
       <div class="side">
-        <div class="card nrow rv" style="--d:1"><div class="n">1</div><div><b>Сжатие</b><span>длинную переписку превращают в конспект: решения оставляют, лишнее убирают</span></div></div>
-        <div class="card nrow rv" style="--d:2"><div class="n">2</div><div><b>Скрытие лишнего</b><span>старые ответы инструментов прячут, а что было сделано — оставляют</span></div></div>
+        <div class="card nrow rv" style="--d:1"><div class="n">1</div><div><b>Конспект</b><span>длинную переписку сжимают: решения оставляют, лишнее убирают</span></div></div>
+        <div class="card nrow rv" style="--d:2"><div class="n">2</div><div><b>Убрать со стола</b><span>старые бумаги прячут, а что было сделано — помнят</span></div></div>
       </div>
       <div class="mid rv" style="--d:2">
         <div class="v">30<em>%+</em></div>
-        <p>на столько хуже работает модель, если важное оказалось «в середине» длинного текста</p>
+        <p>на столько хуже работает модель, если важное оказалось «в середине» длинного текста. Как лекция: середина забывается</p>
         <small>Chroma; «Lost in the Middle», Stanford</small>
       </div>
       <div class="side">
-        <div class="card nrow rv" style="--d:3"><div class="n">3</div><div><b>По мере нужды</b><span>не читают всё подряд, а ищут нужный кусок</span></div></div>
-        <div class="card nrow on rv" style="--d:4"><div class="n">4</div><div><b>Помощники</b><span>изучают тему отдельно и возвращают короткую выжимку</span></div></div>
+        <div class="card nrow rv" style="--d:3"><div class="n">3</div><div><b>Искать по нужде</b><span>не читают всё подряд, а ищут нужный документ</span></div></div>
+        <div class="card nrow on rv" style="--d:4"><div class="n">4</div><div><b>Помощник</b><span>изучает тему отдельно и приносит короткую выжимку</span></div></div>
       </div>
     </div>
-    <div class="mem rv" style="--d:5">
-      <div class="t">Память в Claude Code</div>
-      <div><b>Оглавление</b>короткие записи, всегда под рукой</div>
-      <div><b>Папки по темам</b>открываются, когда нужны</div>
-      <div><b>Полный архив</b>только через поиск</div>
-    </div>
   </div>
-  <div class="mkt rv" style="--d:6"><b>Маркетинг</b>Клиент ощущает это как «агент не тупеет к концу работы»<span class="pg"></span></div>
+  <div class="mkt rv" style="--d:6"><b>Маркетинг</b>Клиент ощущает: «ИИ не тупеет к концу работы»<span class="pg"></span></div>
 </section>
 
-<!-- ================= 08 НАДЁЖНОСТЬ ================= -->
 <section class="slide s8">
   <div class="inner">
-    <div class="lab rv">Ошибки, проверка, безопасность</div>
-    <h2 class="rv" style="--d:1">Надёжность — то, <span class="g">за что платят</span></h2>
+    <div class="lab rv">Беда №2</div>
+    <h2 class="rv" style="--d:1">Ошибки <span class="g">копятся</span></h2>
     <div class="cards">
-      <div class="card rv" style="--d:2"><div class="bd">90,4%</div><h3>Ошибки накапливаются</h3><p>10 шагов по 99% удачных дают в итоге лишь ~90% удачи. Поэтому сбои ловят, а число повторов ограничивают.</p><small>У Stripe — не больше двух повторов</small></div>
+      <div class="card rv" style="--d:2"><div class="bd">90,4%</div><h3>Каждое десятое — мимо</h3><p>10 шагов по 99% удачных — это всего ~90% удачных дел. Поэтому ошибки надо ловить.</p><small>У Stripe — не больше двух повторов</small></div>
       <div class="card rv" style="--d:3"><div class="bd">2–3×</div><h3>Самопроверка</h3><p>Если агент умеет проверить свою работу (тесты, скриншот, второй ИИ-«судья»), качество растёт в 2–3 раза.</p><small>Boris Cherny, создатель Claude Code</small></div>
-      <div class="card rv" style="--d:4"><div class="bd">~40</div><h3>Права под контролем</h3><p>Модель решает, что попробовать, а система — что разрешено. В Claude Code около 40 действий под отдельным контролем.</p><small>Доверие → проверка перед действием → подтверждение человеком</small></div>
+      <div class="card rv" style="--d:4"><div class="bd">~40</div><h3>Границы</h3><p>Модель решает, что попробовать, а система — что разрешено. В Claude Code около 40 действий под контролем.</p><small>Доверие → проверка → подтверждение человеком</small></div>
     </div>
   </div>
-  <div class="mkt rv" style="--d:5"><b>Маркетинг</b>Надёжность и безопасность — аргументы продаж, а не «ум» модели<span class="pg"></span></div>
+  <div class="mkt rv" style="--d:5"><b>Маркетинг</b>Надёжность и безопасность — аргументы продаж<span class="pg"></span></div>
 </section>
 
-<!-- ================= СУБАГЕНТЫ ================= -->
-<section class="slide sa">
-  <div class="inner">
-    <div class="lab rv">Компонент 11 · помощники</div>
-    <h2 class="rv" style="--d:1">Как делегируют <span class="g">подзадачи</span></h2>
-    <div class="cols3">
-      <div class="col rv" style="--d:2"><div class="hd"><svg class="lg" viewBox="0 0 24 24"><use href="#lg-claude" fill="#fff" width="100%" height="100%"/></svg>Claude Code</div><div class="bd">
-        <div class="item"><b>Копия</b>помощник получает всё, что знает главный агент</div>
-        <div class="item"><b>Коллега</b>отдельный «сотрудник», общаются через файлы-записки</div>
-        <div class="item"><b>Своя копия проекта</b>каждый работает у себя и никому не мешает</div></div></div>
-      <div class="col rv" style="--d:3"><div class="hd"><svg class="lg" viewBox="0 0 24 24"><use href="#lg-openai" fill="#fff" width="100%" height="100%"/></svg>Agents SDK OpenAI</div><div class="bd">
-        <div class="item"><b>Помощник-инструмент</b>специалист решает узкую задачу и возвращает результат</div>
-        <div class="item"><b>Передача дела</b>специалист полностью берёт задачу на себя</div></div></div>
-      <div class="col rv" style="--d:4"><div class="hd"><svg class="lg" viewBox="0 0 24 24"><use href="#lg-langchain" fill="#fff" width="100%" height="100%"/></svg>LangGraph</div><div class="bd">
-        <div class="item"><b>Схема в схеме</b>помощники устроены как схемы поменьше внутри главной</div></div></div>
-    </div>
-    <div class="note rv" style="--d:5"><b>Сначала один агент</b><p>Anthropic и OpenAI советуют выжать максимум из одного агента. Делить стоит, если инструментов больше десяти или задачи совсем разные: каждый новый помощник — это лишние расходы и риск потерять часть информации при передаче дела.</p></div>
-  </div>
-  <div class="mkt rv" style="--d:6"><b>Маркетинг</b>Мультиагентность усложняет продукт — начинайте с одного агента<span class="pg"></span></div>
-</section>
-
-<!-- ================= ДОЛГИЕ ЗАДАЧИ ================= -->
 <section class="slide sl">
   <div class="inner">
-    <div class="lab rv">Ralph Loop · Anthropic</div>
-    <h2 class="rv" style="--d:1">Когда дело не влезает <span class="g">в «память» модели</span></h2>
+    <div class="lab rv">Если дело большое</div>
+    <h2 class="rv" style="--d:1">Журнал <span class="g">смены</span></h2>
     <div class="flow">
-      <div class="bx rv" style="--d:2"><div class="lab">Один раз</div><h3>Агент-подготовщик</h3><ul><li>запуск проекта</li><li>файл-отчёт о прогрессе</li><li>список задач</li><li>первое сохранение работы</li></ul></div>
+      <div class="bx rv" style="--d:2"><div class="lab">Один раз</div><h3>Подготовщик</h3><ul><li>оформляет рабочее место</li><li>список задач</li><li>отчёт о прогрессе</li><li>первое сохранение работы</li></ul></div>
       <div class="arr rv" style="--d:3"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 5.500L19.500 12 13 18.500"/></svg></i></div>
-      <div class="bx deep rv" style="--d:4"><div class="lab">Каждая следующая сессия</div><h3>Агент-исполнитель</h3><ol><li>читает журнал и отчёт, чтобы вспомнить, что уже сделано</li><li>берёт самую важную незавершённую задачу</li><li>выполняет её</li><li>сохраняет работу и пишет краткий итог</li></ol></div>
+      <div class="bx deep rv" style="--d:4"><div class="lab">Каждую смену</div><h3>Исполнитель</h3><ol><li>читает журнал: что уже сделано?</li><li>берёт самую важную задачу</li><li>делает её</li><li>записывает итог для следующей смены</li></ol></div>
     </div>
-    <div class="chips rv" style="--d:5">
-      <div class="chip"><b><svg class="lg" viewBox="0 0 24 24"><use href="#lg-claude" fill="#D97757" width="100%" height="100%"/></svg>Claude Code</b>сохранения работы — как контрольные точки, файлы-отчёты — как черновики</div>
-      <div class="chip"><b><svg class="lg" viewBox="0 0 24 24"><use href="#lg-langchain" fill="#1C3C3C" width="100%" height="100%"/></svg>LangGraph</b>умеет возобновлять работу с контрольной точки и «отматывать» назад, чтобы найти ошибку</div>
-      <div class="chip"><b><svg class="lg" viewBox="0 0 24 24"><use href="#lg-openai" fill="#111111" width="100%" height="100%"/></svg>OpenAI</b>четыре способа хранить историю: в самом приложении, в сессиях, на сервере OpenAI или цепочкой ответов</div>
-    </div>
+    <div class="note rv" style="--d:5"><b>Сначала один сотрудник</b><p>Anthropic и OpenAI советуют выжать максимум из одного агента: каждый новый помощник — лишние расходы и риск потерять часть информации при передаче дела.</p></div>
   </div>
-  <div class="mkt rv" style="--d:6"><b>Маркетинг</b>Клиенту важна непрерывность: работа не теряется между сессиями<span class="pg"></span></div>
+  <div class="mkt rv" style="--d:6"><b>Маркетинг</b>Непрерывность работы — тоже характеристика продукта<span class="pg"></span></div>
 </section>
 
-<!-- ================= 09 РЫНОК ================= -->
 <section class="slide s9">
   <div class="inner">
-    <div class="lab rv">Реализации на рынке</div>
-    <h2 class="rv" style="--d:1">Один паттерн — <span class="g">разные обещания</span></h2>
+    <div class="lab rv">Рынок</div>
+    <h2 class="rv" style="--d:1">Одна модель — <span class="g">разные обещания</span></h2>
     <div class="list">
       <div class="card row rv" style="--d:2"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-claude" fill="#D97757" width="100%" height="100%"/></svg></div><b>Claude Code<small>Anthropic</small></b><span>Лёгкая обвязка: ставка на то, что модель станет умнее; лишнее убирают</span></div>
       <div class="card row rv" style="--d:3"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-openai" fill="#111111" width="100%" height="100%"/></svg></div><b>Codex<small>OpenAI</small></b><span>Одна и та же обвязка в терминале, в редакторе кода и в браузере</span></div>
@@ -639,33 +571,14 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
       <div class="card row rv" style="--d:6"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-microsoft" fill="#111" width="100%" height="100%"/></svg></div><b>AutoGen<small>Microsoft</small></b><span>Агенты решают задачу в общем «чате» друг с другом</span></div>
     </div>
   </div>
-  <div class="mkt rv" style="--d:7"><b>Маркетинг</b>Модель одна — продают подход и позиционирование<span class="pg"></span></div>
+  <div class="mkt rv" style="--d:7"><b>Маркетинг</b>Модель одна — продают подход (позиционирование)<span class="pg"></span></div>
 </section>
 
-<!-- ================= СЕМЬ РЕШЕНИЙ ================= -->
-<section class="slide sd">
-  <div class="inner">
-    <div class="lab rv">Выбор создателей</div>
-    <h2 class="rv" style="--d:1">Семь развилок <span class="g">продукта</span></h2>
-    <div class="list">
-      <div class="card row rv" style="--d:2"><div class="n">1</div><b>Один агент или команда</b><span>Начинайте с одного; команда нужна, когда инструментов слишком много</span></div>
-      <div class="card row rv" style="--d:2"><div class="n">2</div><b>Думать на ходу или по плану</b><span>На ходу гибче, но дороже; сначала план — быстрее <em>в 3,6 раза</em></span></div>
-      <div class="card row rv" style="--d:3"><div class="n">3</div><b>Как беречь память модели</b><span>Пять приёмов; один дал <em>26–54%</em> экономии при точности 95%+</span></div>
-      <div class="card row rv" style="--d:3"><div class="n">4</div><b>Как проверять результат</b><span>Тесты — точно; второй ИИ-«судья» ловит смысл, но медленнее</span></div>
-      <div class="card row rv" style="--d:4"><div class="n">5</div><b>Сколько доверять</b><span>Свободно — быстро, но рискованно; строго — безопасно, но медленно</span></div>
-      <div class="card row rv" style="--d:4"><div class="n">6</div><b>Сколько инструментов дать</b><span>Больше — часто хуже: Vercel убрал <em>80%</em> инструментов, и стало лучше</span></div>
-      <div class="card row rv" style="--d:5"><div class="n">7</div><b>Насколько плотная обвязка</b><span>Anthropic — на лёгкую, другие — на жёсткий контроль</span></div>
-    </div>
-  </div>
-  <div class="mkt rv" style="--d:6"><b>Маркетинг</b>Каждый выбор — компромисс между скоростью, ценой и риском для клиента<span class="pg"></span></div>
-</section>
-
-<!-- ================= 10 ЛЕСА ================= -->
 <section class="slide s10">
   <div class="inner">
     <div class="grid">
       <div>
-        <div class="lab rv">Жизненный цикл harness’а</div>
+        <div class="lab rv">Будущее</div>
         <h2 class="rv" style="--d:1">Леса убирают, <span class="g">когда здание готово</span></h2>
         <ul>
           <li class="rv" style="--d:2"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.500"/></svg></i><div>Модели умнеют — обвязка должна становиться <b>проще</b></div></li>
@@ -677,30 +590,29 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
       <div class="ph rv" style="--d:2;background:#0B4F5C">
         <svg class="art" aria-label="Схема: чем сильнее модель, тем тоньше harness" viewBox="0 0 760 800" preserveAspectRatio="xMidYMid meet">
           <rect width="760" height="800" fill="#0B4F5C"/>
-          <g font-family="Montserrat" font-weight="800" fill="#fff"><text x="60" y="96" font-size="40">Чем сильнее модель,</text><text x="60" y="146" font-size="40" fill="#5FE0B8">тем тоньше harness</text></g>
+          <g font-family="Montserrat" font-weight="800" fill="#fff"><text x="60" y="96" font-size="40">Чем сильнее модель,</text><text x="60" y="146" font-size="40" fill="#5FE0B8">тем тоньше обвязка</text></g>
           <g stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity=".8"><path d="M90 220V640H690"/><path d="M76 238L90 216L104 238"/><path d="M672 626L694 640L672 654"/></g>
           <path d="M110 600C300 590 420 400 680 250" stroke="#5FE0B8" stroke-width="10" stroke-linecap="round" fill="none"/>
           <path d="M110 260C300 280 430 500 680 590" stroke="#fff" stroke-width="10" stroke-linecap="round" fill="none"/>
-          <g font-family="Nunito Sans" font-weight="700" font-size="28"><text x="440" y="222" fill="#5FE0B8">сила модели</text><text x="120" y="236" fill="#fff">сложность harness’а</text></g>
+          <g font-family="Nunito Sans" font-weight="700" font-size="28"><text x="440" y="222" fill="#5FE0B8">сила модели</text><text x="120" y="236" fill="#fff">сложность обвязки</text></g>
           <g font-family="Nunito Sans" font-size="24" fill="#BFE9DE"><text x="96" y="684">новые версии моделей</text><text x="160" y="762" font-size="22" opacity=".75">концептуальная схема, без числовых данных</text></g>
         </svg>
         <div class="corner"></div>
       </div>
     </div>
   </div>
-  <div class="mkt rv" style="--d:6"><b>Маркетинг</b>Преимущество в harness’е придётся пересобирать<span class="pg"></span></div>
+  <div class="mkt rv" style="--d:6"><b>Маркетинг</b>Преимущество в обвязке придётся пересобирать<span class="pg"></span></div>
 </section>
 
-<!-- ================= 11 ВЫВОД ================= -->
 <section class="slide s11">
   <div class="inner">
-    <div class="lab rv">Взгляд маркетолога</div>
-    <h2 class="rv" style="--d:1">Модель — товар, <span class="g">harness — продукт</span></h2>
+    <div class="lab rv">Вывод</div>
+    <h2 class="rv" style="--d:1">Модель — товар, <span class="g">обвязка — продукт</span></h2>
     <div class="grid">
       <div class="rows">
         <div class="card nrow rv" style="--d:2"><div class="n">1</div><div><b>Модели доступны всем</b><span>подключить GPT, Claude или Gemini может любой разработчик</span></div></div>
         <div class="card nrow rv" style="--d:3"><div class="n">2</div><div><b>Отличие уходит в обвязку</b><span>на одной модели продукты работают по-разному</span></div></div>
-        <div class="card nrow on rv" style="--d:4"><div class="n">3</div><div><b>Harness — преимущество</b><span>его трудно скопировать: в нём опыт и ошибки команды</span></div></div>
+        <div class="card nrow on rv" style="--d:4"><div class="n">3</div><div><b>Обвязка — преимущество</b><span>его трудно скопировать: в нём опыт и ошибки команды</span></div></div>
       </div>
       <div class="card deep q4 rv" style="--d:3">
         <div class="lab">Чек-лист</div>
@@ -717,19 +629,17 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
   <div class="final rv" style="--d:5">Клиенту продают не «доступ к ИИ», а <span>выполненную задачу</span><div class="pg"></div></div>
 </section>
 
-<!-- ================= 12 СПАСИБО ================= -->
 <section class="slide s12">
   <div class="ph">
     <img class="real" src="images/thanks.jpg" alt="Нейросеть на процессоре">
     <div class="shade" style="background:linear-gradient(90deg,rgba(11,79,92,.55),rgba(11,79,92,0) 55%)"></div>
-    <div class="capx">Модели<br>меняются.<br>Harness<br>остаётся</div>
+    <div class="capx">Модели<br>меняются.<br>Обвязка<br>остаётся</div>
     <div class="corner"></div>
   </div>
   <div class="ttl rv">СПАСИБО <span>ЗА ВНИМАНИЕ</span></div>
-  <div class="sub rv" style="--d:1">Не вините модель. Смотрите на harness.</div>
+  <div class="sub rv" style="--d:1">Не вините модель. Смотрите на обвязку.</div>
   <div class="by rv" style="--d:2"><b>Мешков Владислав</b> · группа 477901 · БГУИР, 2026 · по материалам статьи Akshay (перевод на Хабре)<br><span style="font-size:22px">Фото: Markus Spiske (CC0); mikemacmarketing, CC BY 2.0 · логотипы: Simple Icons (CC0), Wikimedia Commons; товарные знаки принадлежат владельцам</span></div>
 </section>
-
 </main>
 </div>
 <div class="progress" id="progress"></div>
