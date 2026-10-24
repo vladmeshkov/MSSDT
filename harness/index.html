@@ -93,15 +93,25 @@ svg text { font-family:var(--f-body); }
 .s3 .flour b { color:var(--white); font-weight:700; }
 
 /* ===== 4. доказательство ===== */
-.s4 .big { position:absolute; left:0; top:80px; font-family:var(--f-head); font-weight:800; font-size:200px; line-height:1; letter-spacing:-.05em; }
-.s4 .big em { font-style:normal; color:var(--or-t); }
-.s4 .cap { position:absolute; left:960px; top:90px; width:760px; font-size:33px; line-height:1.3; }
-.s4 .cap b { font-weight:700; }
-.s4 svg.strip { position:absolute; left:0; top:395px; width:1720px; height:260px; max-width:none; max-height:none; }
-.s4 .row2 { position:absolute; left:0; right:0; top:675px; display:grid; grid-template-columns:420px 1fr; gap:44px; align-items:center; border-top:3px solid var(--black); padding-top:26px; }
-.s4 .row2 .v { font-family:var(--f-head); font-weight:800; font-size:96px; line-height:1; letter-spacing:-.04em; }
-.s4 .row2 .v em { font-style:normal; color:var(--or-t); }
-.s4 .row2 p { font-size:31px; line-height:1.3; }
+.s4 .src4 { position:absolute; left:0; top:0; font-size:28px; font-weight:600; color:var(--mute-l); }
+.s4 .trio { position:absolute; left:0; right:0; top:60px; display:grid; grid-template-columns:1fr 300px 1fr; gap:26px; align-items:stretch; }
+.s4 .bx { border-radius:34px; padding:34px 40px 36px; display:flex; flex-direction:column; min-height:400px; }
+.s4 .bx .lb { font-size:28px; font-weight:700; }
+.s4 .bx .n { font-family:var(--f-head); font-weight:800; font-size:230px; line-height:1; letter-spacing:-.05em; margin-top:auto; }
+.s4 .bx .t { font-size:30px; font-weight:600; line-height:1.25; margin-top:10px; }
+.s4 .was { background:var(--white); border:4px dashed var(--mute-l); color:var(--black); }
+.s4 .was .lb, .s4 .was .t { color:var(--mute-l); }
+.s4 .now { background:var(--or); border:4px solid var(--black); box-shadow:12px 12px 0 var(--black); }
+.s4 .same { background:var(--navy); color:var(--white); border-radius:34px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:26px 20px; }
+.s4 .same svg { width:96px; height:96px; }
+.s4 .same b { font-family:var(--f-head); font-weight:800; font-size:34px; line-height:1.1; margin-top:18px; }
+.s4 .same p { font-size:26px; line-height:1.3; margin-top:12px; color:var(--mute-d); }
+.s4 .chg { position:absolute; left:0; right:0; top:520px; font-family:var(--f-head); font-weight:700; font-size:44px; line-height:1.2; }
+.s4 .chg em { font-style:normal; color:var(--or-t); }
+.s4 .more { position:absolute; left:0; right:0; top:650px; border-top:3px solid var(--black); padding-top:22px; display:grid; grid-template-columns:330px 1fr; gap:36px; align-items:center; }
+.s4 .more .v { font-family:var(--f-head); font-weight:800; font-size:84px; line-height:1; letter-spacing:-.04em; color:var(--or-t); }
+.s4 .more p { font-size:30px; line-height:1.3; }
+.s4 .more p b { font-weight:700; }
 
 /* ===== 5. без / с harness ===== */
 .s5 .two { position:absolute; left:0; right:0; top:0; display:grid; grid-template-columns:1fr 1.18fr; gap:36px; }
@@ -332,12 +342,16 @@ body.editing .progress::after { content:"РЕЖИМ РЕДАКТИРОВАНИЯ
 <section class="slide lt s4">
   <div class="tag">Доказательство</div><div class="pgn"></div>
   <div class="w">
-    <div class="big rv">30+ <em>→ 5</em></div>
-    <p class="cap rv" style="--d:1"><b>Место в рейтинге ИИ-агентов</b> (TerminalBench 2.0). Компания LangChain подняла своего агента с места за пределами тридцатки на пятое. <b>Модель и её веса не меняли</b> — поменяли только всё вокруг.</p>
-    <svg class="strip rv" style="--d:2" viewBox="0 0 1720 260" fill="none" aria-label="Рейтинг: с места за пределами тридцатки на пятое"><rect x="10" y="130" width="46" height="46" rx="12" fill="#fff" stroke="#12131A" stroke-width="3"/><text x="33" y="214" text-anchor="middle" font-size="24" fill="#575C6E" font-weight="500">1</text><rect x="67" y="130" width="46" height="46" rx="12" fill="#fff" stroke="#12131A" stroke-width="3"/><rect x="124" y="130" width="46" height="46" rx="12" fill="#fff" stroke="#12131A" stroke-width="3"/><rect x="181" y="130" width="46" height="46" rx="12" fill="#fff" stroke="#12131A" stroke-width="3"/><rect x="238" y="130" width="46" height="46" rx="12" fill="#FF5B1F" stroke="#12131A" stroke-width="3"/><text x="261" y="214" text-anchor="middle" font-size="24" fill="#575C6E" font-weight="700">5</text><rect x="295" y="130" width="46" height="46" rx="12" fill="#fff" stroke="#12131A" stroke-width="3"/><rect x="352" y="130" width="46" height="46" rx="12" fill="#fff" stroke="#12131A" stroke-width="3"/><rect x="409" y="130" width="46" height="46" rx="12" fill="#fff" stroke="#12131A" stroke-width="3"/><rect x="466" y="130" width="46" height="46" rx="12" fill="#fff" stroke="#12131A" stroke-width="3"/><rect x="523" y="130" width="46" height="46" rx="12" fill="#fff" stroke="#12131A" stroke-width="3"/><text x="546" y="214" text-anchor="middle" font-size="24" fill="#575C6E" font-weight="500">10</text><rect x="580" y="130" width="46" height="46" rx="12" fill="#fff" stroke="#12131A" stroke-width="3"/><rect x="637" y="130" width="46" height="46" rx="12" fill="#fff" stroke="#12131A" stroke-width="3"/><rect x="694" y="130" width="46" height="46" rx="12" fill="#fff" stroke="#12131A" stroke-width="3"/><rect x="751" y="130" width="46" height="46" rx="12" fill="#fff" stroke="#12131A" stroke-width="3"/><rect x="808" y="130" width="46" height="46" rx="12" fill="#fff" stroke="#12131A" stroke-width="3"/><rect x="865" y="130" width="46" height="46" rx="12" fill="#fff" stroke="#12131A" stroke-width="3"/><rect x="922" y="130" width="46" height="46" rx="12" fill="#fff" stroke="#12131A" stroke-width="3"/><rect x="979" y="130" width="46" height="46" rx="12" fill="#fff" stroke="#12131A" stroke-width="3"/><rect x="1036" y="130" width="46" height="46" rx="12" fill="#fff" stroke="#12131A" stroke-width="3"/><rect x="1093" y="130" width="46" height="46" rx="12" fill="#fff" stroke="#12131A" stroke-width="3"/><text x="1116" y="214" text-anchor="middle" font-size="24" fill="#575C6E" font-weight="500">20</text><rect x="1150" y="130" width="46" height="46" rx="12" fill="#fff" stroke="#12131A" stroke-width="3"/><rect x="1207" y="130" width="46" height="46" rx="12" fill="#fff" stroke="#12131A" stroke-width="3"/><rect x="1264" y="130" width="46" height="46" rx="12" fill="#fff" stroke="#12131A" stroke-width="3"/><rect x="1321" y="130" width="46" height="46" rx="12" fill="#fff" stroke="#12131A" stroke-width="3"/><rect x="1378" y="130" width="46" height="46" rx="12" fill="#fff" stroke="#12131A" stroke-width="3"/><rect x="1435" y="130" width="46" height="46" rx="12" fill="#fff" stroke="#12131A" stroke-width="3"/><rect x="1492" y="130" width="46" height="46" rx="12" fill="#fff" stroke="#12131A" stroke-width="3"/><rect x="1549" y="130" width="46" height="46" rx="12" fill="#fff" stroke="#12131A" stroke-width="3"/><rect x="1606" y="130" width="46" height="46" rx="12" fill="#fff" stroke="#12131A" stroke-width="3"/><rect x="1663" y="130" width="46" height="46" rx="12" fill="#fff" stroke="#12131A" stroke-width="3"/><text x="1686" y="214" text-anchor="middle" font-size="24" fill="#575C6E" font-weight="500">30</text><path d="M1655 40C1500 -4 400 -4 300 112" stroke="#C23A05" stroke-width="6" stroke-linecap="round" class="draw"/><path d="M278 80L298 114L330 96" stroke="#C23A05" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><text x="1715" y="104" text-anchor="end" font-size="26" font-weight="600" fill="#575C6E">«30+» — было</text><text x="276" y="252" text-anchor="middle" font-size="26" font-weight="700" fill="#C23A05">стало</text></svg>
-    <div class="row2 rv" style="--d:3"><div class="v"><em>76,4</em>%</div><p>В другом исследовании ИИ сам подобрал себе окружение вокруг модели — и решил больше задач без ошибок, чем системы, собранные людьми вручную.</p></div>
+    <p class="src4 rv">Рейтинг ИИ-агентов TerminalBench 2.0 · компания LangChain</p>
+    <div class="trio">
+      <div class="bx was rv" style="--d:1"><div class="lb">БЫЛО</div><div class="n">30+</div><div class="t">место: за пределами первых тридцати</div></div>
+      <div class="same rv" style="--d:2"><svg viewBox="0 0 100 100" fill="none" stroke="#FF5B1F" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><rect x="22" y="44" width="56" height="42" rx="10"/><path d="M34 44V32C34 18 66 18 66 32V44"/><circle cx="50" cy="65" r="5" fill="#FF5B1F" stroke="none"/></svg><b>Модель<br>та же</b><p>те же веса, ничего не меняли</p></div>
+      <div class="bx now rv" style="--d:3"><div class="lb">СТАЛО</div><div class="n">5</div><div class="t">место: пятое</div></div>
+    </div>
+    <p class="chg rv" style="--d:4">Поменяли только всё вокруг модели. <em>Это и есть harness.</em></p>
+    <div class="more rv" style="--d:5"><div class="v">76,4%</div><p><b>Ещё пример:</b> в другом исследовании ИИ сам подобрал себе окружение вокруг модели и решил 76,4% задач без ошибок — лучше, чем системы, собранные людьми вручную.</p></div>
   </div>
-<div class="mk rv" style="--d:5"><b>Для маркетолога</b>Вот за что на самом деле платят</div>
+<div class="mk rv" style="--d:6"><b>Для маркетолога</b>Вот за что на самом деле платят</div>
 </section>
 <section class="slide dk s5">
   <div class="tag">Что такое harness</div><div class="pgn"></div>
