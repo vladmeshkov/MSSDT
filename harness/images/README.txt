@@ -1,4 +1,5 @@
-Сюда можно положить свои фото — они сами заменят нарисованные пейзажи:
-  cover.jpg    титульный слайд (широкое, ~1700x530)
-  problem.jpg  слайд 2 (вертикальное, ~700x800)
-  thanks.jpg   последний слайд (широкое, ~1920x640)
+Фото (Unsplash, через Picsum):
+  cover.jpg   Paul Jarvis (picsum id 10)
+  problem.jpg Paul Jarvis (picsum id 15)
+  thanks.jpg  Go Wild (picsum id 29)
+Можно заменить своими файлами с теми же именами.
