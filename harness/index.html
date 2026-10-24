@@ -473,6 +473,41 @@ svg.lg { width: 40px; height: 40px; flex: none; max-width: none; max-height: non
 .s9:not(.sh) .row { padding-top: 12px; padding-bottom: 12px; }
 .s9:not(.sh) .list { gap: 12px; margin-top: 20px; }
 
+
+/* определение и пример с почтой */
+.s3 .big h3 { font-size: 56px; line-height: 1.12; letter-spacing: -0.01em; }
+.s3 .big p { font-size: 31px; margin-top: 20px; }
+.s3 .vb { list-style: none; margin-top: 10px; }
+.s3 .vb li { font-size: 33px; line-height: 1.3; padding: 7px 0 7px 38px; position: relative; color: #E2F2EE; }
+.s3 .vb li::before { content: ""; position: absolute; left: 4px; top: 21px; width: 16px; height: 16px; border-radius: 50%; background: #5FE0B8; }
+.s3 .vb li b { color: #5FE0B8; font-weight: 800; }
+.s3 .big .q { margin-top: auto; }
+.sx .grid { display: grid; grid-template-columns: 560px 1fr; gap: 50px; margin-top: 28px; flex: 1; }
+.sx .task { padding: 40px 38px; display: flex; flex-direction: column; border-radius: 28px; }
+.sx .task .lab { color: #5FE0B8; }
+.sx .tq { font-family: var(--f-head); font-weight: 800; font-size: 46px; line-height: 1.18; margin-top: 4px; }
+.sx .split { margin-top: auto; display: grid; gap: 14px; }
+.sx .split div { background: rgba(255,255,255,.12); border-radius: 16px; padding: 16px 22px; font-size: 29px; line-height: 1.25; }
+.sx .split b { display: block; font-family: var(--f-head); font-weight: 800; font-size: 36px; color: #5FE0B8; }
+.sx .steps { display: flex; flex-direction: column; gap: 14px; justify-content: center; }
+.sx .nrow { padding: 12px 26px 12px 14px; grid-template-columns: 74px 1fr; }
+.sx .nrow .n { width: 74px; height: 74px; font-size: 40px; }
+.sx .nrow b { font-size: 35px; margin-bottom: 2px; }
+.sx .nrow span { font-size: 29px; }
+
+
+/* слайд 4: уложить в высоту */
+.s3 .big { padding: 36px 42px 32px; }
+.s3 .big h3 { font-size: 50px; }
+.s3 .big p { font-size: 29px; margin-top: 14px; }
+.s3 .vb li { font-size: 30px; padding: 5px 0 5px 36px; }
+.s3 .vb li::before { top: 17px; }
+.s3 .big .q { padding: 16px 24px; font-size: 30px; }
+.s3 .nrow { min-height: 160px; }
+.s3 .nrow b { font-size: 36px; }
+.s3 .nrow span { font-size: 29px; }
+.s3 .rows { gap: 18px; }
+
 /* ===========================================
    ИНТЕРФЕЙС ВНЕ СЦЕНЫ
    =========================================== */
@@ -556,18 +591,24 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
   <div class="inner">
     <div class="grid">
       <div class="card deep big rv">
-        <div class="lab">Ответ</div>
-        <h3>Агент = Модель + <span>Обвязка</span></h3>
-        <p>Harness по-русски — «обвязка», дословно «упряжь». Это всё, что стоит вокруг модели и позволяет ей работать.</p>
-        <div class="eq"><div>Выпускник</div><i>+</i><div>Рабочее место</div><i>=</i><div class="res">Сотрудник</div></div>
+        <div class="lab">Определение</div>
+        <h3>Harness — программа, которая управляет моделью</h3>
+        <p>Harness по-русски — «обвязка», дословно «упряжь». Конкретно, он:</p>
+        <ul class="vb">
+          <li><b>отправляет</b> модели задачу;</li>
+          <li><b>даёт</b> ей инструменты: почту, файлы, поиск;</li>
+          <li><b>хранит</b> память о прошлой работе;</li>
+          <li><b>проверяет</b> результат;</li>
+          <li><b>следит</b> за правилами и доступами.</li>
+        </ul>
         <div class="q">«Если ты не модель — ты харнесс»<small>Vivek Trivedy, LangChain</small></div>
       </div>
       <div class="right">
-        <div class="lab rv" style="--d:1">Новый сотрудник</div>
-        <h2 class="rv" style="--d:1">ИИ — это <span class="g">сотрудник</span></h2>
+        <div class="lab rv" style="--d:1">Формула</div>
+        <h2 class="rv" style="--d:1">Агент = Модель + <span class="g">Harness</span></h2>
         <div class="rows">
-          <div class="card nrow rv" style="--d:2"><div class="n">1</div><div><b>Модель — это выпускник</b><span>Он знает очень много, но в пустой комнате сам ничего не сделает.</span></div></div>
-          <div class="card nrow rv" style="--d:3"><div class="n">2</div><div><b>Обвязка — рабочее место</b><span>Инструменты, блокнот, проверка результата и доступы.</span></div></div>
+          <div class="card nrow rv" style="--d:2"><div class="n">1</div><div><b>Модель — выпускник</b><span>Он знает очень много, но в пустой комнате сам ничего не сделает.</span></div></div>
+          <div class="card nrow rv" style="--d:3"><div class="n">2</div><div><b>Harness — рабочее место</b><span>Программа с инструментами, блокнотом, проверкой и доступами.</span></div></div>
           <div class="card nrow on rv" style="--d:4"><div class="n">3</div><div><b>Агент — сотрудник</b><span>Он берёт задачу и доводит её до конца.</span></div></div>
         </div>
       </div>
@@ -576,18 +617,43 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
   <div class="mkt rv" style="--d:7"><b>Маркетинг</b>Покупают сотрудника, а не «выпускника»<span class="pg"></span></div>
 </section>
 
+<section class="slide sx">
+  <div class="inner">
+    <div class="lab rv">Пример из жизни</div>
+    <h2 class="rv" style="--d:1">ИИ разбирает вашу <span class="g">почту</span></h2>
+    <div class="grid">
+      <div class="card deep task rv" style="--d:2">
+        <div class="lab">Задача человека</div>
+        <p class="tq">«Разбери утреннюю почту и ответь на срочные письма»</p>
+        <div class="split">
+          <div><b>Модель</b>только читает и пишет текст</div>
+          <div><b>Harness</b>делает всё остальное</div>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="card nrow rv" style="--d:2"><div class="n">1</div><div><b>Harness</b><span>Собирает задание: просьбу человека, инструкции и записи прошлых дней. Отправляет модели.</span></div></div>
+        <div class="card nrow on rv" style="--d:3"><div class="n">2</div><div><b>Модель</b><span>Отвечает: «Открой почту».</span></div></div>
+        <div class="card nrow rv" style="--d:4"><div class="n">3</div><div><b>Harness</b><span>Открывает почту и показывает модели письма.</span></div></div>
+        <div class="card nrow on rv" style="--d:5"><div class="n">4</div><div><b>Модель</b><span>Читает письма и пишет черновики ответов.</span></div></div>
+        <div class="card nrow rv" style="--d:6"><div class="n">5</div><div><b>Harness</b><span>Проверяет черновики и спрашивает человека: «Отправить?» Письма уходят только после «да».</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="mkt rv" style="--d:7"><b>Маркетинг</b>Клиент платит за результат — «почта разобрана», а не за «умную модель»<span class="pg"></span></div>
+</section>
+
 <section class="slide sy">
   <div class="inner">
-    <div class="lab rv">Что внутри слова «обвязка»</div>
+    <div class="lab rv">Промпт, контекст и harness</div>
     <h2 class="rv" style="--d:1">Три слоя <span class="g">вокруг модели</span></h2>
     <div class="lay3">
       <div class="card L rv" style="--d:2"><div class="n">1</div><h3>Промпт</h3><p>Как правильно поставить задачу модели.</p><div class="an">Как вы объяснили задачу сотруднику</div></div>
       <div class="ar rv" style="--d:3"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 5.500L19.500 12 13 18.500"/></svg></i></div>
       <div class="card L rv" style="--d:3"><div class="n">2</div><h3>Контекст</h3><p>Что модель видит перед ответом: документы, историю, записи.</p><div class="an">Какие бумаги вы положили ему на стол</div></div>
       <div class="ar rv" style="--d:4"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 5.500L19.500 12 13 18.500"/></svg></i></div>
-      <div class="card L deep rv" style="--d:4"><div class="n">3</div><h3>Обвязка</h3><p>Всё предыдущее плюс инструменты, память, проверки и правила безопасности.</p><div class="an">Всё рабочее место целиком</div></div>
+      <div class="card L deep rv" style="--d:4"><div class="n">3</div><h3>Harness</h3><p>Всё предыдущее плюс инструменты, память, проверки и правила безопасности.</p><div class="an">Всё рабочее место целиком</div></div>
     </div>
-    <div class="bar2 rv" style="--d:5">Каждый следующий слой включает предыдущий: обвязка — это и промпт, и контекст, и всё остальное.</div>
+    <div class="bar2 rv" style="--d:5">Каждый следующий слой включает предыдущий: harness — это и промпт, и контекст, и всё остальное.</div>
   </div>
   <div class="mkt rv" style="--d:7"><b>Маркетинг</b>Конкурируют не промптами, а целым рабочим местом<span class="pg"></span></div>
 </section>
@@ -595,7 +661,7 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
 <section class="slide s5">
   <div class="inner">
     <div class="lab rv">Рабочее место</div>
-    <h2 class="rv" style="--d:1">Из чего состоит <span class="g">обвязка</span></h2>
+    <h2 class="rv" style="--d:1">Из чего состоит <span class="g">harness</span></h2>
     <div class="cols">
       <div class="col rv" style="--d:2"><div class="hd">РУКИ</div><div class="pr">Не только говорит, но и делает</div><ul><li>открывает и читает файлы</li><li>ищет информацию в интернете</li><li>запускает программы</li></ul><div class="bt">ХАРАКТЕРИСТИКА 1</div></div>
       <div class="col rv" style="--d:3"><div class="hd">БЛОКНОТ</div><div class="pr">Помнит, о чём договорились</div><ul><li>хранит записи между сессиями</li><li>ведёт список задач</li><li>знает, что уже сделано</li></ul><div class="bt">ХАРАКТЕРИСТИКА 2</div></div>
@@ -686,27 +752,13 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
   <div class="mkt rv" style="--d:7"><b>Маркетинг</b>Непрерывность работы — тоже характеристика продукта<span class="pg"></span></div>
 </section>
 
-<section class="slide s9 sh">
-  <div class="inner">
-    <div class="lab rv">Когда сотрудников несколько</div>
-    <h2 class="rv" style="--d:1">Как сотрудники <span class="g">делят работу</span></h2>
-    <div class="list">
-      <div class="card row rv" style="--d:2"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-claude" fill="#D97757" width="100%" height="100%"/></svg></div><b>Claude Code<small>Anthropic</small></b><span><em>Три способа.</em> Помощник получает копию всего, что знает главный агент; или работает как отдельный коллега и общается через файлы-записки; или трудится в своей копии проекта и не мешает остальным.</span></div>
-      <div class="card row rv" style="--d:3"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-openai" fill="#111" width="100%" height="100%"/></svg></div><b>OpenAI<small>Agents SDK</small></b><span><em>Два способа.</em> Специалист решает узкую задачу и возвращает результат — или полностью берёт задачу на себя.</span></div>
-      <div class="card row rv" style="--d:4"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-langchain" fill="#1C3C3C" width="100%" height="100%"/></svg></div><b>LangGraph<small>LangChain</small></b><span><em>Схема в схеме.</em> Помощники устроены как небольшие схемы внутри большой схемы.</span></div>
-    </div>
-    <div class="note rv" style="--d:5"><b>Сначала один сотрудник</b><p>Anthropic и OpenAI советуют выжать максимум из одного агента. Делить работу стоит, если инструментов больше десяти или задачи совсем разные: каждый новый помощник — это расходы и риск потерять часть информации при передаче дела.</p></div>
-  </div>
-  <div class="mkt rv" style="--d:7"><b>Маркетинг</b>Больше помощников — дороже и рискованнее для клиента<span class="pg"></span></div>
-</section>
-
 <section class="slide s9">
   <div class="inner">
     <div class="lab rv">Рынок</div>
     <h2 class="rv" style="--d:1">Одна модель — <span class="g">разные обещания</span></h2>
     <div class="list">
-      <div class="card row rv" style="--d:2"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-claude" fill="#D97757" width="100%" height="100%"/></svg></div><b>Claude Code<small>Anthropic</small></b><span>Лёгкая обвязка. Ставка на то, что модель станет умнее, поэтому лишние шаги убирают.</span></div>
-      <div class="card row rv" style="--d:3"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-openai" fill="#111111" width="100%" height="100%"/></svg></div><b>Codex<small>OpenAI</small></b><span>Одна и та же обвязка работает в терминале, в редакторе кода и в браузере.</span></div>
+      <div class="card row rv" style="--d:2"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-claude" fill="#D97757" width="100%" height="100%"/></svg></div><b>Claude Code<small>Anthropic</small></b><span>Лёгкий harness. Ставка на то, что модель станет умнее, поэтому лишние шаги убирают.</span></div>
+      <div class="card row rv" style="--d:3"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-openai" fill="#111111" width="100%" height="100%"/></svg></div><b>Codex<small>OpenAI</small></b><span>Один и тот же harness работает в терминале, в редакторе кода и в браузере.</span></div>
       <div class="card row rv" style="--d:4"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-langchain" fill="#1C3C3C" width="100%" height="100%"/></svg></div><b>LangGraph<small>LangChain</small></b><span>Работа расписана как схема, поэтому каждый шаг под контролем.</span></div>
       <div class="card row rv" style="--d:5"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-crewai" fill="#FF5A50" width="100%" height="100%"/></svg></div><b>CrewAI</b><span>Команда агентов: у каждого своя роль, цель и свои инструменты.</span></div>
       <div class="card row rv" style="--d:6"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-microsoft" fill="#111" width="100%" height="100%"/></svg></div><b>AutoGen<small>Microsoft</small></b><span>Агенты решают задачу вместе, как в общем чате.</span></div>
@@ -722,38 +774,38 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
         <div class="lab rv">Будущее</div>
         <h2 class="rv" style="--d:1">Леса убирают, <span class="g">когда здание готово</span></h2>
         <ul>
-          <li class="rv" style="--d:2"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.500"/></svg></i><div>Модели умнеют, поэтому обвязка со временем должна становиться <b>проще</b>.</div></li>
+          <li class="rv" style="--d:2"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.500"/></svg></i><div>Модели умнеют, поэтому harness со временем должен становиться <b>проще</b>.</div></li>
           <li class="rv" style="--d:3"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.500"/></svg></i><div>Продукт <b>Manus</b> за полгода переделывали пять раз — и каждый раз убирали лишнее.</div></li>
           <li class="rv" style="--d:4"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.500"/></svg></i><div>В Anthropic убирают шаги из Claude Code, когда модель <b>научилась делать их сама</b>.</div></li>
-          <li class="rv" style="--d:5"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.500"/></svg></i><div>Проверка: модель стала сильнее, а обвязка не усложнилась — значит, всё сделано верно.</div></li>
+          <li class="rv" style="--d:5"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.500"/></svg></i><div>Проверка: модель стала сильнее, а harness не усложнился — значит, всё сделано верно.</div></li>
         </ul>
       </div>
       <div class="ph rv" style="--d:2;background:#0B4F5C">
         <svg class="art" aria-label="Схема: чем сильнее модель, тем тоньше harness" viewBox="0 0 760 800" preserveAspectRatio="xMidYMid meet">
           <rect width="760" height="800" fill="#0B4F5C"/>
-          <g font-family="Montserrat" font-weight="800" fill="#fff"><text x="60" y="96" font-size="40">Чем сильнее модель,</text><text x="60" y="146" font-size="40" fill="#5FE0B8">тем тоньше обвязка</text></g>
+          <g font-family="Montserrat" font-weight="800" fill="#fff"><text x="60" y="96" font-size="40">Чем сильнее модель,</text><text x="60" y="146" font-size="40" fill="#5FE0B8">тем тоньше harness</text></g>
           <g stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity=".8"><path d="M90 220V640H690"/><path d="M76 238L90 216L104 238"/><path d="M672 626L694 640L672 654"/></g>
           <path d="M110 600C300 590 420 400 680 250" stroke="#5FE0B8" stroke-width="10" stroke-linecap="round" fill="none"/>
           <path d="M110 260C300 280 430 500 680 590" stroke="#fff" stroke-width="10" stroke-linecap="round" fill="none"/>
-          <g font-family="Nunito Sans" font-weight="700" font-size="28"><text x="440" y="222" fill="#5FE0B8">сила модели</text><text x="120" y="236" fill="#fff">сложность обвязки</text></g>
+          <g font-family="Nunito Sans" font-weight="700" font-size="28"><text x="440" y="222" fill="#5FE0B8">сила модели</text><text x="120" y="236" fill="#fff">сложность harness</text></g>
           <g font-family="Nunito Sans" font-size="24" fill="#BFE9DE"><text x="96" y="684">новые версии моделей</text><text x="160" y="762" font-size="22" opacity=".75">концептуальная схема, без числовых данных</text></g>
         </svg>
         <div class="corner"></div>
       </div>
     </div>
   </div>
-  <div class="mkt rv" style="--d:6"><b>Маркетинг</b>Преимущество в обвязке придётся пересобирать<span class="pg"></span></div>
+  <div class="mkt rv" style="--d:6"><b>Маркетинг</b>Преимущество в harness придётся пересобирать<span class="pg"></span></div>
 </section>
 
 <section class="slide s11">
   <div class="inner">
     <div class="lab rv">Вывод</div>
-    <h2 class="rv" style="--d:1">Модель — товар, <span class="g">обвязка — продукт</span></h2>
+    <h2 class="rv" style="--d:1">Модель — товар, <span class="g">harness — продукт</span></h2>
     <div class="grid">
       <div class="rows">
         <div class="card nrow rv" style="--d:2"><div class="n">1</div><div><b>Модели доступны всем</b><span>ChatGPT, Claude или Gemini может подключить любая компания</span></div></div>
-        <div class="card nrow rv" style="--d:3"><div class="n">2</div><div><b>Отличие уходит в обвязку</b><span>на одной и той же модели продукты работают по-разному</span></div></div>
-        <div class="card nrow on rv" style="--d:4"><div class="n">3</div><div><b>Обвязка — это преимущество</b><span>её трудно скопировать: в ней опыт и ошибки команды</span></div></div>
+        <div class="card nrow rv" style="--d:3"><div class="n">2</div><div><b>Отличие уходит в harness</b><span>на одной и той же модели продукты работают по-разному</span></div></div>
+        <div class="card nrow on rv" style="--d:4"><div class="n">3</div><div><b>Harness — это преимущество</b><span>его трудно скопировать: в нём опыт и ошибки команды</span></div></div>
       </div>
       <div class="card deep q4 rv" style="--d:3">
         <div class="lab">Чек-лист</div>
@@ -774,11 +826,11 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
   <div class="ph">
     <img class="real" src="images/thanks.jpg" alt="Нейросеть на процессоре">
     <div class="shade" style="background:linear-gradient(90deg,rgba(11,79,92,.55),rgba(11,79,92,0) 55%)"></div>
-    <div class="capx">Модели<br>меняются.<br>Обвязка<br>остаётся</div>
+    <div class="capx">Модели<br>меняются.<br>Harness<br>остаётся</div>
     <div class="corner"></div>
   </div>
   <div class="ttl rv">СПАСИБО <span>ЗА ВНИМАНИЕ</span></div>
-  <div class="sub rv" style="--d:1">Не вините модель. Смотрите на обвязку.</div>
+  <div class="sub rv" style="--d:1">Не вините модель. Смотрите на harness.</div>
   <div class="by rv" style="--d:2"><b>Мешков Владислав</b> · группа 477901 · БГУИР, 2026 · по материалам статьи Akshay (перевод на Хабре)<br><span style="font-size:22px">Фото: Markus Spiske (CC0); mikemacmarketing, CC BY 2.0 · логотипы: Simple Icons (CC0), Wikimedia Commons; товарные знаки принадлежат владельцам</span></div>
 </section>
 </main>
