@@ -278,6 +278,58 @@ h2 .g, .g { color: var(--green); }
 .s12 .by { position: absolute; left: 0; right: 0; bottom: 56px; text-align: center; font-size: 28px; color: var(--mute); }
 .s12 .by b { color: var(--deep); font-family: var(--f-head); }
 
+
+/* настоящие фото (если файл лежит в images/): перекрывают нарисованный пейзаж */
+.ph img.real { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; max-height: none; object-fit: cover; }
+.ph .corner { z-index: 2; }
+
+/* ===========================================
+   СУБАГЕНТЫ
+   =========================================== */
+.sa .cols3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 28px; }
+.sa .col { border-radius: 26px; overflow: hidden; border: 2px solid var(--line); background: var(--white); box-shadow: 0 10px 30px rgba(11,79,92,.08); display: flex; flex-direction: column; }
+.sa .col .hd { background: var(--deep); color: var(--white); font-family: var(--f-head); font-weight: 700; font-size: 34px; text-align: center; padding: 20px 14px; }
+.sa .col:nth-child(2) .hd { background: var(--green); }
+.sa .col .bd { padding: 8px 28px 14px; flex: 1; }
+.sa .item { padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 27px; line-height: 1.28; color: var(--mute); }
+.sa .item:last-child { border-bottom: none; }
+.sa .item b { display: block; font-family: var(--f-head); font-weight: 700; font-size: 31px; color: var(--deep); margin-bottom: 2px; }
+.sa .note { margin-top: 26px; background: var(--deep); color: var(--white); border-radius: 26px; padding: 26px 40px; display: grid; grid-template-columns: 330px 1fr; gap: 36px; align-items: center; }
+.sa .note b { font-family: var(--f-head); font-weight: 800; font-size: 40px; line-height: 1.1; color: #5FE0B8; }
+.sa .note p { font-size: 27px; line-height: 1.32; color: #D5ECE6; }
+
+/* ===========================================
+   ДОЛГИЕ ЗАДАЧИ
+   =========================================== */
+.sl .flow { display: grid; grid-template-columns: 1fr 96px 1.25fr; margin-top: 36px; align-items: stretch; }
+.sl .bx { border-radius: 26px; padding: 26px 34px 28px; border: 2px solid var(--line); background: var(--white); box-shadow: 0 10px 30px rgba(11,79,92,.08); }
+.sl .bx.deep { background: var(--deep); border-color: var(--deep); color: var(--white); box-shadow: none; }
+.sl .bx .lab { margin-bottom: 4px; }
+.sl .bx.deep .lab { color: #5FE0B8; }
+.sl .bx h3 { font-family: var(--f-head); font-weight: 800; font-size: 40px; line-height: 1.1; margin-bottom: 12px; }
+.sl .bx ul, .sl .bx ol { list-style: none; counter-reset: c; }
+.sl .bx li { font-size: 30px; line-height: 1.28; padding: 6px 0 6px 40px; position: relative; }
+.sl .bx ul li::before { content: ""; position: absolute; left: 6px; top: 17px; width: 16px; height: 16px; border-radius: 50%; background: var(--green); }
+.sl .bx ol li { counter-increment: c; }
+.sl .bx ol li::before { content: counter(c); position: absolute; left: 0; top: 7px; width: 30px; height: 30px; border-radius: 50%; background: var(--green); color: var(--white); font-family: var(--f-head); font-weight: 800; font-size: 19px; display: grid; place-items: center; }
+.sl .arr { display: grid; place-items: center; }
+.sl .arr i { width: 70px; height: 70px; border-radius: 50%; background: var(--green); display: grid; place-items: center; }
+.sl .arr svg { width: 38px; height: 38px; }
+.sl .chips { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 36px; }
+.sl .chip { background: var(--mint); border-radius: 20px; padding: 22px 28px 24px; font-size: 27px; line-height: 1.28; }
+.sl .chip b { display: block; font-family: var(--f-head); font-weight: 700; font-size: 28px; color: var(--deep); margin-bottom: 4px; }
+
+/* ===========================================
+   СЕМЬ РЕШЕНИЙ
+   =========================================== */
+.sd .list { display: flex; flex-direction: column; gap: 10px; margin-top: 22px; }
+.sd .row { display: grid; grid-template-columns: 64px 470px 1fr; gap: 24px; align-items: center; padding: 8px 30px 8px 14px; border-radius: 18px; }
+.sd .row .n { width: 64px; height: 64px; border-radius: 50%; background: var(--deep); color: var(--white); font-family: var(--f-head); font-weight: 800; font-size: 30px; display: grid; place-items: center; }
+.sd .row:nth-child(even) .n { background: var(--green); }
+.sd .row b { font-family: var(--f-head); font-weight: 700; font-size: 29px; color: var(--deep); line-height: 1.12; }
+.sd .row span { font-size: 26px; line-height: 1.25; }
+.sd .row span em { font-style: normal; font-weight: 700; color: var(--green); }
+
 /* ===========================================
    ИНТЕРФЕЙС ВНЕ СЦЕНЫ
    =========================================== */
@@ -349,6 +401,7 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
   <p class="sub rv" style="--d:2">Что на самом деле покупает клиент, когда покупает ИИ-продукт</p>
   <div class="ph rv" style="--d:3">
     <svg class="art" aria-label="Пейзаж: озеро и горы"><use href="#land1" width="100%" height="100%"/></svg>
+    <img class="real" src="images/cover.jpg" alt="" onerror="this.remove()">
     <div class="corner"></div>
   </div>
   <div class="by rv" style="--d:4"><b>Мешков Владислав</b><span>группа 477901 · БГУИР, 2026</span></div>
@@ -360,6 +413,7 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
     <div class="grid">
       <div class="ph rv">
         <svg class="art" aria-label="Пейзаж: бухта и скала"><use href="#land2" width="100%" height="100%"/></svg>
+        <img class="real" src="images/problem.jpg" alt="" onerror="this.remove()">
         <div class="corner"></div>
       </div>
       <div>
@@ -522,6 +576,46 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
   <div class="mkt rv" style="--d:5"><b>Маркетинг</b>Надёжность и безопасность — аргументы продаж, а не «ум» модели<span class="pg"></span></div>
 </section>
 
+<!-- ================= СУБАГЕНТЫ ================= -->
+<section class="slide sa">
+  <div class="inner">
+    <div class="lab rv">Компонент 11 · оркестрация субагентов</div>
+    <h2 class="rv" style="--d:1">Как делегируют <span class="g">подзадачи</span></h2>
+    <div class="cols3">
+      <div class="col rv" style="--d:2"><div class="hd">Claude Code</div><div class="bd">
+        <div class="item"><b>Fork</b>копия родительского контекста</div>
+        <div class="item"><b>Teammate</b>отдельная панель терминала, общение через файлы-mailbox</div>
+        <div class="item"><b>Worktree</b>отдельный git worktree: своя ветка на каждого агента</div></div></div>
+      <div class="col rv" style="--d:3"><div class="hd">Agents SDK OpenAI</div><div class="bd">
+        <div class="item"><b>Agents-as-tools</b>специалист решает ограниченную подзадачу</div>
+        <div class="item"><b>Handoffs</b>специалист берёт на себя полное управление</div></div></div>
+      <div class="col rv" style="--d:4"><div class="hd">LangGraph</div><div class="bd">
+        <div class="item"><b>Вложенные графы</b>субагенты — это вложенные графы состояний</div></div></div>
+    </div>
+    <div class="note rv" style="--d:5"><b>Сначала один агент</b><p>Anthropic и OpenAI советуют максимально использовать одного. Делить стоит, когда пересекающихся инструментов больше десяти или домены задач явно разные: у мультиагентности есть накладные расходы на маршрутизацию и потери контекста при handoff.</p></div>
+  </div>
+  <div class="mkt rv" style="--d:6"><b>Маркетинг</b>Мультиагентность усложняет продукт — начинайте с одного агента<span class="pg"></span></div>
+</section>
+
+<!-- ================= ДОЛГИЕ ЗАДАЧИ ================= -->
+<section class="slide sl">
+  <div class="inner">
+    <div class="lab rv">Ralph Loop · Anthropic</div>
+    <h2 class="rv" style="--d:1">Задача длиннее <span class="g">контекстного окна</span></h2>
+    <div class="flow">
+      <div class="bx rv" style="--d:2"><div class="lab">Один раз</div><h3>Initializer Agent</h3><ul><li>init-скрипт</li><li>progress-файл</li><li>список фич</li><li>первый git-коммит</li></ul></div>
+      <div class="arr rv" style="--d:3"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 5.500L19.500 12 13 18.500"/></svg></i></div>
+      <div class="bx deep rv" style="--d:4"><div class="lab">Каждая следующая сессия</div><h3>Coding Agent</h3><ol><li>читает git-логи и progress-файл, чтобы сориентироваться</li><li>берёт незавершённую фичу с наивысшим приоритетом</li><li>работает над ней</li><li>делает коммит и пишет саммари</li></ol></div>
+    </div>
+    <div class="chips rv" style="--d:5">
+      <div class="chip"><b>Claude Code</b>git-коммиты как чекпоинты, progress-файлы как структурированные черновики</div>
+      <div class="chip"><b>LangGraph</b>типизированное состояние, чекпоинты на границах super-step, возобновление и time-travel debugging</div>
+      <div class="chip"><b>OpenAI</b>четыре стратегии: память приложения, SDK sessions, Conversations API или previous_response_id</div>
+    </div>
+  </div>
+  <div class="mkt rv" style="--d:6"><b>Маркетинг</b>Клиенту важна непрерывность: работа не теряется между сессиями<span class="pg"></span></div>
+</section>
+
 <!-- ================= 09 РЫНОК ================= -->
 <section class="slide s9">
   <div class="inner">
@@ -536,6 +630,24 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
     </div>
   </div>
   <div class="mkt rv" style="--d:7"><b>Маркетинг</b>Модель одна — продают подход и позиционирование<span class="pg"></span></div>
+</section>
+
+<!-- ================= СЕМЬ РЕШЕНИЙ ================= -->
+<section class="slide sd">
+  <div class="inner">
+    <div class="lab rv">Проектирование</div>
+    <h2 class="rv" style="--d:1">Семь решений <span class="g">архитектора</span></h2>
+    <div class="list">
+      <div class="card row rv" style="--d:2"><div class="n">1</div><b>Один агент или несколько</b><span>Сначала один; делить при ~10 и более пересекающихся инструментах</span></div>
+      <div class="card row rv" style="--d:2"><div class="n">2</div><b>ReAct или plan-and-execute</b><span>ReAct гибче, но дороже на шаг; LLMCompiler ускоряет <em>в 3,6 раза</em></span></div>
+      <div class="card row rv" style="--d:3"><div class="n">3</div><b>Управление контекстом</b><span>Пять подходов; ACON: на <em>26–54%</em> меньше токенов при точности 95%+</span></div>
+      <div class="card row rv" style="--d:3"><div class="n">4</div><b>Цикл проверки</b><span>Тесты и линтеры — точно; LLM-судья ловит смысл, но добавляет задержку</span></div>
+      <div class="card row rv" style="--d:4"><div class="n">5</div><b>Права и безопасность</b><span>Свободно — быстро, но рискованно; строго — безопасно, но медленно</span></div>
+      <div class="card row rv" style="--d:4"><div class="n">6</div><b>Набор инструментов</b><span>Больше — часто хуже: Vercel убрал <em>80%</em> инструментов v0, и стало лучше</span></div>
+      <div class="card row rv" style="--d:5"><div class="n">7</div><b>Толщина harness’а</b><span>Anthropic ставит на тонкий, графовые фреймворки — на явный контроль</span></div>
+    </div>
+  </div>
+  <div class="mkt rv" style="--d:6"><b>Маркетинг</b>Каждый выбор — компромисс между скоростью, ценой и риском для клиента<span class="pg"></span></div>
 </section>
 
 <!-- ================= 10 ЛЕСА ================= -->
@@ -603,6 +715,7 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
 <section class="slide s12">
   <div class="ph">
     <svg class="art" aria-label="Панорама: лес, озеро и горы"><use href="#land3" width="100%" height="100%"/></svg>
+    <img class="real" src="images/thanks.jpg" alt="" onerror="this.remove()">
     <div class="corner"></div>
   </div>
   <div class="ttl rv">СПАСИБО <span>ЗА ВНИМАНИЕ</span></div>
