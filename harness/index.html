@@ -508,6 +508,26 @@ svg.lg { width: 40px; height: 40px; flex: none; max-width: none; max-height: non
 .s3 .nrow span { font-size: 29px; }
 .s3 .rows { gap: 18px; }
 
+
+/* слайд 7: конкретная таблица компонентов */
+.st7 .hd7 { display: grid; grid-template-columns: 66px 250px 560px 1fr; gap: 24px; padding: 14px 24px 8px 14px; margin-top: 18px; font-family: var(--f-head); font-weight: 700; font-size: 24px; letter-spacing: .06em; text-transform: uppercase; color: var(--mute); }
+.st7 .tb7 { display: flex; flex-direction: column; gap: 10px; }
+.st7 .rw { display: grid; grid-template-columns: 66px 250px 560px 1fr; gap: 24px; align-items: center; padding: 10px 24px 10px 14px; border-radius: 18px; }
+.st7 .rw .n { width: 66px; height: 66px; border-radius: 50%; background: var(--deep); color: var(--white); font-family: var(--f-head); font-weight: 800; font-size: 30px; display: grid; place-items: center; }
+.st7 .rw:nth-child(even) .n { background: var(--green); }
+.st7 .rw b { font-family: var(--f-head); font-weight: 800; font-size: 31px; color: var(--deep); line-height: 1.12; }
+.st7 .rw b small { display: block; font-family: var(--f-body); font-weight: 600; font-size: 24px; color: var(--mute); margin-top: 2px; }
+.st7 .rw span { font-size: 26px; line-height: 1.28; }
+.st7 .rw span.cc { color: var(--deep); font-weight: 700; }
+.st7 .fn7 { margin-top: 14px; font-size: 23px; line-height: 1.3; color: var(--mute); }
+
+
+.st7 .hd7, .st7 .rw { grid-template-columns: 66px 260px 560px 1fr; }
+.st7 .rw { padding: 8px 24px 8px 14px; }
+.st7 .rw span { font-size: 27px; }
+.st7 .rw b { font-size: 33px; }
+.st7 .tb7 { gap: 12px; }
+
 /* ===========================================
    ИНТЕРФЕЙС ВНЕ СЦЕНЫ
    =========================================== */
@@ -658,18 +678,15 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
   <div class="mkt rv" style="--d:7"><b>Маркетинг</b>Конкурируют не промптами, а целым рабочим местом<span class="pg"></span></div>
 </section>
 
-<section class="slide s5">
+<section class="slide st7">
   <div class="inner">
-    <div class="lab rv">Рабочее место</div>
+    <div class="lab rv">Реальный пример: Claude Code</div>
     <h2 class="rv" style="--d:1">Из чего состоит <span class="g">harness</span></h2>
-    <div class="cols">
-      <div class="col rv" style="--d:2"><div class="hd">РУКИ</div><div class="pr">Не только говорит, но и делает</div><ul><li>открывает и читает файлы</li><li>ищет информацию в интернете</li><li>запускает программы</li></ul><div class="bt">ХАРАКТЕРИСТИКА 1</div></div>
-      <div class="col rv" style="--d:3"><div class="hd">БЛОКНОТ</div><div class="pr">Помнит, о чём договорились</div><ul><li>хранит записи между сессиями</li><li>ведёт список задач</li><li>знает, что уже сделано</li></ul><div class="bt">ХАРАКТЕРИСТИКА 2</div></div>
-      <div class="col rv" style="--d:4"><div class="hd">КОНТРОЛЁР</div><div class="pr">Проверяет свою работу</div><ul><li>сверяет результат до сдачи</li><li>при сбое пробует иначе</li><li>ловит ошибки до клиента</li></ul><div class="bt">ХАРАКТЕРИСТИКА 3</div></div>
-      <div class="col rv" style="--d:5"><div class="hd">ПРОПУСК</div><div class="pr">Знает, что ему разрешено</div><ul><li>что делает сам</li><li>что — только с одобрения человека</li><li>останавливается, если что-то не так</li></ul><div class="bt">ХАРАКТЕРИСТИКА 4</div></div>
-    </div>
+    <div class="hd7 rv" style="--d:2"><span></span><span>Часть</span><span>Что делает</span><span>Как это в Claude Code</span></div>
+    <div class="tb7"><div class="card rw rv" style="--d:2"><div class="n">1</div><b>Цикл</b><span>повторяет «запрос → модель → инструмент», пока задача не решена</span><span class="cc">обычный цикл while; в Anthropic его называют «тупым»</span></div><div class="card rw rv" style="--d:2"><div class="n">2</div><b>Инструменты <small>(«руки»)</small></b><span>модель просит вызвать инструмент, harness его выполняет</span><span class="cc">6 групп: файлы, поиск, команды, веб, анализ кода, субагенты</span></div><div class="card rw rv" style="--d:3"><div class="n">3</div><b>Память <small>(«блокнот»)</small></b><span>хранит знания между сессиями</span><span class="cc">файлы CLAUDE.md и MEMORY.md: индекс, файлы по темам, архив</span></div><div class="card rw rv" style="--d:3"><div class="n">4</div><b>Контекст</b><span>не даёт окну модели забиться лишним</span><span class="cc">сжатие истории; grep вместо чтения файлов целиком</span></div><div class="card rw rv" style="--d:4"><div class="n">5</div><b>Проверка <small>(«контролёр»)</small></b><span>ловит сбои и проверяет результат</span><span class="cc">тесты, линтеры, скриншоты, ИИ-судья</span></div><div class="card rw rv" style="--d:4"><div class="n">6</div><b>Права <small>(«пропуск»)</small></b><span>решает, что разрешено (а не модель)</span><span class="cc">около 40 возможностей; подтверждение человеком</span></div></div>
+    <p class="fn7 rv" style="--d:5">Показано 6 из 11 компонентов статьи. Ещё: разбор ответа модели, состояние (git-коммиты), субагенты, сборка запроса, ограничители.</p>
   </div>
-  <div class="mkt rv" style="--d:7"><b>Маркетинг</b>Это характеристики для карточки сравнения продуктов<span class="pg"></span></div>
+  <div class="mkt rv" style="--d:7"><b>Маркетинг</b>Сравнивая продукты, спрашивайте: какие из этих частей есть и насколько проработаны<span class="pg"></span></div>
 </section>
 
 <section class="slide s6">
