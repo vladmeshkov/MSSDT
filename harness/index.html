@@ -58,14 +58,24 @@ svg text { font-family:var(--f-body); }
 .chip { display:inline-block; font-size:22px; font-weight:700; border-radius:30px; padding:6px 18px; }
 .c-h { background:var(--sky); color:var(--navy); } .c-m { background:var(--or); color:var(--black); } .c-p { background:var(--white); color:var(--black); border:2px solid var(--black); }
 
-/* ===== 1. титул ===== */
-.s1 .top { position:absolute; left:100px; top:130px; font-size:34px; font-weight:600; color:var(--sky); }
-.s1 h1 { position:absolute; left:90px; top:200px; font-family:var(--f-head); font-weight:800; font-size:200px; line-height:1; letter-spacing:-.045em; }
-.s1 .sub { position:absolute; left:100px; top:490px; width:900px; font-size:52px; line-height:1.22; font-weight:600; }
-.s1 .sub em { font-style:normal; color:var(--or); }
-.s1 .by { position:absolute; left:100px; bottom:70px; font-size:28px; line-height:1.55; color:var(--mute-d); }
-.s1 .by b { color:var(--white); font-weight:600; }
-.s1 svg.dia { overflow:visible; position:absolute; right:130px; top:150px; width:820px; height:780px; max-width:none; max-height:none; }
+/* ===== 1. титул: словарная статья ===== */
+.s1 h1 { position:absolute; left:88px; top:140px; font-family:var(--f-head); font-weight:800; font-size:230px; line-height:1; letter-spacing:-.025em; }
+.s1 .tr { position:absolute; left:100px; top:410px; font-size:40px; font-weight:500; color:var(--mute-l); }
+.s1 .tr b { color:var(--black); font-weight:700; }
+.s1 .defs { position:absolute; left:100px; top:500px; width:880px; list-style:none; }
+.s1 .defs li { display:grid; grid-template-columns:70px 1fr; padding:20px 0; border-top:3px solid var(--black); font-size:36px; line-height:1.3; font-weight:500; }
+.s1 .defs li:last-child { border-bottom:3px solid var(--black); }
+.s1 .defs i { font-style:normal; font-family:var(--f-head); font-weight:800; font-size:40px; color:var(--or-t); line-height:1.1; }
+.s1 .defs li.on span { font-weight:700; }
+.s1 .defs li.on span em { font-style:normal; background:var(--or); padding:2px 10px; border-radius:10px; }
+.s1 .sticker { position:absolute; left:1060px; top:470px; width:760px; background:var(--or); border:4px solid var(--black); border-radius:34px; box-shadow:14px 14px 0 var(--black); padding:40px 46px 44px; transform:rotate(-2.5deg); }
+.s1 .sticker small { display:block; font-size:28px; font-weight:700; margin-bottom:14px; }
+.s1 .sticker p { font-family:var(--f-head); font-weight:800; font-size:48px; line-height:1.15; letter-spacing:-.01em; }
+.s1 .by { position:absolute; left:100px; bottom:70px; font-size:28px; line-height:1.55; color:var(--mute-l); }
+.s1 .by b { color:var(--black); font-weight:700; }
+.s1 .rv.sticker { transform:rotate(-2.5deg) translateY(24px); }
+.slide.visible .s1 .rv.sticker, .s1.slide.visible .rv.sticker { transform:rotate(-2.5deg); }
+@media print { .s1 .rv.sticker { transform:rotate(-2.5deg) !important; } }
 
 /* ===== 2. опрос ===== */
 .s2 .q { font-family:var(--f-head); font-weight:700; font-size:58px; line-height:1.14; max-width:1600px; }
@@ -300,13 +310,16 @@ body.editing .progress::after { content:"РЕЖИМ РЕДАКТИРОВАНИЯ
 <div class="deck-viewport">
 <main class="deck-stage" id="deckStage">
 
-<section class="slide dk s1 active">
+<section class="slide lt s1 active">
   <div class="tag">Маркетинг программных продуктов и услуг</div><div class="pgn"></div>
-<div class="top rv">Доклад</div>
-  <h1 class="rv" style="--d:1">Harness</h1>
-  <p class="sub rv" style="--d:2">что на самом деле покупает клиент, когда покупает <em>ИИ‑продукт</em></p>
-  <svg class="dia rv" style="--d:2" viewBox="0 0 820 780" fill="none" aria-label="Модель в центре, вокруг неё harness"><circle cx="410" cy="390" r="290" stroke="#9CC9FF" stroke-opacity=".5" stroke-width="3" stroke-dasharray="4 16" stroke-linecap="round"/><line x1="410" y1="390" x2="410" y2="100" stroke="#9CC9FF" stroke-opacity=".35" stroke-width="3"/><circle cx="410" cy="100" r="16" fill="#0B1230" stroke="#FF5B1F" stroke-width="5"/><text x="410" y="66" text-anchor="middle" font-weight="600" font-size="28" fill="#fff">Цикл</text><line x1="410" y1="390" x2="686" y2="300" stroke="#9CC9FF" stroke-opacity=".35" stroke-width="3"/><circle cx="686" cy="300" r="16" fill="#0B1230" stroke="#FF5B1F" stroke-width="5"/><text x="716" y="309" text-anchor="start" font-weight="600" font-size="28" fill="#fff">Инструменты</text><line x1="410" y1="390" x2="580" y2="625" stroke="#9CC9FF" stroke-opacity=".35" stroke-width="3"/><circle cx="580" cy="625" r="16" fill="#0B1230" stroke="#FF5B1F" stroke-width="5"/><text x="580" y="677" text-anchor="middle" font-weight="600" font-size="28" fill="#fff">Память</text><line x1="410" y1="390" x2="240" y2="625" stroke="#9CC9FF" stroke-opacity=".35" stroke-width="3"/><circle cx="240" cy="625" r="16" fill="#0B1230" stroke="#FF5B1F" stroke-width="5"/><text x="240" y="677" text-anchor="middle" font-weight="600" font-size="28" fill="#fff">Проверка</text><line x1="410" y1="390" x2="134" y2="300" stroke="#9CC9FF" stroke-opacity=".35" stroke-width="3"/><circle cx="134" cy="300" r="16" fill="#0B1230" stroke="#FF5B1F" stroke-width="5"/><text x="104" y="309" text-anchor="end" font-weight="600" font-size="28" fill="#fff">Права</text><circle cx="410" cy="390" r="104" fill="#FF5B1F"/><text x="410" y="388" text-anchor="middle" font-family="Unbounded" font-weight="700" font-size="30" fill="#12131A">МОДЕЛЬ</text><text x="410" y="424" text-anchor="middle" font-weight="500" font-size="22" fill="#12131A">только текст</text><text x="410" y="770" text-anchor="middle" font-weight="600" font-size="28" fill="#9CC9FF">всё вокруг модели — harness</text></svg>
-  <div class="by rv" style="--d:3"><b>Мешков Владислав</b><br>группа 477901 · БГУИР, 2026</div>
+<h1 class="rv">Harness</h1>
+  <p class="tr rv" style="--d:1"><b>[ˈhɑːnɪs]</b> · английское слово</p>
+  <ul class="defs rv" style="--d:2">
+    <li><i>1</i><span>Упряжь: ремни, которые направляют силу лошади.</span></li>
+    <li class="on"><i>2</i><span>В ИИ: всё, что направляет силу модели и превращает её <em>в работника</em>.</span></li>
+  </ul>
+  <div class="sticker rv" style="--d:3"><small>Доклад</small><p>Что на самом деле покупает клиент, когда покупает ИИ‑продукт</p></div>
+  <div class="by rv" style="--d:4"><b>Мешков Владислав</b><br>группа 477901 · БГУИР, 2026</div>
 
 </section>
 <section class="slide lt s2">
