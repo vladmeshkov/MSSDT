@@ -351,6 +351,21 @@ svg.lg { width: 40px; height: 40px; flex: none; max-width: none; max-height: non
 .s9 .row .i { background: var(--white) !important; border: 2px solid var(--line); }
 .s9 .row .i svg { width: 56px; height: 56px; max-width: none; max-height: none; }
 
+
+/* фото на титуле и финале */
+.ph .shade { position: absolute; inset: 0; background: linear-gradient(100deg, rgba(11,79,92,.82) 0%, rgba(11,79,92,.40) 55%, rgba(11,79,92,.08) 100%); }
+.ph .capx { position: absolute; left: 80px; top: 150px; font-family: var(--f-head); font-weight: 800; font-size: 46px; line-height: 1.15; color: var(--white); text-shadow: 0 2px 18px rgba(0,0,0,.35); }
+.s1 .ph .shade { background: linear-gradient(100deg, rgba(11,79,92,.55) 0%, rgba(11,79,92,.15) 60%, rgba(11,79,92,0) 100%); }
+
+/* окно с кодом (слайд 3) */
+.win { margin-top: 24px; border-radius: 18px; background: #062E36; overflow: hidden; border: 1px solid rgba(255,255,255,.14); }
+.win .bar { display: flex; align-items: center; gap: 8px; padding: 10px 18px; background: rgba(255,255,255,.08); font-size: 22px; color: #9CCBC1; }
+.win .bar i { width: 13px; height: 13px; border-radius: 50%; background: #5FE0B8; opacity: .85; }
+.win .bar i:nth-child(2) { opacity: .55; } .win .bar i:nth-child(3) { opacity: .3; }
+.win .bar span { margin-left: 10px; }
+.win pre { margin: 0; padding: 14px 22px 16px; font-family: ui-monospace, 'DejaVu Sans Mono', Menlo, Consolas, monospace; font-size: 26px; line-height: 1.45; color: #D5ECE6; }
+.win pre b { color: #5FE0B8; font-weight: 700; }
+
 /* ===========================================
    ИНТЕРФЕЙС ВНЕ СЦЕНЫ
    =========================================== */
@@ -386,10 +401,9 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
   <div class="tagp rv">Маркетинг программных продуктов и услуг</div>
   <h1 class="rv" style="--d:1">HARNESS <span>в ИИ</span></h1>
   <p class="sub rv" style="--d:2">Что на самом деле покупает клиент, когда покупает ИИ-продукт</p>
-  <div class="ph tech rv" style="--d:3">
-    <svg class="art" aria-label="Нейросетевой узор"><use href="#nn" width="100%" height="100%"/></svg>
-    <div class="cap" style="top:46px">Модели, вокруг которых строят ИИ-продукты</div>
-    <div class="tiles" style="top:110px"><div class="tile"><svg viewBox="0 0 24 24"><use href="#lg-claude" fill="#D97757" width="100%" height="100%"/></svg><span>Claude</span></div><div class="tile"><svg viewBox="0 0 24 24"><use href="#lg-openai" fill="#111111" width="100%" height="100%"/></svg><span>ChatGPT</span></div><div class="tile"><svg viewBox="0 0 24 24"><use href="#lg-googlegemini" fill="#8E75B2" width="100%" height="100%"/></svg><span>Gemini</span></div><div class="tile"><svg viewBox="0 0 24 24"><use href="#lg-perplexity" fill="#22B8CD" width="100%" height="100%"/></svg><span>Perplexity</span></div><div class="tile"><svg viewBox="0 0 24 24"><use href="#lg-cursor" fill="#111111" width="100%" height="100%"/></svg><span>Cursor</span></div><div class="tile"><svg viewBox="0 0 24 24"><use href="#lg-langchain" fill="#1C3C3C" width="100%" height="100%"/></svg><span>LangChain</span></div></div>
+  <div class="ph rv" style="--d:3">
+    <img class="real" src="images/cover.jpg" alt="Код на экране монитора">
+    <div class="shade"></div>
     <div class="corner"></div>
   </div>
   <div class="by rv" style="--d:4"><b>Мешков Владислав</b><span>группа 477901 · БГУИР, 2026</span></div>
@@ -433,6 +447,9 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
         <div class="lab">Определение</div>
         <h3>Агент = Модель + <span>Harness</span></h3>
         <p>Агент — поведение, которое видит пользователь. Harness — вся программная инфраструктура вокруг LLM: механизм, который это поведение производит.</p>
+        <div class="win"><div class="bar"><i></i><i></i><i></i><span>agent_loop — схема</span></div><pre><b>while</b> not done:
+    reply = llm(prompt)
+    run(reply.tool_calls)</pre></div>
         <div class="q">«Если ты не модель — ты харнесс»<small>Vivek Trivedy, LangChain</small></div>
       </div>
       <div class="right">
@@ -703,15 +720,15 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
 
 <!-- ================= 12 СПАСИБО ================= -->
 <section class="slide s12">
-  <div class="ph tech">
-    <svg class="art" aria-label="Нейросетевой узор"><use href="#nn" width="100%" height="100%"/></svg>
-    <div class="cap" style="top:96px;font-size:32px">Модели меняются. Harness остаётся</div>
-    <div class="tiles" style="top:170px"><div class="tile"><svg viewBox="0 0 24 24"><use href="#lg-claude" fill="#D97757" width="100%" height="100%"/></svg><span>Claude</span></div><div class="tile"><svg viewBox="0 0 24 24"><use href="#lg-openai" fill="#111111" width="100%" height="100%"/></svg><span>ChatGPT</span></div><div class="tile"><svg viewBox="0 0 24 24"><use href="#lg-googlegemini" fill="#8E75B2" width="100%" height="100%"/></svg><span>Gemini</span></div><div class="tile"><svg viewBox="0 0 24 24"><use href="#lg-perplexity" fill="#22B8CD" width="100%" height="100%"/></svg><span>Perplexity</span></div><div class="tile"><svg viewBox="0 0 24 24"><use href="#lg-cursor" fill="#111111" width="100%" height="100%"/></svg><span>Cursor</span></div><div class="tile"><svg viewBox="0 0 24 24"><use href="#lg-langchain" fill="#1C3C3C" width="100%" height="100%"/></svg><span>LangChain</span></div></div>
+  <div class="ph">
+    <img class="real" src="images/thanks.jpg" alt="Нейросеть на процессоре">
+    <div class="shade" style="background:linear-gradient(90deg,rgba(11,79,92,.55),rgba(11,79,92,0) 55%)"></div>
+    <div class="capx">Модели<br>меняются.<br>Harness<br>остаётся</div>
     <div class="corner"></div>
   </div>
   <div class="ttl rv">СПАСИБО <span>ЗА ВНИМАНИЕ</span></div>
   <div class="sub rv" style="--d:1">Не вините модель. Смотрите на harness.</div>
-  <div class="by rv" style="--d:2"><b>Мешков Владислав</b> · группа 477901 · БГУИР, 2026 · по материалам статьи Akshay (перевод на Хабре)<br><span style="font-size:22px">Логотипы: Simple Icons (CC0) и Wikimedia Commons; товарные знаки принадлежат их владельцам</span></div>
+  <div class="by rv" style="--d:2"><b>Мешков Владислав</b> · группа 477901 · БГУИР, 2026 · по материалам статьи Akshay (перевод на Хабре)<br><span style="font-size:22px">Фото: Markus Spiske (CC0); mikemacmarketing, CC BY 2.0 · логотипы: Simple Icons (CC0), Wikimedia Commons; товарные знаки принадлежат владельцам</span></div>
 </section>
 
 </main>
