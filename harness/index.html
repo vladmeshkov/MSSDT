@@ -330,6 +330,27 @@ h2 .g, .g { color: var(--green); }
 .sd .row span { font-size: 26px; line-height: 1.25; }
 .sd .row span em { font-style: normal; font-weight: 700; color: var(--green); }
 
+
+/* ===========================================
+   ТЕХНИЧЕСКИЕ ПАНЕЛИ С ЛОГОТИПАМИ
+   =========================================== */
+.ph.tech { background: linear-gradient(135deg, #0B4F5C, #0A6D70); }
+.tech .cap { position: absolute; left: 0; right: 0; font-family: var(--f-head); font-weight: 600; font-size: 28px; text-align: center; color: #BFE9DE; }
+.tech .tiles { position: absolute; left: 0; right: 0; display: flex; justify-content: center; gap: 26px; }
+.tile { width: 200px; height: 220px; background: var(--white); border-radius: 28px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; box-shadow: 0 14px 34px rgba(0,0,0,.22); }
+.tile svg { width: 96px; height: 96px; max-width: none; max-height: none; }
+.tile span { font-family: var(--f-head); font-weight: 700; font-size: 25px; color: var(--deep); }
+.tile.row { width: auto; height: 170px; flex-direction: row; justify-content: flex-start; gap: 34px; padding: 0 44px; }
+.tile.row svg { width: 100px; height: 100px; flex: none; }
+.tile.row span { font-weight: 800; font-size: 46px; line-height: 1; }
+.tile.row span small { display: block; font-family: var(--f-body); font-weight: 600; font-size: 26px; color: var(--mute); margin-top: 8px; }
+svg.lg { width: 40px; height: 40px; flex: none; max-width: none; max-height: none; }
+.sa .col .hd { display: flex; align-items: center; justify-content: center; gap: 14px; }
+.sl .chip b { display: flex; align-items: center; gap: 10px; }
+.sl .chip b svg.lg { width: 32px; height: 32px; }
+.s9 .row .i { background: var(--white) !important; border: 2px solid var(--line); }
+.s9 .row .i svg { width: 56px; height: 56px; max-width: none; max-height: none; }
+
 /* ===========================================
    ИНТЕРФЕЙС ВНЕ СЦЕНЫ
    =========================================== */
@@ -340,55 +361,21 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
 <body>
 
 <!-- ===========================================
-     СПРАЙТ: рисованные пейзажи вместо фото.
-     Чтобы поставить своё фото, замените <svg class="art"> внутри .ph на <img>.
+     СПРАЙТ: логотипы (Simple Icons, CC0; OpenAI и Microsoft — Wikimedia Commons) и нейросетевой узор.
+     Логотипы — товарные знаки их владельцев, используются для обозначения продуктов.
      =========================================== -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9FD6E6"/><stop offset="1" stop-color="#E8F6EE"/></linearGradient>
-    <linearGradient id="lake" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3FB6B0"/><stop offset="1" stop-color="#0E6E78"/></linearGradient>
-    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5FD0C2"/><stop offset="1" stop-color="#0F7F86"/></linearGradient>
-  </defs>
+  
 
-  <!-- озеро и горы -->
-  <symbol id="land1" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice">
-    <rect width="800" height="330" fill="url(#sky)"/>
-    <circle cx="610" cy="110" r="46" fill="#FFF4CC"/>
-    <path d="M0 300L110 180 190 250 330 120 470 262 560 200 700 282 800 220V330H0Z" fill="#8DB9C0"/>
-    <path d="M330 120L300 160 330 150 360 168Z M110 180L88 208 110 200 130 214Z" fill="#fff" opacity=".85"/>
-    <path d="M0 320L90 248 200 308 320 226 440 310 560 258 690 318 800 276V340H0Z" fill="#4C9091"/>
-    <path d="M0 338Q160 286 320 330T640 326T800 312V360H0Z" fill="#1E6B5E"/>
-    <path d="M30 336l14-42 14 42zM70 340l12-36 12 36zM110 336l15-44 15 44zM170 332l13-38 13 38zM250 338l14-40 14 40zM330 340l12-34 12 34zM420 336l15-42 15 42zM520 336l13-36 13 36zM610 334l15-42 15 42zM700 330l13-36 13 36zM760 326l12-34 12 34z" fill="#0F4D45"/>
-    <rect y="350" width="800" height="150" fill="url(#lake)"/>
-    <g stroke="#fff" stroke-width="3" opacity=".28" stroke-linecap="round"><path d="M60 392H240M300 420H520M110 450H330M470 476H700M560 384H740"/></g>
-    <path d="M380 356l8 40M420 356l8 44M340 360l6 30" stroke="#0F4D45" stroke-width="10" opacity=".35"/>
-  </symbol>
-
-  <!-- бухта и скала -->
-  <symbol id="land2" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice">
-    <rect width="800" height="620" fill="url(#sky)"/>
-    <circle cx="560" cy="170" r="60" fill="#FFF4CC"/>
-    <path d="M0 520L180 410 330 500 520 380 800 500V620H0Z" fill="#8DB9C0"/>
-    <rect y="600" width="800" height="400" fill="url(#sea)"/>
-    <g stroke="#fff" stroke-width="4" opacity=".35" stroke-linecap="round"><path d="M360 660H560M420 720H700M300 790H520M480 870H740M380 940H600"/></g>
-    <path d="M0 140L230 90 340 250 280 420 380 560 300 700 190 1000H0Z" fill="#2F8F6B"/>
-    <path d="M0 140L230 90 340 250 280 420 380 560 300 700 190 1000" fill="none" stroke="#E7D7A8" stroke-width="22" stroke-linecap="round" opacity=".85"/>
-    <path d="M40 300l16-48 16 48zM100 340l14-44 14 44zM60 440l16-48 16 48zM140 470l14-42 14 42zM90 600l16-50 16 50z" fill="#0F4D45" opacity=".8"/>
-    <path d="M440 800q40-26 90-8l-14 24q-40-12-76 8z" fill="#fff" opacity=".9"/>
-  </symbol>
-
-  <!-- панорама: лес, озеро, снежные вершины -->
-  <symbol id="land3" viewBox="0 0 1920 640" preserveAspectRatio="xMidYMid slice">
-    <rect width="1920" height="400" fill="url(#sky)"/>
-    <circle cx="1480" cy="130" r="64" fill="#FFF4CC"/>
-    <path d="M0 360L180 180 320 290 520 90 740 310 900 210 1100 330 1300 150 1500 300 1700 200 1920 330V400H0Z" fill="#8DB9C0"/>
-    <path d="M520 90L470 160 520 148 560 172Z M1300 150L1260 206 1300 196 1336 214Z M180 180L146 228 180 220 208 236Z" fill="#fff" opacity=".9"/>
-    <path d="M0 390L220 280 420 380 700 270 980 390 1240 290 1520 392 1760 300 1920 372V440H0Z" fill="#4C9091"/>
-    <path d="M0 420Q300 350 640 410T1280 406T1920 392V470H0Z" fill="#1E6B5E"/>
-    <g fill="#0F4D45"><path d="M60 420l20-60 20 60zM140 428l18-52 18 52zM240 420l22-62 22 62zM380 424l18-54 18 54zM520 428l20-58 20 58zM700 424l22-60 22 60zM900 426l18-54 18 54zM1100 424l22-60 22 60zM1300 424l20-58 20 58zM1500 424l22-62 22 62zM1700 420l18-54 18 54zM1840 416l20-58 20 58z"/></g>
-    <rect y="450" width="1920" height="190" fill="url(#lake)"/>
-    <g stroke="#fff" stroke-width="4" opacity=".28" stroke-linecap="round"><path d="M120 500H520M700 540H1180M260 590H700M1000 600H1500M1300 510H1740"/></g>
-  </symbol>
+  <symbol id="lg-claude" viewBox="0 0 24 24"><path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></symbol>
+  <symbol id="lg-googlegemini" viewBox="0 0 24 24"><path d="M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81"/></symbol>
+  <symbol id="lg-langchain" viewBox="0 0 24 24"><path d="M13.796 0a6.93 6.93 0 0 0-4.91 2.019L5.451 5.455l3.273 3.27 3.432-3.432a2.284 2.284 0 0 1 3.277 0 2.28 2.28 0 0 1 0 3.275L12 12.001l3.273 3.273 3.433-3.435c2.692-2.692 2.692-7.127 0-9.82A6.92 6.92 0 0 0 13.796 0m-5.07 8.728-3.433 3.434c-2.692 2.693-2.692 7.126 0 9.819A6.92 6.92 0 0 0 10.203 24a6.93 6.93 0 0 0 4.911-2.02l3.432-3.432-3.271-3.272-3.433 3.433a2.284 2.284 0 0 1-3.277 0 2.28 2.28 0 0 1 0-3.276L12 12z"/></symbol>
+  <symbol id="lg-cursor" viewBox="0 0 24 24"><path d="M11.503.131 1.891 5.678a.84.84 0 0 0-.42.726v11.188c0 .3.162.575.42.724l9.609 5.55a1 1 0 0 0 .998 0l9.61-5.55a.84.84 0 0 0 .42-.724V6.404a.84.84 0 0 0-.42-.726L12.497.131a1.01 1.01 0 0 0-.996 0M2.657 6.338h18.55c.263 0 .43.287.297.515L12.23 22.918c-.062.107-.229.064-.229-.06V12.335a.59.59 0 0 0-.295-.51l-9.11-5.257c-.109-.063-.064-.23.061-.23"/></symbol>
+  <symbol id="lg-perplexity" viewBox="0 0 24 24"><path d="M22.3977 7.0896h-2.3106V.0676l-7.5094 6.3542V.1577h-1.1554v6.1966L4.4904 0v7.0896H1.6023v10.3976h2.8882V24l6.932-6.3591v6.2005h1.1554v-6.0469l6.9318 6.1807v-6.4879h2.8882V7.0896zm-3.4657-4.531v4.531h-5.355l5.355-4.531zm-13.2862.0676 4.8691 4.4634H5.6458V2.6262zM2.7576 16.332V8.245h7.8476l-6.1149 6.1147v1.9723H2.7576zm2.8882 5.0404v-3.8852h.0001v-2.6488l5.7763-5.7764v7.0111l-5.7764 5.2993zm12.7086.0248-5.7766-5.1509V9.0618l5.7766 5.7766v6.5588zm2.8882-5.0652h-1.733v-1.9723L13.3948 8.245h7.8478v8.087z"/></symbol>
+  <symbol id="lg-crewai" viewBox="0 0 24 24"><path d="M12.482.18C7.161 1.319 1.478 9.069 1.426 15.372c-.051 5.527 3.1 8.68 8.68 8.627 6.716-.05 14.259-6.87 12.09-10.9-.672-1.292-1.396-1.344-2.687-.207-1.602 1.395-1.654.31-.207-2.893 1.757-3.98 1.705-5.322-.31-7.544C17.03.388 14.962-.388 12.482.181Zm5.322 2.068c2.273 2.015 2.376 4.236.465 8.42-1.395 3.1-2.17 3.515-3.824 1.86-1.24-1.24-1.343-3.46-.258-6.044 1.137-2.635.982-3.1-.568-1.653-3.72 3.358-6.458 9.765-5.424 12.503.464 1.189.825 1.395 2.737 1.395 2.79 0 6.303-1.705 7.957-3.926 1.756-2.274 2.79-2.274 2.79-.052 0 3.875-6.459 8.627-11.625 8.627-6.251 0-9.351-4.752-7.491-11.47.878-2.995 4.443-7.904 7.077-9.66 3.255-2.17 5.684-2.17 8.164 0z"/></symbol>
+  <symbol id="lg-openai" viewBox="1.68 1.75 16.65 16.5"><path d="M11.248 18.25q-.825 0-1.568-.314a4.3 4.3 0 0 1-1.32-.874 4 4 0 0 1-1.304.214 4 4 0 0 1-2.046-.544 4.27 4.27 0 0 1-1.518-1.485 4 4 0 0 1-.56-2.095q0-.48.131-1.04A4.4 4.4 0 0 1 2.04 10.71a4.07 4.07 0 0 1 .017-3.4 4.2 4.2 0 0 1 1.056-1.418 3.8 3.8 0 0 1 1.6-.842 3.9 3.9 0 0 1 .76-1.683q.593-.759 1.451-1.188a4.04 4.04 0 0 1 1.832-.429q.825 0 1.567.313.742.314 1.32.875a4 4 0 0 1 1.304-.215q1.106 0 2.046.545a4.14 4.14 0 0 1 1.501 1.485q.578.941.578 2.095 0 .48-.132 1.04.66.61 1.023 1.419.363.792.363 1.666 0 .892-.38 1.717a4.3 4.3 0 0 1-1.072 1.435 3.8 3.8 0 0 1-1.584.825 3.8 3.8 0 0 1-.775 1.683 4.06 4.06 0 0 1-1.436 1.188 4.04 4.04 0 0 1-1.832.429m-4.076-2.062q.825 0 1.435-.347l3.103-1.782a.36.36 0 0 0 .164-.313v-1.42L7.881 14.62a.67.67 0 0 1-.726 0l-3.118-1.798a.5.5 0 0 1-.017.115v.198q0 .841.396 1.551.413.693 1.139 1.089a3.2 3.2 0 0 0 1.617.412m.165-2.69a.4.4 0 0 0 .181.05q.083 0 .165-.05l1.238-.71-3.977-2.31a.7.7 0 0 1-.363-.643v-3.58q-.825.362-1.32 1.122a2.9 2.9 0 0 0-.495 1.65q0 .809.413 1.55.412.743 1.072 1.123zm3.91 3.663q.875 0 1.585-.396a2.96 2.96 0 0 0 1.534-2.64v-3.564a.32.32 0 0 0-.165-.297l-1.254-.726v4.604a.7.7 0 0 1-.363.643l-3.119 1.799a3 3 0 0 0 1.783.577m.627-6.039V8.878L10.01 7.822 8.129 8.878v2.244l1.881 1.056zM7.057 5.859a.7.7 0 0 1 .363-.644l3.119-1.798a3 3 0 0 0-1.782-.578q-.874 0-1.584.396A2.96 2.96 0 0 0 6.05 4.324a3.07 3.07 0 0 0-.396 1.551v3.547q0 .199.165.314l1.237.726zm8.383 7.887q.825-.364 1.303-1.123.495-.758.495-1.65a3.15 3.15 0 0 0-.412-1.55q-.413-.743-1.073-1.123l-3.086-1.782q-.099-.065-.181-.049a.3.3 0 0 0-.165.05l-1.238.692 3.993 2.327a.6.6 0 0 1 .264.264.64.64 0 0 1 .1.363zm-3.317-8.382a.63.63 0 0 1 .726 0l3.135 1.831v-.297q0-.792-.396-1.501a2.86 2.86 0 0 0-1.105-1.155q-.71-.43-1.65-.43-.825 0-1.436.347L8.294 5.941a.36.36 0 0 0-.165.314v1.418z"/></symbol>
+  <symbol id="lg-microsoft" viewBox="0 0 21 21"><path fill="#f35325" d="M0 0h10v10H0z"/><path fill="#81bc06" d="M11 0h10v10H11z"/><path fill="#05a6f0" d="M0 11h10v10H0z"/><path fill="#ffba08" d="M11 11h10v10H11z"/></symbol>
+  <symbol id="nn" viewBox="0 0 1600 600" preserveAspectRatio="xMidYMid slice"><path d="M100 56L420 61M100 56L420 153M100 56L420 241M100 56L420 348M100 56L420 433M100 56L420 538M100 212L420 61M100 212L420 153M100 212L420 241M100 212L420 348M100 212L420 433M100 212L420 538M100 384L420 61M100 384L420 153M100 384L420 241M100 384L420 348M100 384L420 433M100 384L420 538M100 530L420 61M100 530L420 153M100 530L420 241M100 530L420 348M100 530L420 433M100 530L420 538M420 61L800 50M420 61L800 130M420 61L800 218M420 61L800 308M420 61L800 371M420 61L800 453M420 61L800 543M420 153L800 50M420 153L800 130M420 153L800 218M420 153L800 308M420 153L800 371M420 153L800 453M420 153L800 543M420 241L800 50M420 241L800 130M420 241L800 218M420 241L800 308M420 241L800 371M420 241L800 453M420 241L800 543M420 348L800 50M420 348L800 130M420 348L800 218M420 348L800 308M420 348L800 371M420 348L800 453M420 348L800 543M420 433L800 50M420 433L800 130M420 433L800 218M420 433L800 308M420 433L800 371M420 433L800 453M420 433L800 543M420 538L800 50M420 538L800 130M420 538L800 218M420 538L800 308M420 538L800 371M420 538L800 453M420 538L800 543M800 50L1180 71M800 50L1180 158M800 50L1180 250M800 50L1180 359M800 50L1180 433M800 50L1180 549M800 130L1180 71M800 130L1180 158M800 130L1180 250M800 130L1180 359M800 130L1180 433M800 130L1180 549M800 218L1180 71M800 218L1180 158M800 218L1180 250M800 218L1180 359M800 218L1180 433M800 218L1180 549M800 308L1180 71M800 308L1180 158M800 308L1180 250M800 308L1180 359M800 308L1180 433M800 308L1180 549M800 371L1180 71M800 371L1180 158M800 371L1180 250M800 371L1180 359M800 371L1180 433M800 371L1180 549M800 453L1180 71M800 453L1180 158M800 453L1180 250M800 453L1180 359M800 453L1180 433M800 453L1180 549M800 543L1180 71M800 543L1180 158M800 543L1180 250M800 543L1180 359M800 543L1180 433M800 543L1180 549M1180 71L1500 55M1180 71L1500 211M1180 71L1500 371M1180 71L1500 535M1180 158L1500 55M1180 158L1500 211M1180 158L1500 371M1180 158L1500 535M1180 250L1500 55M1180 250L1500 211M1180 250L1500 371M1180 250L1500 535M1180 359L1500 55M1180 359L1500 211M1180 359L1500 371M1180 359L1500 535M1180 433L1500 55M1180 433L1500 211M1180 433L1500 371M1180 433L1500 535M1180 549L1500 55M1180 549L1500 211M1180 549L1500 371M1180 549L1500 535" stroke="#fff" stroke-opacity=".13" stroke-width="2" fill="none"/><circle cx="100" cy="56" r="6" fill="#fff" opacity="0.4"/><circle cx="100" cy="212" r="9" fill="#5FE0B8" opacity="0.55"/><circle cx="100" cy="384" r="6" fill="#fff" opacity="0.4"/><circle cx="100" cy="530" r="9" fill="#5FE0B8" opacity="0.55"/><circle cx="420" cy="61" r="9" fill="#5FE0B8" opacity="0.55"/><circle cx="420" cy="153" r="6" fill="#fff" opacity="0.4"/><circle cx="420" cy="241" r="9" fill="#5FE0B8" opacity="0.55"/><circle cx="420" cy="348" r="6" fill="#fff" opacity="0.4"/><circle cx="420" cy="433" r="9" fill="#5FE0B8" opacity="0.55"/><circle cx="420" cy="538" r="6" fill="#fff" opacity="0.4"/><circle cx="800" cy="50" r="6" fill="#fff" opacity="0.4"/><circle cx="800" cy="130" r="9" fill="#5FE0B8" opacity="0.55"/><circle cx="800" cy="218" r="6" fill="#fff" opacity="0.4"/><circle cx="800" cy="308" r="9" fill="#5FE0B8" opacity="0.55"/><circle cx="800" cy="371" r="6" fill="#fff" opacity="0.4"/><circle cx="800" cy="453" r="9" fill="#5FE0B8" opacity="0.55"/><circle cx="800" cy="543" r="6" fill="#fff" opacity="0.4"/><circle cx="1180" cy="71" r="9" fill="#5FE0B8" opacity="0.55"/><circle cx="1180" cy="158" r="6" fill="#fff" opacity="0.4"/><circle cx="1180" cy="250" r="9" fill="#5FE0B8" opacity="0.55"/><circle cx="1180" cy="359" r="6" fill="#fff" opacity="0.4"/><circle cx="1180" cy="433" r="9" fill="#5FE0B8" opacity="0.55"/><circle cx="1180" cy="549" r="6" fill="#fff" opacity="0.4"/><circle cx="1500" cy="55" r="6" fill="#fff" opacity="0.4"/><circle cx="1500" cy="211" r="9" fill="#5FE0B8" opacity="0.55"/><circle cx="1500" cy="371" r="6" fill="#fff" opacity="0.4"/><circle cx="1500" cy="535" r="9" fill="#5FE0B8" opacity="0.55"/></symbol>
 </svg>
 
 <div class="deck-viewport">
@@ -399,9 +386,10 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
   <div class="tagp rv">Маркетинг программных продуктов и услуг</div>
   <h1 class="rv" style="--d:1">HARNESS <span>в ИИ</span></h1>
   <p class="sub rv" style="--d:2">Что на самом деле покупает клиент, когда покупает ИИ-продукт</p>
-  <div class="ph rv" style="--d:3">
-    <svg class="art" aria-label="Пейзаж: озеро и горы"><use href="#land1" width="100%" height="100%"/></svg>
-    <img class="real" src="images/cover.jpg" alt="" onerror="this.remove()">
+  <div class="ph tech rv" style="--d:3">
+    <svg class="art" aria-label="Нейросетевой узор"><use href="#nn" width="100%" height="100%"/></svg>
+    <div class="cap" style="top:46px">Модели, вокруг которых строят ИИ-продукты</div>
+    <div class="tiles" style="top:110px"><div class="tile"><svg viewBox="0 0 24 24"><use href="#lg-claude" fill="#D97757" width="100%" height="100%"/></svg><span>Claude</span></div><div class="tile"><svg viewBox="0 0 24 24"><use href="#lg-openai" fill="#111111" width="100%" height="100%"/></svg><span>ChatGPT</span></div><div class="tile"><svg viewBox="0 0 24 24"><use href="#lg-googlegemini" fill="#8E75B2" width="100%" height="100%"/></svg><span>Gemini</span></div><div class="tile"><svg viewBox="0 0 24 24"><use href="#lg-perplexity" fill="#22B8CD" width="100%" height="100%"/></svg><span>Perplexity</span></div><div class="tile"><svg viewBox="0 0 24 24"><use href="#lg-cursor" fill="#111111" width="100%" height="100%"/></svg><span>Cursor</span></div><div class="tile"><svg viewBox="0 0 24 24"><use href="#lg-langchain" fill="#1C3C3C" width="100%" height="100%"/></svg><span>LangChain</span></div></div>
     <div class="corner"></div>
   </div>
   <div class="by rv" style="--d:4"><b>Мешков Владислав</b><span>группа 477901 · БГУИР, 2026</span></div>
@@ -411,9 +399,15 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
 <section class="slide s2">
   <div class="inner">
     <div class="grid">
-      <div class="ph rv">
-        <svg class="art" aria-label="Пейзаж: бухта и скала"><use href="#land2" width="100%" height="100%"/></svg>
-        <img class="real" src="images/problem.jpg" alt="" onerror="this.remove()">
+      <div class="ph tech rv">
+        <svg class="art" aria-label="Нейросетевой узор"><use href="#nn" width="100%" height="100%"/></svg>
+        <div class="cap" style="top:44px;font-size:32px">Одни и те же модели у всех</div>
+        <div class="tiles" style="top:112px;flex-direction:column;gap:18px;padding:0 50px">
+          <div class="tile row"><svg viewBox="0 0 24 24"><use href="#lg-openai" fill="#111" width="100%" height="100%"/></svg><span>GPT<small>OpenAI</small></span></div>
+          <div class="tile row"><svg viewBox="0 0 24 24"><use href="#lg-claude" fill="#D97757" width="100%" height="100%"/></svg><span>Claude<small>Anthropic</small></span></div>
+          <div class="tile row"><svg viewBox="0 0 24 24"><use href="#lg-googlegemini" fill="#8E75B2" width="100%" height="100%"/></svg><span>Gemini<small>Google</small></span></div>
+        </div>
+        <div class="cap" style="bottom:40px;left:50px;right:170px;text-align:left;font-size:26px">доступны любому разработчику через API</div>
         <div class="corner"></div>
       </div>
       <div>
@@ -582,14 +576,14 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
     <div class="lab rv">Компонент 11 · оркестрация субагентов</div>
     <h2 class="rv" style="--d:1">Как делегируют <span class="g">подзадачи</span></h2>
     <div class="cols3">
-      <div class="col rv" style="--d:2"><div class="hd">Claude Code</div><div class="bd">
+      <div class="col rv" style="--d:2"><div class="hd"><svg class="lg" viewBox="0 0 24 24"><use href="#lg-claude" fill="#fff" width="100%" height="100%"/></svg>Claude Code</div><div class="bd">
         <div class="item"><b>Fork</b>копия родительского контекста</div>
         <div class="item"><b>Teammate</b>отдельная панель терминала, общение через файлы-mailbox</div>
         <div class="item"><b>Worktree</b>отдельный git worktree: своя ветка на каждого агента</div></div></div>
-      <div class="col rv" style="--d:3"><div class="hd">Agents SDK OpenAI</div><div class="bd">
+      <div class="col rv" style="--d:3"><div class="hd"><svg class="lg" viewBox="0 0 24 24"><use href="#lg-openai" fill="#fff" width="100%" height="100%"/></svg>Agents SDK OpenAI</div><div class="bd">
         <div class="item"><b>Agents-as-tools</b>специалист решает ограниченную подзадачу</div>
         <div class="item"><b>Handoffs</b>специалист берёт на себя полное управление</div></div></div>
-      <div class="col rv" style="--d:4"><div class="hd">LangGraph</div><div class="bd">
+      <div class="col rv" style="--d:4"><div class="hd"><svg class="lg" viewBox="0 0 24 24"><use href="#lg-langchain" fill="#fff" width="100%" height="100%"/></svg>LangGraph</div><div class="bd">
         <div class="item"><b>Вложенные графы</b>субагенты — это вложенные графы состояний</div></div></div>
     </div>
     <div class="note rv" style="--d:5"><b>Сначала один агент</b><p>Anthropic и OpenAI советуют максимально использовать одного. Делить стоит, когда пересекающихся инструментов больше десяти или домены задач явно разные: у мультиагентности есть накладные расходы на маршрутизацию и потери контекста при handoff.</p></div>
@@ -608,9 +602,9 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
       <div class="bx deep rv" style="--d:4"><div class="lab">Каждая следующая сессия</div><h3>Coding Agent</h3><ol><li>читает git-логи и progress-файл, чтобы сориентироваться</li><li>берёт незавершённую фичу с наивысшим приоритетом</li><li>работает над ней</li><li>делает коммит и пишет саммари</li></ol></div>
     </div>
     <div class="chips rv" style="--d:5">
-      <div class="chip"><b>Claude Code</b>git-коммиты как чекпоинты, progress-файлы как структурированные черновики</div>
-      <div class="chip"><b>LangGraph</b>типизированное состояние, чекпоинты на границах super-step, возобновление и time-travel debugging</div>
-      <div class="chip"><b>OpenAI</b>четыре стратегии: память приложения, SDK sessions, Conversations API или previous_response_id</div>
+      <div class="chip"><b><svg class="lg" viewBox="0 0 24 24"><use href="#lg-claude" fill="#D97757" width="100%" height="100%"/></svg>Claude Code</b>git-коммиты как чекпоинты, progress-файлы как структурированные черновики</div>
+      <div class="chip"><b><svg class="lg" viewBox="0 0 24 24"><use href="#lg-langchain" fill="#1C3C3C" width="100%" height="100%"/></svg>LangGraph</b>типизированное состояние, чекпоинты на границах super-step, возобновление и time-travel debugging</div>
+      <div class="chip"><b><svg class="lg" viewBox="0 0 24 24"><use href="#lg-openai" fill="#111111" width="100%" height="100%"/></svg>OpenAI</b>четыре стратегии: память приложения, SDK sessions, Conversations API или previous_response_id</div>
     </div>
   </div>
   <div class="mkt rv" style="--d:6"><b>Маркетинг</b>Клиенту важна непрерывность: работа не теряется между сессиями<span class="pg"></span></div>
@@ -622,11 +616,11 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
     <div class="lab rv">Реализации на рынке</div>
     <h2 class="rv" style="--d:1">Один паттерн — <span class="g">разные обещания</span></h2>
     <div class="list">
-      <div class="card row rv" style="--d:2"><div class="i">CC</div><b>Claude Code<small>Anthropic</small></b><span>Тонкий harness: ставка на улучшение модели, лишние шаги убирают</span></div>
-      <div class="card row rv" style="--d:3"><div class="i">CX</div><b>Codex<small>OpenAI</small></b><span>Один harness на все интерфейсы: CLI, VS Code и веб</span></div>
-      <div class="card row rv" style="--d:4"><div class="i">LG</div><b>LangGraph<small>LangChain</small></b><span>Явный граф состояний: ставка на контроль над каждым шагом</span></div>
-      <div class="card row rv" style="--d:5"><div class="i">CR</div><b>CrewAI</b><span>Команда агентов: у каждого роль, цель и свои инструменты</span></div>
-      <div class="card row rv" style="--d:6"><div class="i">AG</div><b>AutoGen<small>Microsoft</small></b><span>Агенты решают задачу в диалоге друг с другом</span></div>
+      <div class="card row rv" style="--d:2"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-claude" fill="#D97757" width="100%" height="100%"/></svg></div><b>Claude Code<small>Anthropic</small></b><span>Тонкий harness: ставка на улучшение модели, лишние шаги убирают</span></div>
+      <div class="card row rv" style="--d:3"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-openai" fill="#111111" width="100%" height="100%"/></svg></div><b>Codex<small>OpenAI</small></b><span>Один harness на все интерфейсы: CLI, VS Code и веб</span></div>
+      <div class="card row rv" style="--d:4"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-langchain" fill="#1C3C3C" width="100%" height="100%"/></svg></div><b>LangGraph<small>LangChain</small></b><span>Явный граф состояний: ставка на контроль над каждым шагом</span></div>
+      <div class="card row rv" style="--d:5"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-crewai" fill="#FF5A50" width="100%" height="100%"/></svg></div><b>CrewAI</b><span>Команда агентов: у каждого роль, цель и свои инструменты</span></div>
+      <div class="card row rv" style="--d:6"><div class="i"><svg viewBox="0 0 24 24"><use href="#lg-microsoft" fill="#111" width="100%" height="100%"/></svg></div><b>AutoGen<small>Microsoft</small></b><span>Агенты решают задачу в диалоге друг с другом</span></div>
     </div>
   </div>
   <div class="mkt rv" style="--d:7"><b>Маркетинг</b>Модель одна — продают подход и позиционирование<span class="pg"></span></div>
@@ -664,19 +658,15 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
           <li class="rv" style="--d:5"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.500"/></svg></i><div>Тест: модель сильнее, а harness не сложнее — значит, дизайн верный</div></li>
         </ul>
       </div>
-      <div class="ph rv" style="--d:2">
-        <svg class="art" aria-label="Здание построено, леса разбирают" viewBox="0 0 760 800" preserveAspectRatio="xMidYMid slice">
+      <div class="ph rv" style="--d:2;background:#0B4F5C">
+        <svg class="art" aria-label="Схема: чем сильнее модель, тем тоньше harness" viewBox="0 0 760 800" preserveAspectRatio="xMidYMid meet">
           <rect width="760" height="800" fill="#0B4F5C"/>
-          <circle cx="600" cy="140" r="70" fill="#2BB48C" opacity=".35"/>
-          <rect x="70" y="330" width="290" height="400" fill="#2BB48C" stroke="#fff" stroke-width="6"/>
-          <path d="M70 430H360M70 530H360M70 630H360M215 330V730" stroke="#0B4F5C" stroke-width="6"/>
-          <g fill="none" stroke="#fff" stroke-width="7" stroke-linecap="square">
-            <path d="M420 200V730M540 200V730M660 200V730"/>
-            <path d="M400 330H680M400 520H680" stroke-width="10"/>
-            <path d="M420 330L540 520M540 330L420 520M540 330L660 520M660 330L540 520"/>
-            <path d="M420 200L540 330M660 200L540 330" stroke-dasharray="16 16" opacity=".6"/>
-            <path d="M400 730H680" opacity=".7"/>
-          </g>
+          <g font-family="Montserrat" font-weight="800" fill="#fff"><text x="60" y="96" font-size="40">Чем сильнее модель,</text><text x="60" y="146" font-size="40" fill="#5FE0B8">тем тоньше harness</text></g>
+          <g stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity=".8"><path d="M90 220V640H690"/><path d="M76 238L90 216L104 238"/><path d="M672 626L694 640L672 654"/></g>
+          <path d="M110 600C300 590 420 400 680 250" stroke="#5FE0B8" stroke-width="10" stroke-linecap="round" fill="none"/>
+          <path d="M110 260C300 280 430 500 680 590" stroke="#fff" stroke-width="10" stroke-linecap="round" fill="none"/>
+          <g font-family="Nunito Sans" font-weight="700" font-size="28"><text x="440" y="222" fill="#5FE0B8">сила модели</text><text x="120" y="236" fill="#fff">сложность harness’а</text></g>
+          <g font-family="Nunito Sans" font-size="24" fill="#BFE9DE"><text x="96" y="684">новые версии моделей</text><text x="160" y="762" font-size="22" opacity=".75">концептуальная схема, без числовых данных</text></g>
         </svg>
         <div class="corner"></div>
       </div>
@@ -713,14 +703,15 @@ body.editing .progress::after { content: "РЕЖИМ РЕДАКТИРОВАНИ�
 
 <!-- ================= 12 СПАСИБО ================= -->
 <section class="slide s12">
-  <div class="ph">
-    <svg class="art" aria-label="Панорама: лес, озеро и горы"><use href="#land3" width="100%" height="100%"/></svg>
-    <img class="real" src="images/thanks.jpg" alt="" onerror="this.remove()">
+  <div class="ph tech">
+    <svg class="art" aria-label="Нейросетевой узор"><use href="#nn" width="100%" height="100%"/></svg>
+    <div class="cap" style="top:96px;font-size:32px">Модели меняются. Harness остаётся</div>
+    <div class="tiles" style="top:170px"><div class="tile"><svg viewBox="0 0 24 24"><use href="#lg-claude" fill="#D97757" width="100%" height="100%"/></svg><span>Claude</span></div><div class="tile"><svg viewBox="0 0 24 24"><use href="#lg-openai" fill="#111111" width="100%" height="100%"/></svg><span>ChatGPT</span></div><div class="tile"><svg viewBox="0 0 24 24"><use href="#lg-googlegemini" fill="#8E75B2" width="100%" height="100%"/></svg><span>Gemini</span></div><div class="tile"><svg viewBox="0 0 24 24"><use href="#lg-perplexity" fill="#22B8CD" width="100%" height="100%"/></svg><span>Perplexity</span></div><div class="tile"><svg viewBox="0 0 24 24"><use href="#lg-cursor" fill="#111111" width="100%" height="100%"/></svg><span>Cursor</span></div><div class="tile"><svg viewBox="0 0 24 24"><use href="#lg-langchain" fill="#1C3C3C" width="100%" height="100%"/></svg><span>LangChain</span></div></div>
     <div class="corner"></div>
   </div>
   <div class="ttl rv">СПАСИБО <span>ЗА ВНИМАНИЕ</span></div>
   <div class="sub rv" style="--d:1">Не вините модель. Смотрите на harness.</div>
-  <div class="by rv" style="--d:2"><b>Мешков Владислав</b> · группа 477901 · БГУИР, 2026 · по материалам статьи Akshay (перевод на Хабре)<br><span style="font-size:22px">Фото: Paul Jarvis, Go Wild — Unsplash (лицензия Unsplash)</span></div>
+  <div class="by rv" style="--d:2"><b>Мешков Владислав</b> · группа 477901 · БГУИР, 2026 · по материалам статьи Akshay (перевод на Хабре)<br><span style="font-size:22px">Логотипы: Simple Icons (CC0) и Wikimedia Commons; товарные знаки принадлежат их владельцам</span></div>
 </section>
 
 </main>
