@@ -58,24 +58,15 @@ svg text { font-family:var(--f-body); }
 .chip { display:inline-block; font-size:22px; font-weight:700; border-radius:30px; padding:6px 18px; }
 .c-h { background:var(--sky); color:var(--navy); } .c-m { background:var(--or); color:var(--black); } .c-p { background:var(--white); color:var(--black); border:2px solid var(--black); }
 
-/* ===== 1. титул: словарная статья ===== */
-.s1 h1 { position:absolute; left:88px; top:140px; font-family:var(--f-head); font-weight:800; font-size:230px; line-height:1; letter-spacing:-.025em; }
-.s1 .tr { position:absolute; left:100px; top:410px; font-size:40px; font-weight:500; color:var(--mute-l); }
-.s1 .tr b { color:var(--black); font-weight:700; }
-.s1 .defs { position:absolute; left:100px; top:500px; width:880px; list-style:none; }
-.s1 .defs li { display:grid; grid-template-columns:70px 1fr; padding:20px 0; border-top:3px solid var(--black); font-size:36px; line-height:1.3; font-weight:500; }
-.s1 .defs li:last-child { border-bottom:3px solid var(--black); }
-.s1 .defs i { font-style:normal; font-family:var(--f-head); font-weight:800; font-size:40px; color:var(--or-t); line-height:1.1; }
-.s1 .defs li.on span { font-weight:700; }
-.s1 .defs li.on span em { font-style:normal; background:var(--or); padding:2px 10px; border-radius:10px; }
-.s1 .sticker { position:absolute; left:1060px; top:470px; width:760px; background:var(--or); border:4px solid var(--black); border-radius:34px; box-shadow:14px 14px 0 var(--black); padding:40px 46px 44px; transform:rotate(-2.5deg); }
-.s1 .sticker small { display:block; font-size:28px; font-weight:700; margin-bottom:14px; }
-.s1 .sticker p { font-family:var(--f-head); font-weight:800; font-size:48px; line-height:1.15; letter-spacing:-.01em; }
-.s1 .by { position:absolute; left:100px; bottom:70px; font-size:28px; line-height:1.55; color:var(--mute-l); }
-.s1 .by b { color:var(--black); font-weight:700; }
-.s1 .rv.sticker { transform:rotate(-2.5deg) translateY(24px); }
-.slide.visible .s1 .rv.sticker, .s1.slide.visible .rv.sticker { transform:rotate(-2.5deg); }
-@media print { .s1 .rv.sticker { transform:rotate(-2.5deg) !important; } }
+/* ===== 1. титул ===== */
+.s1 .circle { position:absolute; right:-190px; bottom:-380px; width:900px; height:900px; border-radius:50%; background:var(--or); }
+.s1 .circle2 { position:absolute; right:250px; bottom:70px; width:130px; height:130px; border-radius:50%; background:var(--navy2); }
+.s1 .kick { position:absolute; left:100px; top:170px; font-size:36px; font-weight:600; color:var(--sky); }
+.s1 h1 { position:absolute; left:92px; top:230px; font-family:var(--f-head); font-weight:800; font-size:210px; line-height:1; letter-spacing:-.03em; }
+.s1 h1 em { font-style:normal; color:var(--or); }
+.s1 .sub { position:absolute; left:100px; top:520px; width:980px; font-size:56px; line-height:1.2; font-weight:600; }
+.s1 .by { position:absolute; left:100px; bottom:70px; font-size:28px; line-height:1.55; color:var(--mute-d); }
+.s1 .by b { color:var(--white); font-weight:700; }
 
 /* ===== 2. опрос ===== */
 .s2 .q { font-family:var(--f-head); font-weight:700; font-size:58px; line-height:1.14; max-width:1600px; }
@@ -123,27 +114,30 @@ svg text { font-family:var(--f-body); }
 .s4 .more p { font-size:30px; line-height:1.3; }
 .s4 .more p b { font-weight:700; }
 
-/* ===== 5. без / с harness ===== */
-.s5 .two { position:absolute; left:0; right:0; top:0; display:grid; grid-template-columns:1fr 1.18fr; gap:36px; }
-.s5 .card { border-radius:30px; padding:36px 40px 38px; min-height:620px; }
-.s5 .a { border:4px dashed var(--mute-d); background:rgba(255,255,255,.04); }
-.s5 .b { border:4px solid var(--or); background:rgba(255,91,31,.1); }
-.s5 h3 { font-family:var(--f-head); font-weight:800; font-size:36px; line-height:1.1; margin-bottom:20px; }
+/* ===== 5. что такое harness ===== */
+.s5 .big { position:absolute; left:0; right:0; top:0; }
+.s5 .big h2 { font-family:var(--f-head); font-weight:800; font-size:62px; line-height:1.1; letter-spacing:-.02em; max-width:1700px; }
+.s5 .big h2 em { font-style:normal; color:var(--or); }
+.s5 .big p { font-size:34px; line-height:1.3; margin-top:22px; max-width:1500px; color:#D9E2FA; }
+.s5 .big p small { display:block; font-size:26px; color:var(--mute-d); margin-top:10px; }
+.s5 .ex { position:absolute; left:0; right:0; top:330px; }
+.s5 .ex .lbl { font-size:28px; font-weight:700; color:var(--sky); margin-bottom:14px; }
+.s5 .two { display:grid; grid-template-columns:1fr 1.2fr; gap:30px; }
+.s5 .card { border-radius:28px; padding:26px 34px 28px; }
+.s5 .a { border:3px dashed var(--mute-d); background:rgba(255,255,255,.04); }
+.s5 .b { border:3px solid var(--or); background:rgba(255,91,31,.1); }
+.s5 h3 { font-family:var(--f-head); font-weight:800; font-size:30px; line-height:1.1; margin-bottom:14px; }
 .s5 .a h3 { color:var(--mute-d); } .s5 .b h3 em { font-style:normal; color:var(--or); }
-.s5 .bub { border-radius:22px; padding:20px 24px; font-size:32px; line-height:1.3; margin-bottom:14px; }
-.s5 .bub.u { background:var(--white); color:var(--black); margin-right:80px; font-weight:600; }
-.s5 .bub.m { background:var(--navy2); border:2px solid var(--sky); margin-left:40px; }
-.s5 .end { margin-top:26px; font-size:33px; font-weight:600; color:var(--mute-d); }
+.s5 .bub { border-radius:20px; padding:14px 20px; font-size:28px; line-height:1.28; margin-bottom:10px; }
+.s5 .bub.u { background:var(--white); color:var(--black); margin-right:60px; font-weight:600; }
+.s5 .bub.m { background:var(--navy2); border:2px solid var(--sky); margin-left:30px; }
+.s5 .end { margin-top:12px; font-size:28px; font-weight:600; color:var(--mute-d); }
 .s5 .steps { list-style:none; }
-.s5 .steps li { display:grid; grid-template-columns:62px 1fr; align-items:center; padding:19px 0; border-top:1px solid rgba(255,255,255,.2); font-size:36px; line-height:1.25; }
+.s5 .steps li { display:grid; grid-template-columns:54px 1fr; align-items:center; padding:9px 0; border-top:1px solid rgba(255,255,255,.2); font-size:31px; line-height:1.2; }
 .s5 .steps li:first-child { border-top:none; }
-.s5 .steps i { width:42px; height:42px; border-radius:50%; background:var(--or); display:grid; place-items:center; }
-.s5 .steps i svg { width:24px; height:24px; max-width:none; max-height:none; }
+.s5 .steps i { width:38px; height:38px; border-radius:50%; background:var(--or); display:grid; place-items:center; }
+.s5 .steps i svg { width:22px; height:22px; max-width:none; max-height:none; }
 .s5 .steps b { color:var(--or); font-weight:700; }
-.s5 .def { position:absolute; left:0; right:0; top:672px; border-top:3px solid var(--white); padding-top:22px; }
-.s5 .def p { font-size:32px; line-height:1.3; font-weight:500; max-width:1500px; }
-.s5 .def p b { color:var(--or); font-weight:700; }
-.s5 .def small { display:block; font-size:25px; color:var(--mute-d); margin-top:12px; }
 
 /* ===== 6. сотрудник ===== */
 .s6 .eq { position:absolute; left:0; right:0; top:60px; display:grid; grid-template-columns:1fr 100px 1fr 100px 1fr; align-items:start; }
@@ -310,16 +304,13 @@ body.editing .progress::after { content:"РЕЖИМ РЕДАКТИРОВАНИЯ
 <div class="deck-viewport">
 <main class="deck-stage" id="deckStage">
 
-<section class="slide lt s1 active">
+<section class="slide dk s1 active">
   <div class="tag">Маркетинг программных продуктов и услуг</div><div class="pgn"></div>
-<h1 class="rv">Harness</h1>
-  <p class="tr rv" style="--d:1"><b>[ˈhɑːnɪs]</b> · английское слово</p>
-  <ul class="defs rv" style="--d:2">
-    <li><i>1</i><span>Упряжь: ремни, которые направляют силу лошади.</span></li>
-    <li class="on"><i>2</i><span>В ИИ: всё, что направляет силу модели и превращает её <em>в работника</em>.</span></li>
-  </ul>
-  <div class="sticker rv" style="--d:3"><small>Доклад</small><p>Что на самом деле покупает клиент, когда покупает ИИ‑продукт</p></div>
-  <div class="by rv" style="--d:4"><b>Мешков Владислав</b><br>группа 477901 · БГУИР, 2026</div>
+<div class="circle"></div><div class="circle2"></div>
+  <div class="kick rv">Доклад</div>
+  <h1 class="rv" style="--d:1">Harness <em>в&nbsp;ИИ</em></h1>
+  <p class="sub rv" style="--d:2">Что на самом деле покупает клиент, когда покупает ИИ‑продукт</p>
+  <div class="by rv" style="--d:3"><b>Мешков Владислав</b><br>группа 477901 · БГУИР, 2026</div>
 
 </section>
 <section class="slide lt s2">
@@ -369,24 +360,27 @@ body.editing .progress::after { content:"РЕЖИМ РЕДАКТИРОВАНИЯ
 <section class="slide dk s5">
   <div class="tag">Что такое harness</div><div class="pgn"></div>
   <div class="w">
-    <div class="two">
-      <div class="card a rv">
-        <h3>Только модель</h3>
-        <div class="bub u">«Ответь клиенту на письмо»</div>
-        <div class="bub m">Вот текст ответа: «Здравствуйте! Спасибо за обращение…»</div>
-        <p class="end">И всё. Открыть почту, найти письмо и отправить — вы делаете сами.</p>
-      </div>
-      <div class="card b rv" style="--d:1">
-        <h3>Модель <em>+ harness</em></h3>
-        <ul class="steps"><li><i><svg viewBox="0 0 24 24" fill="none" stroke="#12131A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i><span><b>Открыл</b> вашу почту</span></li><li><i><svg viewBox="0 0 24 24" fill="none" stroke="#12131A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i><span><b>Прочитал</b> письмо клиента</span></li><li><i><svg viewBox="0 0 24 24" fill="none" stroke="#12131A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i><span><b>Написал</b> ответ</span></li><li><i><svg viewBox="0 0 24 24" fill="none" stroke="#12131A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i><span><b>Проверил</b> его перед отправкой</span></li><li><i><svg viewBox="0 0 24 24" fill="none" stroke="#12131A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i><span><b>Спросил</b> вас: «Отправить?»</span></li></ul>
-      </div>
+    <div class="big rv">
+      <h2><em>Harness</em> — это программа, которая управляет моделью</h2>
+      <p>Она даёт модели инструменты, память, проверку и правила. По-русски — «обвязка», дословно «упряжь».<small>«Если ты не модель — ты харнесс» — Vivek Trivedy, LangChain</small></p>
     </div>
-    <div class="def rv" style="--d:3">
-      <p><b>Harness</b> — программа вокруг модели. Она даёт модели инструменты, память, проверку и правила. По-русски «обвязка», дословно «упряжь».</p>
-      <small>«Если ты не модель — ты харнесс» — Vivek Trivedy, LangChain</small>
+    <div class="ex rv" style="--d:2">
+      <div class="lbl">Пример: вы просите «Ответь клиенту на письмо»</div>
+      <div class="two">
+        <div class="card a">
+          <h3>Только модель</h3>
+          <div class="bub u">«Ответь клиенту на письмо»</div>
+          <div class="bub m">Вот текст ответа: «Здравствуйте!..»</div>
+          <p class="end">И всё. Остальное делаете сами.</p>
+        </div>
+        <div class="card b">
+          <h3>Модель <em>+ harness</em></h3>
+          <ul class="steps"><li><i><svg viewBox="0 0 24 24" fill="none" stroke="#12131A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i><span><b>Открыл</b> вашу почту</span></li><li><i><svg viewBox="0 0 24 24" fill="none" stroke="#12131A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i><span><b>Прочитал</b> письмо клиента</span></li><li><i><svg viewBox="0 0 24 24" fill="none" stroke="#12131A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i><span><b>Написал</b> ответ</span></li><li><i><svg viewBox="0 0 24 24" fill="none" stroke="#12131A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i><span><b>Проверил</b> его перед отправкой</span></li><li><i><svg viewBox="0 0 24 24" fill="none" stroke="#12131A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i><span><b>Спросил</b> вас: «Отправить?»</span></li></ul>
+        </div>
+      </div>
     </div>
   </div>
-<div class="mk rv" style="--d:5"><b>Для маркетолога</b>Покупают не «умный текст», а результат работы</div>
+<div class="mk rv" style="--d:6"><b>Для маркетолога</b>Покупают не «умный текст», а результат работы</div>
 </section>
 <section class="slide lt s6">
   <div class="tag">Образ для запоминания</div><div class="pgn"></div>
